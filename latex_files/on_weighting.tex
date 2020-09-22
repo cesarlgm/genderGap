@@ -1,0 +1,18 @@
+\section{On weighting}
+
+Suppose wages are determined according to the model:
+\beqn
+	w_{ir}^g=\beta X_{ir}^g+\varepsilon_{ir}^g
+\eeqn
+where $\varepsilon$ are iid with variance $\sigma^2$. This implies that:
+\beqns
+	\bar{w}_r^m-\bar{w}_r^f&=&\beta (X_{r}^m-X_{r}^f)+\bar{\varepsilon}_r^m-\bar{\varepsilon}_r^f\\
+	&=&\beta (X_{r}^m- X_{r}^f)+u_r
+\eeqns
+where:
+\beqns
+	var(u_r)&=var(\bar{\varepsilon}_r^m)+var(\bar{\varepsilon}_r^f)-cov(\bar{\varepsilon}_r^m,\bar{\varepsilon}_r^f)\\
+	&=\sigma^2\left(\frac{1}{N_m}+\frac{1}{N_f}\right)
+\eeqns
+where $N_g$ is the number of observations of gender $g$ in the sample.
+

@@ -1,0 +1,444 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   14.2   Copyright 1985-2015 StataCorp LLC
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+50-student 2-core Stata lab perpetual license:
+       Serial number:  501406259110
+         Licensed to:  cemfi
+                       cemfi
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do master_analysis.do 
+
+. *============================================================================
+> ===
+. *               Project: Local labor markets and the gender wage gap<
+. *               Author: César Garro-Marín
+. *               Date: July 6th
+. *               Purpose: master do file of census analysis.
+. *============================================================================
+> ===
+. 
+. local occupation ind1950
+
+. 
+. set graphics on
+
+. *Fix this and send a mail to daniele
+. cd "C:\Users\thecs\Dropbox\Boston University\7-Research\LLMM\2_analysis"
+C:\Users\thecs\Dropbox\Boston University\7-Research\LLMM\2_analysis
+
+. 
+. local base_year  1990
+
+. 
+. local year_list  1970 1980 1990 2000 2010 2020
+
+.         
+. /*
+> *What the numbes mean:
+>         0 Gender
+>         1 Race
+>         2 Gender, high skill only
+>         3 Gender, low skill only
+>         4 Gender, full time only
+> */
+. local analysis_type 4
+
+. local absorb_year       1
+
+. local indep_type        0
+
+. 
+. *This line creates regressions with standardized variables by year
+. local standardize       0
+
+. 
+. if `indep_type'==0 {
+.         local indep_var l_czone_density
+. }
+
+. else if `indep_type'==1 {
+.         local indep_var l_czone_pop
+. }
+
+. 
+. *============================================================================
+> ===
+. *WHAT DRIVES THE DIFFERENCES IN THE WEIGHTING?
+. *============================================================================
+> ===
+. *Here I want to answer two questions: why do the results appear to be so
+. *depending on how I weight.
+. do "code_files/compare_weighting"       `analysis_type' `indep_var'
+
+. *============================================================================
+> ===
+. *WHAT DRIVES THE DIFFERENCES IN THE WEIGHTING?
+. *============================================================================
+> ===
+. 
+. gettoken analysis_type  0: 0
+
+. gettoken indep_var              0: 0
+
+. 
+. 
+. local density_filter 0
+
+. 
+. di "`take_out'"
+
+
+. 
+. *Handling of types of samples I use
+. if `analysis_type'==0 {
+.         local name gender
+. }
+
+. else if `analysis_type'==1 {
+.         local name race
+. }
+
+. else if `analysis_type'==2 {
+.         local name by_education
+. }
+
+. else if `analysis_type'==4 {
+.         local name full_time
+. }
+
+. 
+. use "../1_build_database/output/czone_level_dabase_`name'", clear
+
+. 
+. replace l_czone_density=log(10^l_czone_density)
+(5,054 real changes made)
+
+. 
+. *I add the state indicator
+. merge m:1 czone using "input/cw_czone_state", keep(1 3) nogen
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                             5,054  
+    -----------------------------------------
+
+. merge m:1 czone year using ///
+>         "../1_build_database/output/gender_occ_empshares_database_1950_ind195
+> 0", keep(1 3) ///
+>         nogen keepusing(male*share female*share)
+(label year_lbl already defined)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                             5,054  
+    -----------------------------------------
+
+. 
+. *Adding data from Autor and Dorn
+. preserve
+
+.         *Cities part of the data
+.         tempfile autor_cities
+
+.         use "input/workfile2012", clear
+
+.         keep czone statefip city
+
+.         duplicates drop
+
+Duplicates in terms of all variables
+
+(2,888 observations deleted)
+
+.         save `autor_cities'
+file C:\Users\thecs\AppData\Local\Temp\ST_00000002.tmp saved
+
+. restore
+
+. 
+. merge m:1 czone using `autor_cities', nogen
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                             5,054  
+    -----------------------------------------
+
+.         
+. replace year=2020 if year==2018
+(0 real changes made)
+
+. replace year=2010 if year==2011
+(0 real changes made)
+
+. 
+. grscheme, ncolor(10) style(tableau)
+10, tableau
+
+. 
+. cap rename raw_wage_gap wage_raw_gap
+
+. 
+. *Part 1: I start with a weighted vs unweighted graph
+. *--------------------------------------------------------------
+. 
+. *Regression specification
+. local controls i.year#c.`indep_var' i.year 
+
+. 
+. *Unweighted regression
+. *---------------------------------------------------------------
+. local filter if czone_pop/cz_area>`density_filter'
+
+. local year_label  1 "1950" 2 "1970" 3 "1980" 4 "1990" 5 "2000" 6 "2010" 7 "20
+> 20"
+
+. 
+. local type raw
+
+. local weight [aw=czone_pop]
+
+. qui eststo gap_`type'_u:                        reg wage_`type'_gap `controls
+> ' `filter', vce(r) 
+
+. qui eststo gap_`type'_w:                        reg wage_`type'_gap `controls
+> ' `filter' `weight', vce(r) 
+
+. 
+. 
+. coefplot gap_raw_u gap_raw_w, vert keep(*#*`indep_var') yline(0) base ///
+>         xlabel(`year_label') ///
+>         legend(order(2 "Unweighted" 4 "Weighted by observations" ) ///
+>                 )  ///
+>         ytitle("w{sup:male}-w{sup:female} gradient ({&beta}{sub:t})") ///
+>         ciopt(recast(rcap)) `ytick'
+
+. 
+. graph export "output/figures/comparison_by_weight.pdf", replace
+(file output/figures/comparison_by_weight.pdf written in PDF format)
+
+. 
+. *Interpretation of the coefficients
+. *----------------------------------------------------------------
+. *I create quantile fo density by year
+. levelsof year
+1950 1970 1980 1990 2000 2010 2020
+
+. local year_list `r(levels)'
+
+. generate density_quantile=.
+(5,054 missing values generated)
+
+. foreach year in `year_list' {
+  2.     xtile temp=`indep_var'  `filter'&year==`year', nq(3)
+  3.     replace density_quantile=temp  `filter'&year==`year'
+  4.     cap drop temp
+  5. }
+(722 real changes made)
+(722 real changes made)
+(722 real changes made)
+(722 real changes made)
+(722 real changes made)
+(722 real changes made)
+(722 real changes made)
+
+. 
+. eststo clear
+
+. *Regression specification
+. local controls i.year#i.density_quantile i.year 
+
+. 
+. local type raw
+
+. 
+. 
+. eststo gap_`type'_u:                    reg wage_`type'_gap `controls' `filte
+> r', vce(r) 
+
+Linear regression                               Number of obs     =      5,053
+                                                F(20, 5032)       =     518.85
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.4817
+                                                Root MSE          =     .09937
+
+------------------------------------------------------------------------------
+             |               Robust
+wage_raw_gap |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+        year#|
+density_qu~e |
+     1950#2  |    .051786   .0210753     2.46   0.014     .0104692    .0931028
+     1950#3  |   .1312724   .0185358     7.08   0.000     .0949342    .1676107
+     1970#2  |   .0007107   .0061643     0.12   0.908     -.011374    .0127955
+     1970#3  |   .0429919   .0064954     6.62   0.000      .030258    .0557257
+     1980#2  |  -.0057143   .0069603    -0.82   0.412    -.0193595    .0079308
+     1980#3  |   .0242971   .0074426     3.26   0.001     .0097064    .0388878
+     1990#2  |   .0192378   .0058803     3.27   0.001     .0077099    .0307657
+     1990#3  |   .0262911   .0061608     4.27   0.000     .0142134    .0383689
+     2000#2  |   .0053566   .0046179     1.16   0.246    -.0036966    .0144098
+     2000#3  |   .0048085   .0049476     0.97   0.331     -.004891     .014508
+     2010#2  |  -.0076293   .0051077    -1.49   0.135    -.0176426     .002384
+     2010#3  |  -.0110704   .0052408    -2.11   0.035    -.0213447   -.0007961
+     2020 2  |  -.0182045   .0049931    -3.65   0.000    -.0279932   -.0084159
+     2020 3  |   -.028615   .0047603    -6.01   0.000    -.0379472   -.0192827
+             |
+        year |
+       1970  |   .2610083   .0152028    17.17   0.000     .2312042    .2908123
+       1980  |   .2414985   .0155334    15.55   0.000     .2110462    .2719507
+       1990  |   .1440252   .0153441     9.39   0.000      .113944    .1741063
+       2000  |    .088367   .0150003     5.89   0.000     .0589599    .1177742
+       2010  |   .0493276   .0151403     3.26   0.001     .0196459    .0790093
+       2020  |    .042914   .0150171     2.86   0.004      .013474     .072354
+             |
+       _cons |   .1657918   .0145547    11.39   0.000     .1372582    .1943254
+------------------------------------------------------------------------------
+
+. eststo gap_`type'_w:                    reg wage_`type'_gap `controls' `filte
+> r' `weight', vce(r) 
+(sum of wgt is   9.2072e+08)
+
+Linear regression                               Number of obs     =      5,053
+                                                F(20, 5032)       =     235.37
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.7252
+                                                Root MSE          =     .06759
+
+------------------------------------------------------------------------------
+             |               Robust
+wage_raw_gap |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+        year#|
+density_qu~e |
+     1950#2  |   .0409016   .0221079     1.85   0.064    -.0024395    .0842427
+     1950#3  |   .1403784   .0190435     7.37   0.000     .1030447     .177712
+     1970#2  |   -.014164   .0104315    -1.36   0.175    -.0346143    .0062862
+     1970#3  |   .0432873   .0119357     3.63   0.000     .0198881    .0666865
+     1980#2  |  -.0204079   .0083697    -2.44   0.015    -.0368162   -.0039997
+     1980#3  |   .0004216   .0105664     0.04   0.968    -.0202932    .0211363
+     1990#2  |   .0031231   .0083052     0.38   0.707    -.0131588    .0194049
+     1990#3  |   -.014847   .0108764    -1.37   0.172    -.0361695    .0064754
+     2000#2  |  -.0068427   .0068758    -1.00   0.320    -.0203224    .0066369
+     2000#3  |  -.0297116   .0100777    -2.95   0.003    -.0494682   -.0099549
+     2010#2  |  -.0188432   .0080281    -2.35   0.019    -.0345817   -.0031047
+     2010#3  |  -.0399307   .0095045    -4.20   0.000    -.0585636   -.0212977
+     2020 2  |  -.0251875   .0086486    -2.91   0.004    -.0421425   -.0082325
+     2020 3  |  -.0459536   .0084161    -5.46   0.000    -.0624529   -.0294544
+             |
+        year |
+       1970  |   .2506999   .0187568    13.37   0.000     .2139285    .2874713
+       1980  |   .2368923   .0178437    13.28   0.000     .2019109    .2718737
+       1990  |   .1304555   .0180658     7.22   0.000     .0950387    .1658724
+       2000  |   .0676419   .0174179     3.88   0.000     .0334952    .1017886
+       2010  |   .0276928   .0177071     1.56   0.118    -.0070209    .0624065
+       2020  |   .0154383    .017592     0.88   0.380    -.0190497    .0499263
+             |
+       _cons |   .1943121   .0165673    11.73   0.000      .161833    .2267912
+------------------------------------------------------------------------------
+
+. 
+. 
+. *There is a clear non-lineary in the relationship between the gender gap and 
+> the 
+. coefplot gap_raw_u gap_raw_w, vert keep(*#2*quantile* *#3*quantile*) yline(0)
+>  base ///
+>         xlabel(`year_label') ///
+>         legend(order(2 "Unweighted" 4 "Weighted by observations" ) ///
+>                 )  ///
+>         ytitle("w{sup:male}-w{sup:female} gradient ({&beta}{sub:t})") ///
+>         ciopt(recast(rcap)) `ytick'
+
+. 
+. *Regression in changes
+. sort czone year
+
+. egen period=group(year)
+
+. xtset czone period
+       panel variable:  czone (strongly balanced)
+        time variable:  period, 1 to 7
+                delta:  1 unit
+
+. 
+. by czone: generate d_wage_`type'_gap_70=wage_`type'_gap-wage_`type'_gap[2]
+(1 missing value generated)
+
+. by czone: generate l_czone_density_1970=l_czone_density[2]
+
+. 
+. tw (scatter d_wage_`type'_gap_70 l_czone_density_1970 [aw=czone_pop]) ///
+>         (lfit d_wage_`type'_gap_70 l_czone_density_1970 [aw=czone_pop])  ///
+>          if year>2010, xtitle("log(population density) in 1970")  ///
+>          ytitle("Change in male wage advantance (2020-1970)") ///
+>          legend(off)
+
+. 
+. graph export "output/figures/change_in_gap.png", replace
+(file output/figures/change_in_gap.png written in PNG format)
+
+. 
+. tw (scatter wage_`type'_gap l_czone_density_1970 [aw=czone_pop] if year==1970
+> ) ///
+>         (lfit wage_`type'_gap l_czone_density_1970 [aw=czone_pop] if year==19
+> 70)  ///
+>         , xtitle("log(population density) in 1970")  ///
+>          ytitle("Male wage advantange 1970") ///
+>          legend(off)
+
+. 
+. graph export "output/figures/density_gap_in_1970.png", replace
+(file output/figures/density_gap_in_1970.png written in PNG format)
+
+. 
+. 
+. tw (scatter wage_`type'_gap l_czone_density_1970 [aw=czone_pop] if year==2020
+> ) ///
+>         (lfit wage_`type'_gap l_czone_density_1970 [aw=czone_pop] if year==20
+> 20)  ///
+>         , xtitle("log(population density) in 1970")  ///
+>          ytitle("Male wage advantange 2020") ///
+>          legend(off)
+
+. 
+. graph export "output/figures/density_gap_in_2020.png", replace
+(file output/figures/density_gap_in_2020.png written in PNG format)
+
+. 
+. 
+. generate d_wage_`type'_gap=d.wage_`type'_gap
+(723 missing values generated)
+
+. 
+. 
+. *What is happening is: 
+. tw (scatter d_wage_`type'_gap l_czone_density_1970 [aw=czone_pop] ) ///
+>         (lfit d_wage_`type'_gap l_czone_density_1970 )  ///
+>         if year>1970 , xtitle("log(population density) in 1970")  ///
+>          ytitle("Male wage advantange 2020") by(year) ///
+>          legend(off)
+--Break--
+r(1);
+
+end of do-file
+--Break--
+r(1);
+
+end of do-file
+--Break--
+r(1);

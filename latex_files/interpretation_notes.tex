@@ -1,0 +1,35 @@
+\section{On the interpretation of the coefficients}
+
+The main findings come from regressions of the form:
+\beqns
+ \ln \left( w^{male}-w^{female} \right)=\alpha_t + \beta_t \ln(pop\_density)_{rt}+\epsilon_{rt}
+\eeqns
+without giving any causal interpretation to the coefficients, what is the interpretation of $\beta_t$?
+
+\subsection{Mathematical interpretation}
+First note that:
+\beqns
+	\beta_t=\frac{\partial \ln\left( w^{male}/w^{female} \right)}{\partial \ln pop\_density_{rt}}
+\eeqns
+thus $\beta_t$ can be interpreted as the elasticity of the male wage advantage with respect to population density. Table \ref{tab:elast} shows the estimated elasticities.
+
+\input{../2_analysis/output/tables/elasticities_table_full_time.tex}
+
+
+\subsection{Economic interpretation}
+My basic results show that this elasticity:
+\bitem
+	\item Has continually declined since the 1970s.
+	\item It went from positive in 1970, to negative by 2020. 
+\eitem
+These elasticities are big and economically significant. Tables and \ref{tab:elast_std} shows two ways of putting these numbers into perspective. Table \ref{tab:IC} shows that moving form a CZ with a population density in the 25th percentile, to one in the 75th percentile translates into an increase of 4 p.p. in the male wage advantage in 1970. However, this same movement is associated with a decrease of 1.5 p.p. in the male advantage in 2020. These movements are equivalent to:
+\bitem
+	\item A change of $\sim$10\% relative to the average male advantage in each respective year.
+	\item If we translate these figures to dollar amounts using as reference the annual wage income of the average full-time female worker, moving from the 25th to the 75th percentile in population density translates into \$1.1 k relative gain for men in 1970, but a \$0.6k relative loss in 2020.
+\eitem
+
+Additionally, table  \ref{tab:elast_std} shows the estimated elasticities when I transform both the wage gaps and the CZ population density. If we focus on the unweighted OLS estimates, an increase of 1 sd in the log of population density is associated with 0.3 sd in the male wage advantage in 1970, but with a 0.2 sd deviations decrease in 2020.
+
+\input{../2_analysis/output/tables/IC_table_full_time.tex}
+
+\input{../2_analysis/output/tables/elasticities_table_full_time_std.tex}

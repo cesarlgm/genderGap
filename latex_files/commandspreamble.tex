@@ -1,0 +1,101 @@
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+%package usage
+\PassOptionsToPackage{svgnames}{xcolor}
+\usepackage[colorlinks=true, citecolor=blue, linkcolor=purple]{hyperref}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\usepackage{colortbl}
+\usepackage{longtable}
+\usepackage{threeparttablex}
+\usepackage{etoolbox}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{pdflscape}
+\usepackage{tablefootnote}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{flafter} 
+\usepackage{dcolumn} 
+\usepackage{natbib}
+\usepackage{rotating}	
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+\usepackage{tikz}
+\usepackage{tabularx}
+\tcbuselibrary{skins,breakable}
+\usetikzlibrary{shadings,shadows}
+\usepackage{threeparttable}
+\usepackage{subfig}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{placeins}
+\usepackage{enumitem}
+\usepackage{natbib}
+\usepackage{filecontents}
+\usepackage[encoding,filenameencoding=utf8,extendedchars,space]{grffile}
+\newcommand{\addfig}[2]{\begin{center}
+			\includegraphics[width=#1\textwidth]{#2}
+	\end{center}
+}
+
+%\usepackage[capposition=top]{floatrow}
+%\usepackage[colorinlistoftodos]{todonotes}
+\newcommand{\expect}[2]{\mathbb{E}_{#2}\left(#1\right)}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{proposition}[theorem]{Proposition}
+
+\newcommand{\alert}[1]{{\textbf{\color{red}#1}}}
+%general commands
+\newcommand{\beqns}{\begin{eqnarray*}}
+\newcommand{\eeqns}{\end{eqnarray*}}
+\newcommand{\beqn}{\begin{eqnarray}}
+\newcommand{\eeqn}{\end{eqnarray}}
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\bitem}{\begin{itemize}}
+\newcommand{\eitem}{\end{itemize}}
+\newcommand{\smallGap}{\vspace{.25cm}}
+
+\newenvironment{block}[1]{%
+	\tcolorbox[beamer,%
+	noparskip,breakable,
+	colback=LightGreen,colframe=DarkGreen,%
+	colbacklower=LimeGreen!75!LightGreen,%
+	title=#1]}%
+{\endtcolorbox}
+
+
+\newcommand{\sym}[1]{\rlap{#1}}% Thanks David Carlisle
+
+\usepackage{siunitx}
+\sisetup{
+	detect-mode,
+	group-digits		= false,
+	input-symbols		= ( ) [ ] - +,
+	table-align-text-post	= false,
+	input-signs             = ,
+}
+
+%mathematical commands
+\newcommand{\problemIndustries}{(A_t\cup \Omega_t)}
+\newcommand{\normalIndustries}{\problemIndustries^C}
+\newcommand{\sumNormalIndustries}{\sum_{j\in\normalIndustries}}
+\newcommand{\sumProblemIndustries}{\sum_{j\in\problemIndustries}}
+\newcommand{\sumWithinNormal}{\sum_{j\in\normalIndustries\cap \Gamma_t}}
+\newcommand{\sumWithinProblem}{\sum_{j\in\normalIndustries\cap \Gamma_t^C}}
+\newcommand{\ser}[1]{s_{er#1}}

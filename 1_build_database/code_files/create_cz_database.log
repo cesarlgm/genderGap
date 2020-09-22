@@ -1,0 +1,347 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   14.2   Copyright 1985-2015 StataCorp LLC
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+50-student 2-core Stata lab perpetual license:
+       Serial number:  501406259110
+         Licensed to:  cemfi
+                       cemfi
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do create_cz_database.do 
+
+. *============================================================================
+> ===
+. *               Project: Local labor markets and the gender wage gap<
+. *               Author: César Garro-Marín
+. *               Date: July 6th
+. *               Purpuse: creates CZ level database
+. *============================================================================
+> ===}
+. 
+. *Location of cleaned census files
+. global data "C:\Users\thecs\Dropbox\Boston University\7-Research\NSAM\1_build
+> _data"
+
+. 
+. *Working directory
+. cd "C:\Users\thecs\Dropbox\Boston University\7-Research\LLMM\1_build_database
+> "
+C:\Users\thecs\Dropbox\Boston University\7-Research\LLMM\1_build_database
+
+. 
+. 
+. 
+. *Database type 0=gender 1=race
+. *Execution parameters
+. local data_type=        4
+
+. local industry          ind1950
+
+. local occupation        occ1950
+
+. local year_list 1950 1970 1980 1990 2000 2010 2020
+
+. 
+. 
+. foreach year in  `year_list' {
+  2.         di              "Processing `year'", as result
+  3.         qui {
+  4.                 use     "${data}/output/cleaned_census_`year'", clear
+  5.                 
+.                 *Classification of industris
+.                 do "code_files/classify_industries_occupations.do" `occupatio
+> n'
+  6. 
+.                 replace year=2010 if year==2009
+  7.                 
+.                 g       wage_tilde=.
+  8. 
+.                 *If I create a race detabase, then I absorb gender from the w
+> age
+.                 if `data_type'==0 {
+  9.                         local name              gender
+ 10.                         local collapse_var female
+ 11.                         local absorb_var race
+ 12.                 }
+ 13.                 else if `data_type'==1 {
+ 14.                         local name              race
+ 15.                         local collapse_var race
+ 16.                         local absorb_var female
+ 17.                 }       
+ 18.                 else if `data_type'==2 {
+ 19.                         g         educ_level=.
+ 20.                         replace educ_level=1 if education<3
+ 21.                         replace educ_level=2 if inlist(education,3,4)
+ 22.                         
+.                         label define educ_level 1 "Low-education" 2 "High-edu
+> cation"
+ 23.                         label values educ_level educ_level
+ 24.                         
+.                         local name              by_education
+ 25.                         local collapse_var female 
+ 26.                         local add_var   educ_level
+ 27.                         local absorb_var race
+ 28.                 }
+ 29.                 else if `data_type'==4 {
+ 30.                         *Here I restrict to full time workers
+.                         *I don't want to mess the population figures, I repla
+> ce the real 
+.                         *hourly wage to missing for people that do not work f
+> ull time
+.                         local name                      full_time
+ 31.                         local absorb_var        race
+ 32.                         local collapse_var      female
+ 33.                         
+.                         *Definition of full-time workers
+.                         g       full_time=wkswork>=40&hrswork>=35
+ 34.                         replace l_hrwage=. if !full_time
+ 35.                 }
+ 36.                 
+.                 
+.                 qui reghdfe       l_hrwage if !missing(l_hrwage)  [pw=perwt],
+>  ///
+>                         absorb(i.`absorb_var' i.age i.statefip) resid
+ 37.                 predict           temp_var, residuals
+ 38.                 g         wage_basic=temp_var if e(sample)
+ 39.                 drop temp_var
+ 40.                 
+.                 qui reghdfe       l_hrwage if !missing(l_hrwage)  [pw=perwt],
+>  ///
+>                         absorb(i.`absorb_var' i.age i.statefip i.education) r
+> esid
+ 41.                 predict           temp_var, residuals
+ 42.                 g         wage_educ=temp_var if e(sample)
+ 43.                 drop temp_var
+ 44.                 
+.                 qui reghdfe       l_hrwage if !missing(l_hrwage)  [pw=perwt],
+>  ///
+>                         absorb(i.`absorb_var' i.age i.statefip i.education i.
+> `industry') resid
+ 45.                 predict           temp_var, residuals
+ 46.                 g         wage_ind=temp_var if e(sample)
+ 47.                 drop temp_var
+ 48.         
+.                 qui reghdfe       l_hrwage if !missing(l_hrwage)  [pw=perwt],
+>  ///
+>                         absorb(i.`absorb_var' i.age i.statefip i.education i.
+> `occupation' i.`occupation') resid
+ 49.                 predict           temp_var, residuals
+ 50.                 g         wage_occ=temp_var if e(sample)
+ 51.                 drop temp_var
+ 52.                 
+.                 g married=                      inlist(marst, 1,2)
+ 53.                 g high_education=       inlist(education, 3,4)
+ 54.                 g migrant=bpl>=150      if !missing(bpl)
+ 55.                 g native_migrant=       bpl!=statefip if bpl<150
+ 56.                 
+.                 g female_migrant=       native_migrant if female
+ 57.                 g male_migrant=         native_migrant if !female
+ 58.                 
+.                 di "Starting collapsing of the database", as result
+ 59. 
+.                 preserve
+ 60.                         *I compute the number of observations that I have 
+> by gender and czone
+.                         tempfile observations_file
+ 61.                         gcollapse (count) observations=l_hrwage [pw=afact]
+> , ///
+>                                 by(`collapse_var' `add_var' czone year)
+ 62.                         save     `observations_file'
+ 63.                 restore
+ 64. 
+.                 preserve
+ 65.                         *In this line of code I compute czone level measur
+> es
+.                         tempfile czone_vars
+ 66.                         gcollapse (mean) ind_* occ_* married high_educatio
+> n *migrant ///
+>                                 (p90) p90=l_hrwage      (p50) p50=l_hrwage (p
+> 10) p10=l_hrwage ///
+>                                 [pw=perwt], by(year czone)
+ 67.                         
+.                         *I compute some measures of inequality here
+.                         g top_tail_ineq=        p90-p50
+ 68.                         g bot_tail_ineq=        p50-p10
+ 69.                         g overall_ineq=         p90-p10
+ 70.                         save `czone_vars'
+ 71.                 restore
+ 72.                 
+.                 gcollapse (count) population=age (mean) in_labforce (mean) //
+> /
+>                         wage_* l_hrwage [pw=perwt], ///
+>                         by(`collapse_var' `add_var' czone year)
+ 73.                 
+.                 merge m:1 czone using `czone_vars', nogen       
+ 74. 
+.                 merge m:1 czone year `collapse_var' `add_var'  using  `observ
+> ations_file', nogen
+ 75.                 
+.                 foreach variable of varlist occ* ind* {
+ 76.                         replace `variable'=0 if missing(`variable')
+ 77.                 }
+ 78.                 
+.                 tempfile collapsed`year'
+ 79.                 save `collapsed`year''
+ 80.         }
+ 81. }
+Processing 1950 
+--Break--
+r(1);
+
+end of do-file
+--Break--
+r(1);
+--Break--
+r(1);
+
+end of do-file
+--Break--
+r(1);
+Processing 1970 
+Processing 1980 
+Processing 1990 
+Processing 2000 
+Processing 2010 
+Processing 2020 
+
+. 
+. clear
+
+. foreach year in  `year_list' {
+  2.         append using `collapsed`year''
+  3. }
+(label ind_type already defined)
+(label female already defined)
+(label year_lbl already defined)
+(note: variable czone was long, now double to accommodate using data's
+       values)
+(label ind_type already defined)
+(label female already defined)
+(label year_lbl already defined)
+(label ind_type already defined)
+(label female already defined)
+(label year_lbl already defined)
+(label ind_type already defined)
+(label year_lbl already defined)
+(label female already defined)
+(label ind_type already defined)
+(label female already defined)
+(label year_lbl already defined)
+(label ind_type already defined)
+(label female already defined)
+(label year_lbl already defined)
+
+. 
+. 
+. merge m:1       czone using "../1_build_database/output/czone_area", nogen
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                            10,108  
+    -----------------------------------------
+
+. egen            czone_pop=sum(population), by(czone year)
+
+. 
+. g                       l_czone_density=log(czone_pop)-log(cz_area)
+
+. label var       l_czone_density "ln(czone density)"
+
+. 
+. sort czone year
+
+. g                       t_population50=czone_pop if year==1950
+(8,664 missing values generated)
+
+. egen            czone_pop_50=max(t_population50), by(czone)
+
+. g                       l_czone_pop=log(czone_pop)
+
+. 
+. drop population
+
+. 
+. reshape wide wage_* in_labforce observations  l_hrwage , i(czone year `add_va
+> r') j(`collapse_var')
+(note: j = 0 1)
+
+Data                               long   ->   wide
+-----------------------------------------------------------------------------
+Number of obs.                    10108   ->    5054
+Number of variables                  46   ->      53
+j variable (2 values)            female   ->   (dropped)
+xij variables:
+                             wage_tilde   ->   wage_tilde0 wage_tilde1
+                             wage_basic   ->   wage_basic0 wage_basic1
+                              wage_educ   ->   wage_educ0 wage_educ1
+                               wage_ind   ->   wage_ind0 wage_ind1
+                               wage_occ   ->   wage_occ0 wage_occ1
+                            in_labforce   ->   in_labforce0 in_labforce1
+                           observations   ->   observations0 observations1
+                               l_hrwage   ->   l_hrwage0 l_hrwage1
+-----------------------------------------------------------------------------
+
+. 
+. if inlist(`data_type',0,2,3,4) {
+.         g               reg_weight=                     1/ (1/observations0 +
+>  1/observations1)
+(1 missing value generated)
+.         g               wage_raw_gap=                   l_hrwage0-l_hrwage1
+(1 missing value generated)
+.         g               labforce_gap=                   in_labforce1/in_labfo
+> rce0
+.         
+.         foreach type in basic educ ind occ {
+  2.                 g        wage_`type'_gap=               wage_`type'0-wage_
+> `type'1
+  3.         }
+(1 missing value generated)
+(1 missing value generated)
+(1 missing value generated)
+(1 missing value generated)
+. }
+
+. else if `data_type'==1 {
+.         g        wage_basic_gap=                        wage_tilde1-wage_tild
+> e2
+.         label var wage_gap "log(white wage)-log(black wage) (residualized)"
+.         g        labforce_gap=          in_labforce1/in_labforce2
+. 
+.         g        wage_raw_gap=                  l_hrwage1-l_hrwage2
+.         label var wage_gap "log(white wage)-log(black wage) (raw)"
+. }       
+
+. 
+. cap drop wage_tilde*
+
+. 
+. order occ* ind*, after(year)
+
+. 
+. replace year=2020 if year==2018
+(722 real changes made)
+
+. replace year=2010 if year==2011
+(722 real changes made)
+
+. drop t_population50
+
+. save "output/czone_level_dabase_`name'", replace
+file output/czone_level_dabase_full_time.dta saved
+
+. 
+end of do-file

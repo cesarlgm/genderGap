@@ -1,0 +1,24 @@
+\begin{center}
+\begin{threeparttable}[!h]
+\caption{Relationship between gender gap an population density}
+\begin{tabular}{lcccccc}
+\toprule
+\toprule
+\textbf{Dependent variable}&\multicolumn{1}{c}{\textbf{1950}}&\multicolumn{1}{c}{\textbf{1970}}&\multicolumn{1}{c}{\textbf{1980}}&\multicolumn{1}{c}{\textbf{1990}}&\multicolumn{1}{c}{\textbf{2000}}&\multicolumn{1}{c}{\textbf{2010}} \\
+\midrule
+Raw gender gap      &       1.420\sym{***}&       0.437\sym{***}&       0.191\sym{**} &      -0.028         &      -0.173\sym{***}&      -0.341\sym{***}\\
+                    &     (0.163)         &     (0.065)         &     (0.071)         &     (0.062)         &     (0.048)         &     (0.047)         \\
+\midrule $ R^2$     &       0.085         &       0.068         &       0.012         &       0.000         &       0.026         &       0.085         \\
+Observations        &      625.00         &      602.00         &      623.00         &      614.00         &      625.00         &      626.00         \\
+\midrule Residualized gender gap&       0.614\sym{***}&       0.234\sym{***}&       0.249\sym{***}&      -0.022         &      -0.187\sym{***}&      -0.336\sym{***}\\
+                    &     (0.158)         &     (0.065)         &     (0.066)         &     (0.055)         &     (0.045)         &     (0.049)         \\
+\midrule $ R^2$     &       0.019         &       0.016         &       0.020         &       0.000         &       0.030         &       0.077         \\
+Observations        &      625.00         &      602.00         &      623.00         &      614.00         &      625.00         &      626.00         \\
+\bottomrule
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item \footnotesize \textit{Note:} robust standard errors in parenthesis. Coefficents are interpreted as the change in sd in the gender wage for an increase in czone density of 1 sd. I exclude CZ with less than 10 people per km$^2$. Wages are residualized separately by year. The regressions control for a full set of education, age, occupation, race and state dummies. Table generated on  8 Jul 2020 at 14:08:27. Table generated with do file 2\_analysis/code\_files/create\_gender\_gap\_regressions.do
+\end{tablenotes}
+\end{threeparttable}
+\end{center}

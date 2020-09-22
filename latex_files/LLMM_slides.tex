@@ -1,0 +1,116 @@
+\documentclass[10pt]{beamer}
+
+\usetheme{metropolis}
+\usepackage{appendixnumberbeamer}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{subfig}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\usepackage{pgfplots}
+\usepackage{threeparttable}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{natbib}
+\usepackage{colortbl}
+\usepackage{lmodern}
+\usepackage{multirow}
+\usepackage{tikz}
+
+\newcommand{\beqns}{ \begin{eqnarray*} }
+\newcommand{\eeqns}{ \end{eqnarray*} }
+
+\newcommand{\bitem}{\begin{itemize}}
+\newcommand{\eitem}{\end{itemize}}
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+
+
+
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+%this data comes from https://data.worldbank.org/indicator/SL.UEM.1524.ZS?locations=ID
+%They are ILO estimates. They have nothing to do with the Indonesian statistics.
+
+\newcommand{\idnur}{16.1}
+\newcommand{\seaur}{10.4}
+
+
+\title{Local labor markets, population density and the gender gap}
+\date{\today}
+\author{C\'esar Garro-Mar\'in}
+\institute{Boston University}
+\begin{document}
+
+\maketitle
+
+%\begin{frame}{Motivation}
+%\begin{figure}
+%	\includegraphics[width=\textheight]{../2_analysis/output/figures/article.png}
+%\end{figure}
+%\end{frame}
+%\begin{frame}{Motivation}
+%\bitem
+%	\item People living in denser labor markets are paid higher wages giving rise to an \alert{\textbf{urban wage premium}} \citep{Glaeser2001,Moretti2011}. Much less attention has been paid to the variation of this premium differs across \textbf{\alert{gender}} \citep{Bacolod2017,Phimister2005,Beaudry2014}.
+%	\item Here I document three facts about wages, the gender wage gap, and population density across commuting zones (CZ) in the US.
+%	\benu
+%		\item The wage-population density gradient differs across genders.
+%		\item While today, women's wages increase more with population density than men's, in 1970 the opposite was true.
+%		\item The relationship between the gender gap and population density has inverted between 1970-2020.
+%	\eenu 
+%\eitem 
+%\end{frame}
+
+%\begin{frame}{Literature}
+%	\bitem
+%	\item 
+%	\eitem 
+%\end{frame}
+%\begin{frame}{Data}
+%	\bitem
+%	\item \textbf{\alert{Data:}} IPUMS decennial census samples from 1950 to 2000 and 5-year 2011 and 2018 ACS.
+%	\item \textbf{\alert{Sample:}} all people aged 18-65, not living in group quarters.
+%	\item \textbf{\alert{Definition of labor market:}} \cite{Autor2013} CZ delineation. I focus on the 722 CZ in mainland US.
+%	\item For most graphs I restrict to CZ with population densities in 1950 of at least 1 person per square km.
+%	\item \alert{\textbf{Variables of interest}} are $w^{male}, w^{female},$ and $w^{male}-w^{female}$, where $w$ is the log of average hourly wage in the the CZ.
+%	\eitem 
+%\end{frame}
+%
+%\begin{frame}{Basic facts}
+%	\begin{enumerate}
+%		\item There is substantial dispersion in the unadjusted gender-wage gap across CZ in the US.
+%		\item This dispersion in the gap has persisted over 1970-2020 $\implies$ s.d. $\approx$ \textbf{\alert{20\%}} of the mean gap.
+%		\item CZ-level gender gaps are \textbf{\alert{persistent}}.
+% 	\end{enumerate}
+% 	Question: what explains these differences? Should we care about them.	
+%\end{frame}
+
+%\begin{frame}{The geography of the gender gap} 
+%\input{../2_analysis/output/figures/raw_gender_wage_gap_map_full_time.tex}
+%\end{frame}
+
+%\begin{frame}{Dispersion in the gap has remained over the whole period} 
+%	\input{../2_analysis/output/figures/cz_gap_dispersion_full_time.tex}
+%\end{frame}
+
+%\begin{frame}{Across CZ differences in the gap are persistent} 
+%	I run the regression,
+%	\beqns
+%			w^{male}_{rt}-w^{female}_{rt}=\alpha_t+\beta_t(w^{male}_{r1970}-w^{female}_{r1970})
+%	\eeqns
+%	\input{../2_analysis/output/figures/cz_gender_gap_persistence_full_time.tex}
+%\end{frame}
+
+
+\section{Basic regressions}
+\input{slides_regressions_controls.tex}
+
+
+
+\end{document}
+

@@ -1,0 +1,35 @@
+
+\begin{frame}{Accounting for individual characteristics}
+\alert{\textbf{Route A}}: \newline
+\begin{enumerate}
+	\item Run on individual-level data:
+	\beqns
+		wage_{irt}^g=X_{iry}^g\gamma_t+\lambda_{rt}^g+\varepsilon_{irt}^g
+	\eeqns
+	\item In a second stage run:
+	\beqns
+		\hat{\lambda}_{rt}^{male}-\hat{\lambda}_{rt}^{female}=\tau_t+\beta_t\log(density)_{rt}+\varepsilon_{irt}^g
+	\eeqns
+\end{enumerate}
+\end{frame}
+\begin{frame}{Accounting for individual characteristics}
+\alert{\textbf{Route B}}: \newline
+If wages are determined at the individual level by the model:
+\beqns
+	w_{irt}^g=X_{irt}^g\gamma_t+\tau_tmale_i+\varepsilon_t
+\eeqns
+By aggregating at the CZ level this model becomes:
+\beqns
+w^{male}_{rt}-w^{female}_{rt}=\tau_t+ (\bar{X}_{rt}^{male}-\bar{X}_{rt}^{female})\gamma_t+u_t
+\eeqns
+Thus I run regressions of the form:
+\beqns
+w^{male}_{rt}-w^{female}_{rt}=\tau_t+ (\bar{X}_{rt}^{male}-\bar{X}_{rt}^{female})\gamma_t+\beta_t\log(density)_{rt}+u_t
+\eeqns
+\end{frame}
+\begin{frame}{Route A}
+\input{../2_analysis/output/figures/with_controls_gradients_individual_l_czone_density_full_time.tex}
+\end{frame}
+\begin{frame}{Route B}
+\input{../2_analysis/output/figures/with_controls_gradients_l_czone_density_full_time.tex}
+\end{frame}
