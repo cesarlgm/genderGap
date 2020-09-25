@@ -70,7 +70,7 @@ tw line `r(varlist)' year, ///
 	ytitle("Employment share (national)")
 
 graph export "output/figures/employment_share_quartile_by_year_`indiv_sample'.png", replace
-*/
+
 
 
 *QUESTION 2> WHAT ARE THE INDUSTRIES THAT I ASSIGN AS BEING HIGH PAY

@@ -45,6 +45,11 @@ else if `indep_type'==1 {
 /*
 do "code_files/compare_weighting" 	`analysis_type' `indep_var'
 */
+do "code_files/heteroskedasticity_test.do" 	 l_czone_density full_time 1
+
+
+
+/*
 *===============================================================================
 *POTENTIAL EXPLANATIONS
 *===============================================================================

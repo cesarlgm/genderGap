@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.22)  25 SEP 2020 11:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.22)  25 SEP 2020 16:14
 entering extended mode
 **./LLMM_file.tex
 (LLMM_file.tex
@@ -1186,25 +1186,29 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 9.
 ("C:\Users\thecs\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (main_findings.tex (../2_analysis/output/scalars/averate_US_gap.tex)
+) (on_literature.tex) (main_findings.tex
+(../2_analysis/output/scalars/averate_US_gap.tex)
 (../2_analysis/output/scalars/sd_US_gap.tex)
 (../2_analysis/output/scalars/sd_US_gap.tex)
 (../2_analysis/output/scalars/percent_US_mean.tex)
 (../2_analysis/output/figures/raw_gender_wage_gap_map_full_time.tex
-<../2_analysis/output/figures/raw_wage_map2020_full_time.png, id=83, 1188.44pt 
-x 510.90875pt>
+<../2_analysis/output/figures/raw_wage_map2020_full_time.png, id=104, 1188.44pt
+ x 510.90875pt>
 File: ../2_analysis/output/figures/raw_wage_map2020_full_time.png Graphic file 
 (type png)
 <use ../2_analysis/output/figures/raw_wage_map2020_full_time.png>
 Package pdftex.def Info: ../2_analysis/output/figures/raw_wage_map2020_full_tim
 e.png  used on input line 5.
 (pdftex.def)             Requested size: 469.75499pt x 201.95096pt.
-)
-(../2_analysis/output/figures/changes_in_gap_full_time.tex
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (../2_analysis/output/figures/changes_in_gap_full_time.tex
 
 pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/change_in_gap.p
 df): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<../2_analysis/output/figures/change_in_gap.pdf, id=84, 397.485pt x 289.08pt>
+<../2_analysis/output/figures/change_in_gap.pdf, id=105, 397.485pt x 289.08pt>
 File: ../2_analysis/output/figures/change_in_gap.pdf Graphic file (type pdf)
 <use ../2_analysis/output/figures/change_in_gap.pdf>
 Package pdftex.def Info: ../2_analysis/output/figures/change_in_gap.pdf  used o
@@ -1215,9 +1219,10 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 )) (robustness_main_facts.tex [1
 
-{C:/Users/thecs/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <../2_analys
-is/output/figures/raw_wage_map2020_full_time.png (PNG copy)>]) (possible_explan
-ations.tex [2 <../2_analysis/output/figures/change_in_gap.pdf>] [3]
+{C:/Users/thecs/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2 <../2_an
+alysis/output/figures/raw_wage_map2020_full_time.png (PNG copy)> <../2_analysis
+/output/figures/change_in_gap.pdf>])
+(possible_explanations.tex [3]
 (../2_analysis/output/figures/with_controls_gradients_l_czone_density_full_time
 .tex
 
@@ -1225,7 +1230,7 @@ pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/with_control_gr
 adients_l_czone_density_full_time.pdf): PDF inclusion: found PDF version <1.6>,
  but at most version <1.5> allowed
 <../2_analysis/output/figures/with_control_gradients_l_czone_density_full_time.
-pdf, id=127, 397.485pt x 289.08pt>
+pdf, id=152, 397.485pt x 289.08pt>
 File: ../2_analysis/output/figures/with_control_gradients_l_czone_density_full_
 time.pdf Graphic file (type pdf)
 <use ../2_analysis/output/figures/with_control_gradients_l_czone_density_full_t
@@ -1233,7 +1238,10 @@ ime.pdf>
 Package pdftex.def Info: ../2_analysis/output/figures/with_control_gradients_l_
 czone_density_full_time.pdf  used on input line 4.
 (pdftex.def)             Requested size: 281.85585pt x 204.99239pt.
-)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [4]
 (../2_analysis/output/figures/with_controls_gradients_individual_l_czone_densit
 y_full_time.tex
 
@@ -1241,7 +1249,7 @@ pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/with_control_gr
 adients_individual_l_czone_density_full_time.pdf): PDF inclusion: found PDF ver
 sion <1.6>, but at most version <1.5> allowed
 <../2_analysis/output/figures/with_control_gradients_individual_l_czone_density
-_full_time.pdf, id=128, 397.485pt x 289.08pt>
+_full_time.pdf, id=166, 397.485pt x 289.08pt>
 File: ../2_analysis/output/figures/with_control_gradients_individual_l_czone_de
 nsity_full_time.pdf Graphic file (type pdf)
 <use ../2_analysis/output/figures/with_control_gradients_individual_l_czone_den
@@ -1249,37 +1257,34 @@ sity_full_time.pdf>
 Package pdftex.def Info: ../2_analysis/output/figures/with_control_gradients_in
 dividual_l_czone_density_full_time.pdf  used on input line 4.
 (pdftex.def)             Requested size: 281.85585pt x 204.99239pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) [4 <../2_analysis/output/figures/with_control_gradients_l_czone_density_full_
-time.pdf>] [5 <../2_analysis/output/figures/with_control_gradients_individual_l
-_czone_density_full_time.pdf>]) (on_weighting.tex
+) [5 <../2_analysis/output/figures/with_control_gradients_l_czone_density_full_
+time.pdf> <../2_analysis/output/figures/with_control_gradients_individual_l_czo
+ne_density_full_time.pdf>]) (on_weighting.tex [6]
 
 Package hyperref Warning: Suppressing link with empty target on input line 20.
 
-) (interpretation_notes.tex [6]
-(../2_analysis/output/tables/elasticities_table_full_time.tex)
-(../2_analysis/output/tables/IC_table_full_time.tex [7])
-(../2_analysis/output/tables/elasticities_table_full_time_std.tex)) [8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 26.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 26.
-
-(LLMM_file.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 26.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 26.
+) (interpretation_notes.tex
+(../2_analysis/output/tables/elasticities_table_full_time.tex [7])
+(../2_analysis/output/tables/IC_table_full_time.tex [8])
+(../2_analysis/output/tables/elasticities_table_full_time_std.tex))
+(LLMM_file.bbl [9]) [10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 28.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 28.
+ (LLMM_file.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 28.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 28.
 Package rerunfilecheck Info: File `LLMM_file.out' has not changed.
-(rerunfilecheck)             Checksum: 8D4FD63D4D588E810A06494249B421E8;905.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 26.
+(rerunfilecheck)             Checksum: 3AABC191CC07D7E0F0C3444E30331284;1022.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 28.
  ) 
 Here is how much of TeX's memory you used:
- 27171 strings out of 480930
- 566922 string characters out of 2899761
- 945438 words of memory out of 3000000
- 42365 multiletter control sequences out of 15000+200000
+ 27219 strings out of 480930
+ 567790 string characters out of 2899761
+ 944438 words of memory out of 3000000
+ 42395 multiletter control sequences out of 15000+200000
  543055 words of font info for 64 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,11n,85p,942b,923s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,11n,85p,942b,897s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\thecs\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
 tcrm1200.pk><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/cm/cmbx12.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/font
@@ -1297,9 +1302,9 @@ ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/th
 ecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb
 ><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmti12.pfb>
-Output written on LLMM_file.pdf (8 pages, 544885 bytes).
+Output written on LLMM_file.pdf (10 pages, 556379 bytes).
 PDF statistics:
- 274 PDF objects out of 1000 (max. 8388607)
- 56 named destinations out of 1000 (max. 500000)
- 233 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 314 PDF objects out of 1000 (max. 8388607)
+ 68 named destinations out of 1000 (max. 500000)
+ 249 words of extra memory for PDF output out of 10000 (max. 10000000)
 

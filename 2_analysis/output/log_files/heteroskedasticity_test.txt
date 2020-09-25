@@ -1,0 +1,30 @@
+------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\thecs\Dropbox\boston_university\7-Research\genderGap\2_a
+> nalysis\output/log_files/heteroskedasticity_test.txt
+  log type:  text
+ opened on:  25 Sep 2020, 12:01:27
+
+. regress sq_residuals reg_weight
+
+      Source |       SS           df       MS      Number of obs   =     3,750
+-------------+----------------------------------   F(1, 3748)      =      0.99
+       Model |  .000034607         1  .000034607   Prob > F        =    0.3203
+    Residual |  .131305385     3,748  .000035033   R-squared       =    0.0003
+-------------+----------------------------------   Adj R-squared   =   -0.0000
+       Total |  .131339993     3,749  .000035033   Root MSE        =    .00592
+
+------------------------------------------------------------------------------
+sq_residuals |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+  reg_weight |  -2.74e-08   2.76e-08    -0.99   0.320    -8.14e-08    2.66e-08
+       _cons |   .0035209    .000103    34.17   0.000     .0033188    .0037229
+------------------------------------------------------------------------------
+
+. log close
+      name:  <unnamed>
+       log:  C:\Users\thecs\Dropbox\boston_university\7-Research\genderGap\2_a
+> nalysis\output/log_files/heteroskedasticity_test.txt
+  log type:  text
+ closed on:  25 Sep 2020, 12:01:27
+------------------------------------------------------------------------------
