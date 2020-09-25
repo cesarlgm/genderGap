@@ -1,18 +1,23 @@
 \section{On weighting}
 
+Here the basic question I want to answer is, can I have a good answer as to why I am not weighting. 
+
 Suppose wages are determined according to the model:
 \beqn
 	w_{ir}^g=\beta X_{ir}^g+\varepsilon_{ir}^g
 \eeqn
-where $\varepsilon$ are iid with variance $\sigma^2$. This implies that:
+where $\varepsilon_{ir}^g=\gamma_r^g+u_{ir}$ where $\gamma_r^g$ and $u_{ir}$ are independent. 
 \beqns
+	\label{eqns:unweighted}
 	\bar{w}_r^m-\bar{w}_r^f&=&\beta (X_{r}^m-X_{r}^f)+\bar{\varepsilon}_r^m-\bar{\varepsilon}_r^f\\
-	&=&\beta (X_{r}^m- X_{r}^f)+u_r
+	&=&\beta (X_{r}^m- X_{r}^f)+v_r
 \eeqns
-where:
+note that if we assume that $var(\gamma_r^g)=\sigma_\gamma^2$ and $var(u_{ir})=\sigma_u^2$.
 \beqns
-	var(u_r)&=var(\bar{\varepsilon}_r^m)+var(\bar{\varepsilon}_r^f)-cov(\bar{\varepsilon}_r^m,\bar{\varepsilon}_r^f)\\
-	&=\sigma^2\left(\frac{1}{N_m}+\frac{1}{N_f}\right)
+	var(v_r)&=var(\bar{\varepsilon}_r^m)+var(\bar{\varepsilon}_r^f)-cov(\bar{\varepsilon}_r^m,\bar{\varepsilon}_r^f)\\
+	&=2\sigma_\gamma^2+\sigma_u^2\left(\frac{1}{N_m}+\frac{1}{N_f}\right)
 \eeqns
-where $N_g$ is the number of observations of gender $g$ in the sample.
-
+so, in the end I can test whether heteroskedasticity is a problem by running the regression (\ref{eqns:unweighted}) by OLS, extract the residuals and then run the regression:
+\beqns
+	\hat{u}_r=\alpha+\beta\left(\frac{1}{N_m}+\frac{1}{N_f}\right)
+\eeqns

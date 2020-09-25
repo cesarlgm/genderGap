@@ -5,7 +5,7 @@
 *		Purpose: master do file of census analysis.
 *===============================================================================
 *Setting the path
-cd "C:\Users\thecs\Dropbox\boston_university\7-Research\LLMM\2_analysis"
+cd "C:\Users\thecs\Dropbox\boston_university\7-Research\genderGap\2_analysis"
 set graphics on
 
 
@@ -71,6 +71,7 @@ do "code_files/write_regression_tables.do" 	l_czone_density full_time ///
 do "code_files/check_industry_stories.do" 	l_czone_density full_time ///
 	1   `year_list'
 */	
+
 do "code_files/zooming_in_high_wage_industries.do" 	l_czone_density full_time ///
 	1   `year_list'
 *===============================================================================

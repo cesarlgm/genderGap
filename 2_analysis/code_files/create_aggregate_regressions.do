@@ -12,7 +12,7 @@
 *		Date: July 6th
 *		Purpuse: creates figures with gender gap wage gradient by CZ
 *===============================================================================
-local 		append_census 0
+local 		append_census 1
 
 gettoken 	indep_var 		0: 0
 gettoken 	indiv_sample	0: 0
@@ -34,11 +34,10 @@ local 		var_list		l_hrwage age education marst czone bpl ///
 *Variables to extract from the census
 local 		do_file "code_files/by_census_residualization"
 clear 
-/*
+
 if "`append_census'"=="1" {
 	*STEP 1: APPEND ALL THE CENSUSES
 	*-----------------------------------------------------------------------------------
-
 	foreach year in `year_list' {
 		di "Appending `year' census", as result
 		local census_name "${data}/cleaned_census_`year'"
@@ -48,7 +47,6 @@ if "`append_census'"=="1" {
 
 	*STEP 2: ADD CZONE LEVEL CHARACTERISTICS
 	*----------------------------------------------------------------------------------
-
 	parallel initialize 4
 	replace year=2010 if year==2011
 	replace year=2020 if year==2018
@@ -104,7 +102,7 @@ parallel, by(year): xi  i.marst  i.race i.ind_type i.education i.educ_grouped, p
 gcollapse (mean) l_hrwage `cont_controls' dum* [pw=perwt] if !missing(l_hrwage), by(czone year female) fast
 
 save "temporary_files/aggregate_regression_file_`indiv_sample'", replace
-*/
+
 use "temporary_files/aggregate_regression_file_`indiv_sample'", clear
 
 ds czone year female, not

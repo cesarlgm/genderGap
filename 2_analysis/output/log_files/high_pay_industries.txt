@@ -1,0 +1,76 @@
+------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\thecs\Dropbox\boston_university\7-Research\genderGap\2_a
+> nalysis\output/log_files/high_pay_industries.txt
+  log type:  text
+ opened on:  23 Sep 2020, 11:40:59
+
+. tab ind1950 if pay_quartile_1970==4&year==1970
+
+                   Industry, 1950 basis |      Freq.     Percent        Cum.
+----------------------------------------+-----------------------------------
+Blast furnaces, steel works, and rollin |          1        3.33        3.33
+Other primary iron and steel industries |          1        3.33        6.67
+              Fabricated steel products |          1        3.33       10.00
+              Office and store machines |          1        3.33       13.33
+                         Misc machinery |          1        3.33       16.67
+Motor vehicles and motor vehicle equipm |          1        3.33       20.00
+                     Aircraft and parts |          1        3.33       23.33
+   Ship and boat building and repairing |          1        3.33       26.67
+    Photographic equipment and supplies |          1        3.33       30.00
+Printing, publishing, and allied indust |          1        3.33       33.33
+                    Drugs and medicines |          1        3.33       36.67
+Paints, varnishes, and related products |          1        3.33       40.00
+     Misc chemicals and allied products |          1        3.33       43.33
+                     Petroleum refining |          1        3.33       46.67
+                   Water transportation |          1        3.33       50.00
+                     Air transportation |          1        3.33       53.33
+      Petroleum and gasoline pipe lines |          1        3.33       56.67
+                              Telephone |          1        3.33       60.00
+                              Telegraph |          1        3.33       63.33
+               Electric light and power |          1        3.33       66.67
+                 Electric-gas utilities |          1        3.33       70.00
+                      Dry goods apparel |          1        3.33       73.33
+     Machinery, equipment, and supplies |          1        3.33       76.67
+Security and commodity brokerage and in |          1        3.33       80.00
+                            Advertising |          1        3.33       83.33
+      Radio broadcasting and television |          1        3.33       86.67
+           Theaters and motion pictures |          1        3.33       90.00
+ Engineering and architectural services |          1        3.33       93.33
+          Misc professional and related |          1        3.33       96.67
+          Federal public administration |          1        3.33      100.00
+----------------------------------------+-----------------------------------
+                                  Total |         30      100.00
+
+. 
+. *Unweighted by industry size
+. table high_pay_industry if year==1970 , c(mean ind_manufacturing)
+
+--------------------------
+high_pay_ |
+industry  | mean(ind_ma~g)
+----------+---------------
+        0 |       .3859649
+        1 |       .4666667
+--------------------------
+
+. 
+. *Weighted by industry size
+. table high_pay_industry if year==1970 [pw=empshare], c(mean ind_manufacturin
+> g)
+
+--------------------------
+high_pay_ |
+industry  | mean(ind_ma~g)
+----------+---------------
+        0 |       .2220838
+        1 |       .6296484
+--------------------------
+
+. log close
+      name:  <unnamed>
+       log:  C:\Users\thecs\Dropbox\boston_university\7-Research\genderGap\2_a
+> nalysis\output/log_files/high_pay_industries.txt
+  log type:  text
+ closed on:  23 Sep 2020, 11:40:59
+------------------------------------------------------------------------------

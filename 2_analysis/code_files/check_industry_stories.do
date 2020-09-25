@@ -55,7 +55,6 @@ merge 1:1 year ind1950 using     `sex_shares'
 sort year l_hrwage
 
 by year: g accum_share0=sum(employment_sex_share0)
-
 by year: g accum_share1=sum(employment_sex_share1)
 
 *HERE I SHOW A AN DENSITY BY PAY OF THE INDUSTRY. WOMEN ARE MORE CONCENTRATED IN LOW PAY INDUSTRIES AT THE START 
@@ -64,7 +63,7 @@ tw line ac* l_hrwage, by(year) xtitle("Industry's average log(hourly wage)") ///
     ytitle("Accumulated employment share") legend(order(1 "Men" 2 "Women"))
 graph export "output/figures/employment_distribution_gender_`indiv_sample'.png", replace
 
-/*
+
 *************************************************************************************************************
 *IS IT A STORY OF ACCESS TO HIGHLY PAID OCUPATIONS?
 *************************************************************************************************************
@@ -78,22 +77,23 @@ reghdfe l_hrwage [pw=perwt] if year==1970, vce(cl czone)  ///
 rename __hdfe1__ with_ind_fe
 cap drop *hdfe*
 
-gcollapse (mean) with_ind_fe, by(year ind1950)
+gcollapse (mean) with_ind_fe (sum) employment=perwt, by(year ind1950)
 
-keep ind1950 with_ind_fe
+keep ind1950 with_ind_fe employment
 drop if with_ind_fe==.
 
 *I should weight here by the employment share of the industry
 
 *Divide industry's fe into quartiles
-*I am not weightin the xtiles into groups 
-xtile       pay_quartile=with_ind_fe, nq(4)
+*I weight occupations by its size when computing the quartiles.
+xtile       pay_quartile=with_ind_fe [pw=employment], nq(4)
 
 *Define a high wage industry as those in the top quartile
 generate    high_pay_industry=pay_quartile==4
 
 
 save "temporary_files/high_pay_industry_classification", replace
+
 
 use  if !missing(l_hrwage) using    "temporary_files/file_for_individual_level_regressions_`indiv_sample'", clear 
 merge  m:1 ind1950 using "temporary_files/high_pay_industry_classification", nogen keep(1 3)
@@ -129,7 +129,7 @@ graph export "output/figures/controlling_high_wage_industries_`indiv_sample'.png
 
 save "temporary_files/file_high_wage_industries_`indiv_sample'", replace
 
-
+/*
 *=============================================================================================================
 *ZOOMING IN ON HIGH-PAY INDUSTRIES
 *=============================================================================================================
