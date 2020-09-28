@@ -35,6 +35,12 @@ else if `indep_type'==1 {
 
 *do "code_files/output_average_stats.do" 		`analysis_type'  2020
 
+
+*===============================================================================
+*MOVEMENT HIGH-VS LOW DENSITY CZONES
+*===============================================================================
+do "code_files/kernel_density_movement.do"  	l_czone_density full_time ///
+	1   `year_list'
 *===============================================================================
 *WHAT DRIVES THE DIFFERENCES IN THE WEIGHTING?
 *===============================================================================
@@ -44,12 +50,12 @@ else if `indep_type'==1 {
 *Answer: behavior of high versus mid-density places
 /*
 do "code_files/compare_weighting" 	`analysis_type' `indep_var'
-*/
+
 do "code_files/heteroskedasticity_test.do" 	 l_czone_density full_time 1
 
+*/
 
 
-/*
 *===============================================================================
 *POTENTIAL EXPLANATIONS
 *===============================================================================
@@ -75,22 +81,19 @@ do "code_files/write_regression_tables.do" 	l_czone_density full_time ///
 
 do "code_files/check_industry_stories.do" 	l_czone_density full_time ///
 	1   `year_list'
-*/	
+
 
 do "code_files/zooming_in_high_wage_industries.do" 	l_czone_density full_time ///
 	1   `year_list'
 *===============================================================================
 *INDIVIDUAL LEVEL REGRESSIONS
 *===============================================================================
-/*do "code_files/individual_level_regressions.do" `analysis_type'  ///
+do "code_files/individual_level_regressions.do" `analysis_type'  ///
 	`indep_var' `standardize'  `year_list'
 
 
 do "code_files/create_coefplots_with_individual_controls.do" `analysis_type' ///
 	`indep_var' `standardize' `year_list'
-*/
-/*
-
 
 *===============================================================================
 *STEP 1> CREATE TABLE WITH RAW GENDER GAP AND VARIATION AT CZ.
@@ -100,28 +103,24 @@ do "code_files/create_coefplots_with_individual_controls.do" `analysis_type' ///
 	- Box plot with evolution of gender gap across CZ
 	- Regressions of persistence of the gender wage gap
 */
-*do "code_files/evolution_overall_gender_gap.do"  	`analysis_type' 
-/*
+
+
+
 *This code file creates 
 	- Maps of evolution of the gender gap by year.
 	- Maps of population density by year.
 	- Maps of employment share of male industries by year
-
-
 */
 
 
-/*
+*do "code_files/stats_on_gendered_industries" `indep_var' `occupation'
 
-
-do "code_files/stats_on_gendered_industries" `indep_var' `occupation'
-*/
 *do "code_files/explore_selection_measures" `analysis_type' `base_year'  `year_list'
-/*
+
 *===============================================================================
 *ELASTICITY TABLES
 *===============================================================================
-
+/*
 do "code_files/create_elasticity_table.do" `analysis_type' ///
 	`indep_var' `standardize' `year_list'
 
@@ -135,32 +134,12 @@ do "code_files/create_IC_table.do" `analysis_type' ///
 *===============================================================================
 
 
+
 do "code_files/create_coefplots_by_gender.do" `analysis_type' ///
 	`indep_var' `standardize' 
-/*
-*With individual level controls
 
+*With individual level controls
 do "code_files/create_coefplots_with_indiidual_controls.do" `analysis_type' ///
 	`indep_var' `standardize' 
-/*
 
 
-*===============================================================================
-*BINNED SCATTERPLOTSd
-*===============================================================================
-
-
-*/
-*do "code_files/create_gender_gap_dispersion_graph.do" `year_list'
-
-*do "code_files/create_gender_gap_gradient_graphs.do" `analysis_type' ///
-	`absorb_year' `indep_var' `standardize' `year_list' 
-/*
-do "code_files/interpreting_gradients.do" `analysis_type' ///
-	`absorb_year' `indep_var' `year_list'
-*/
-	
-/*
-do "code_files/create_fixed_gaps_graphs" ind1950_OD `year_list'
-
-*do "code_files/decomposition_exercise" occ1990_agg `year_list'

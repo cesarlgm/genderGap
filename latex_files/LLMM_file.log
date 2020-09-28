@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.22)  25 SEP 2020 16:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.22)  28 SEP 2020 16:00
 entering extended mode
 **./LLMM_file.tex
 (LLMM_file.tex
@@ -1237,7 +1237,21 @@ time.pdf Graphic file (type pdf)
 ime.pdf>
 Package pdftex.def Info: ../2_analysis/output/figures/with_control_gradients_l_
 czone_density_full_time.pdf  used on input line 4.
-(pdftex.def)             Requested size: 281.85585pt x 204.99239pt.
+(pdftex.def)             Requested size: 234.87749pt x 170.82478pt.
+
+
+pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/gradient_change
+_l_czone_density_full_time.pdf): PDF inclusion: found PDF version <1.6>, but at
+ most version <1.5> allowed
+<../2_analysis/output/figures/gradient_change_l_czone_density_full_time.pdf, id
+=153, 397.485pt x 289.08pt>
+File: ../2_analysis/output/figures/gradient_change_l_czone_density_full_time.pd
+f Graphic file (type pdf)
+<use ../2_analysis/output/figures/gradient_change_l_czone_density_full_time.pdf
+>
+Package pdftex.def Info: ../2_analysis/output/figures/gradient_change_l_czone_d
+ensity_full_time.pdf  used on input line 4.
+(pdftex.def)             Requested size: 234.87749pt x 170.82478pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1249,17 +1263,33 @@ pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/with_control_gr
 adients_individual_l_czone_density_full_time.pdf): PDF inclusion: found PDF ver
 sion <1.6>, but at most version <1.5> allowed
 <../2_analysis/output/figures/with_control_gradients_individual_l_czone_density
-_full_time.pdf, id=166, 397.485pt x 289.08pt>
+_full_time.pdf, id=167, 397.485pt x 289.08pt>
 File: ../2_analysis/output/figures/with_control_gradients_individual_l_czone_de
 nsity_full_time.pdf Graphic file (type pdf)
 <use ../2_analysis/output/figures/with_control_gradients_individual_l_czone_den
 sity_full_time.pdf>
 Package pdftex.def Info: ../2_analysis/output/figures/with_control_gradients_in
 dividual_l_czone_density_full_time.pdf  used on input line 4.
-(pdftex.def)             Requested size: 281.85585pt x 204.99239pt.
+(pdftex.def)             Requested size: 234.87749pt x 170.82478pt.
+
+
+pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/gradient_change
+_individual_l_czone_density_full_time.pdf): PDF inclusion: found PDF version <1
+.6>, but at most version <1.5> allowed
+<../2_analysis/output/figures/gradient_change_individual_l_czone_density_full_t
+ime.pdf, id=168, 397.485pt x 289.08pt>
+File: ../2_analysis/output/figures/gradient_change_individual_l_czone_density_f
+ull_time.pdf Graphic file (type pdf)
+<use ../2_analysis/output/figures/gradient_change_individual_l_czone_density_fu
+ll_time.pdf>
+Package pdftex.def Info: ../2_analysis/output/figures/gradient_change_individua
+l_l_czone_density_full_time.pdf  used on input line 4.
+(pdftex.def)             Requested size: 234.87749pt x 170.82478pt.
 ) [5 <../2_analysis/output/figures/with_control_gradients_l_czone_density_full_
-time.pdf> <../2_analysis/output/figures/with_control_gradients_individual_l_czo
-ne_density_full_time.pdf>]) (on_weighting.tex [6]
+time.pdf> <../2_analysis/output/figures/gradient_change_l_czone_density_full_ti
+me.pdf> <../2_analysis/output/figures/with_control_gradients_individual_l_czone
+_density_full_time.pdf> <../2_analysis/output/figures/gradient_change_individua
+l_l_czone_density_full_time.pdf>]) (on_weighting.tex [6]
 
 Package hyperref Warning: Suppressing link with empty target on input line 20.
 
@@ -1278,33 +1308,35 @@ Package rerunfilecheck Info: File `LLMM_file.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 28.
  ) 
 Here is how much of TeX's memory you used:
- 27219 strings out of 480930
- 567790 string characters out of 2899761
+ 27241 strings out of 480930
+ 569049 string characters out of 2899761
  944438 words of memory out of 3000000
- 42395 multiletter control sequences out of 15000+200000
- 543055 words of font info for 64 fonts, out of 3000000 for 9000
+ 42410 multiletter control sequences out of 15000+200000
+ 543367 words of font info for 65 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,11n,85p,942b,897s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\thecs\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
 tcrm1200.pk><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/cm/cmbx12.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/thecs/AppData/Local/Programs/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/thecs/AppData/Local
-/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/thecs/
-AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/
+s/type1/public/amsfonts/cm/cmbx6.pfb><C:/Users/thecs/AppData/Local/Programs/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/thecs/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/thecs/A
+ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/
 Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-mi8.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmr10.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmr12.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/thecs/AppData/Local/Progra
-ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/thecs/AppData/L
-ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/th
-ecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb
-><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmti12.pfb>
-Output written on LLMM_file.pdf (10 pages, 556379 bytes).
+mi6.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmmi8.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/thecs/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/thecs/AppData/
+Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/the
+cs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C
+:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmsy10.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmti10.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on LLMM_file.pdf (10 pages, 708772 bytes).
 PDF statistics:
- 314 PDF objects out of 1000 (max. 8388607)
- 68 named destinations out of 1000 (max. 500000)
- 249 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 350 PDF objects out of 1000 (max. 8388607)
+ 72 named destinations out of 1000 (max. 500000)
+ 259 words of extra memory for PDF output out of 10000 (max. 10000000)
 

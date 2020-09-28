@@ -50,14 +50,37 @@
 \maketitle
 
 \section{Introduction}
-\begin{frame}{Introduction} 
+\begin{frame}{Summary} 
+	In the next slides I document three main facts about the \alert{\textbf{gender gap}} in the US for the period of 1970 and 2020:
+	\benu
+		\item There is a large dispersion in the \textbf{\alert{level}} of the gender wage gap across labor markets in the US. The dispersion persists despite the general decrease in the level of the gap since 1970.
+		\item There are differences in the \textbf{\alert{change}} of the gender wage gap. The largest reductions happened in densest labor markets.
+		\item The relationship between the \textbf{\alert{level}} of gender wage gap and population density has inverted over the period. Today, the densest labor markets have a lower gender wage gap.
+	\eenu
 \end{frame}
 
 \section{Data}
-
+\begin{frame}{Data}
+	\textbf{\alert{Source:}} IPUMS data for:
+		\bitem 
+		\item 1950-2000 Decennial censuses.
+		\item 5-year ACS for the years 2011 and 2018. For ease of presentation I label these datasets as 2010 and 2020 respectively.
+	\eitem
+	\textbf{\alert{Sample}} includes all full-time year-round workers whom:
+	\bitem
+		\item Aged 18-64.
+		\item Not attending school.
+		\item Not living in group quarters.
+		\item For all graphs I limit the sample to people living in CZ with a population density of at least 1 person per-square kilometer in 1950.
+	\eitem
+\end{frame}
 \section{Empirical facts}
 \input{slides_facts.tex}
 
+
+\appendix
+
+\input{detail_slides.tex}
 
 %\begin{frame}{Motivation}
 %\begin{figure}
@@ -119,6 +142,7 @@
 %\input{slides_regressions_controls.tex}
 
 
-
+\bibliographystyle{apalike}
+\bibliography{../../../../CentralLibrary/Papers/library}{}
 \end{document}
 

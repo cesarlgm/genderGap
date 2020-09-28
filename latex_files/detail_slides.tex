@@ -1,0 +1,21 @@
+\begin{frame}{Residualization procedure}
+	\label{slide:residual}
+	\begin{enumerate}
+		\item Run the regression on \alert{individual} level data:
+		\beqns
+			wage_{igrt}=X_{igrt}\gamma_t+\lambda_{grt}+\varepsilon_{igrt}
+		\eeqns
+		where $i,g,r,t$ index individual, sex, CZ and decade respectively. I impose the \alert{same} return on individual level characteristics across sex and CZ.
+		\item Run the following regression at the CZ level:
+		\beqns
+			\lambda_{mrt}-\lambda_{frt}=\alpha_t+\beta_{t}\ln(density)_{rt}
+		\eeqns
+		no weight is imposed on the CZ-level regressions \citep{Solon2015a}.
+		\beamerbutton{\hyperlink{slide:controls}{Return}}
+	\end{enumerate}
+\end{frame}
+\begin{frame}{Low vs high density CZ}
+	\label{slide:distribution}
+	\input{../2_analysis/output/figures/distribution_gap_movement_full_time.tex}
+	\beamerbutton{\hyperlink{slide:baseline}{Return}}
+\end{frame}

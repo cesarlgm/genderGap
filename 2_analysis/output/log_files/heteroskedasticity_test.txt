@@ -3,7 +3,7 @@
        log:  C:\Users\thecs\Dropbox\boston_university\7-Research\genderGap\2_a
 > nalysis\output/log_files/heteroskedasticity_test.txt
   log type:  text
- opened on:  25 Sep 2020, 12:01:27
+ opened on:  28 Sep 2020, 10:51:15
 
 . regress sq_residuals reg_weight
 
@@ -26,5 +26,5 @@ sq_residuals |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
        log:  C:\Users\thecs\Dropbox\boston_university\7-Research\genderGap\2_a
 > nalysis\output/log_files/heteroskedasticity_test.txt
   log type:  text
- closed on:  25 Sep 2020, 12:01:27
+ closed on:  28 Sep 2020, 10:51:15
 ------------------------------------------------------------------------------

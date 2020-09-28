@@ -12,12 +12,12 @@ local year_list `0'
 
 local density_filter 1
 
-use "../1_build_database/output/czone_level_dabase_gender", clear
+use "temporary_files/aggregate_regression_file_final_full_time", clear
 	
 grscheme, ncolor(6) style(fire)
 
-label var raw_wage_gap  "log(male wage)-log(female wage)"
-graph box raw_wage_gap if czone_pop_50>100000, over(year) noout
+label var l_hrwage_gap  "log(male wage)-log(female wage)"
+graph box l_hrwage_gap , over(year) noout
 
 graph export "output/figures/cz_variation_gender_gap.pdf", replace
 

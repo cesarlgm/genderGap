@@ -104,7 +104,7 @@ coefplot `model_list', keep(*density*) yline(0) ///
 
 graph export "output/figures/with_control_gradients_individual_`indep_var'_`indiv_sample'.pdf", replace
 
-/*
+
 local figure_title "Coefficient on population density $ \beta_t $ controlling for worker characteristics"
 local figure_name "output/figures/with_controls_gradients_`indep_var'_`indiv_sample'.tex"
 local figure_note "figure restricts to CZ with more than `density_filter' people per km$^2$. The regressions are done on data aggregated at the CZ level. Bars show 95\% robust confidence intervals."
