@@ -11,6 +11,8 @@ gettoken 	density_filter	0: 0
 
 grscheme, ncolor(7) style(tableau)
 
+/*
+
 *WOMEN OVER TIME SHIFT TO HIGHER PAID INDUSTRIES. AT THE START OF THE PERIOD THEY ARE
 *CONCENTRATED IN INDUSTRIES THAT GIVE A LOWER PAY
 *---------------------------------------------------------------------------------------
@@ -93,7 +95,7 @@ generate    high_pay_industry=pay_quartile==4
 
 
 save "temporary_files/high_pay_industry_classification", replace
-
+*/
 
 use  if !missing(l_hrwage) using    "temporary_files/file_for_individual_level_regressions_`indiv_sample'", clear 
 merge  m:1 ind1950 using "temporary_files/high_pay_industry_classification", nogen keep(1 3)
@@ -128,6 +130,23 @@ coefplot  baseline  dissimilarity, keep(*density*) yline(0) ///
 graph export "output/figures/controlling_high_wage_industries_`indiv_sample'.png", replace
 
 save "temporary_files/file_high_wage_industries_`indiv_sample'", replace
+
+*=============================================================================================================
+*ADDING FURTHER CONTROLS
+*=============================================================================================================
+merge 1:1 czone year using "temporary_files/individual_level_regressions_`indiv_sample'", nogen
+*merge 1:1 czone year using   "temporary_files/aggregate_regression_file_final_`indiv_sample'"
+
+*Add share of high education workers
+*Add labor force participation
+*Add overall inequality in the CZ
+
+eststo clear
+eststo baseline:        regress with_ind_gap i.year#c.l_czone_density   i.year, vce(cl czone)
+eststo additional:      regress with_ind_gap i.year#c.l_czone_density  i.year#c.high_pay_share ///
+                                i.year, vce(cl czone)
+
+
 
 /*
 *=============================================================================================================

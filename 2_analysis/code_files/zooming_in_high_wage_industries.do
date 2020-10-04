@@ -5,7 +5,7 @@ gettoken 	density_filter	0: 0
 
 
 grscheme, ncolor(7) style(tableau)
-/*
+
 use if !missing(l_hrwage)&!missing(l_hrwage) ///
 	using "temporary_files/file_for_individual_level_regressions_`indiv_sample'", clear 
 

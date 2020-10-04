@@ -18,7 +18,7 @@ local indep_type	0
 local standardize	0
 
 *List of year fir the execution
-local year_list  1970  1980 1990 2000 2010 2020
+local year_list  1970 1980 1990 2000 2010 2020
 
 if `indep_type'==0 {
 	local indep_var l_czone_density
@@ -39,8 +39,8 @@ else if `indep_type'==1 {
 *===============================================================================
 *MOVEMENT HIGH-VS LOW DENSITY CZONES
 *===============================================================================
-do "code_files/kernel_density_movement.do"  	l_czone_density full_time ///
-	1   `year_list'
+*do "code_files/kernel_density_movement.do"  	l_czone_density full_time ///
+*	1   `year_list'
 *===============================================================================
 *WHAT DRIVES THE DIFFERENCES IN THE WEIGHTING?
 *===============================================================================
@@ -59,6 +59,14 @@ do "code_files/heteroskedasticity_test.do" 	 l_czone_density full_time 1
 *===============================================================================
 *POTENTIAL EXPLANATIONS
 *===============================================================================
+/*
+do "code_files/graphs_by_demographic_groups.do" 	l_czone_density full_time ///
+	1 aggregate   `year_list'
+*/
+
+do "code_files/graphs_by_demographic_groups.do" 	l_czone_density full_time ///
+	1 individual   `year_list'
+
 
 *do "code_files/control_observable_characteristics.do" `analysis_type' ///
 *	`indep_var' `standardize'  `base_year'd
@@ -124,22 +132,5 @@ do "code_files/create_coefplots_with_individual_controls.do" `analysis_type' ///
 do "code_files/create_elasticity_table.do" `analysis_type' ///
 	`indep_var' `standardize' `year_list'
 
-do "code_files/create_IC_table.do" `analysis_type' ///
-	`indep_var' `year_list'	
-
-
-
-*===============================================================================
-*CREATION OF COEFPLOTS
-*===============================================================================
-
-
-
-do "code_files/create_coefplots_by_gender.do" `analysis_type' ///
-	`indep_var' `standardize' 
-
-*With individual level controls
-do "code_files/create_coefplots_with_indiidual_controls.do" `analysis_type' ///
-	`indep_var' `standardize' 
 
 
