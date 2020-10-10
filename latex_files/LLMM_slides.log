@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.22)  28 SEP 2020 17:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.22)  8 OCT 2020 18:37
 entering extended mode
 **./LLMM_slides.tex
 (LLMM_slides.tex
@@ -1551,7 +1551,7 @@ Package pdftex.def Info: ../2_analysis/output/figures/baseline_gradients_l_czon
 e_density_full_time.pdf  used on input line 4.
 (pdftex.def)             Requested size: 184.3758pt x 134.09439pt.
 )
-Overfull \vbox (13.2294pt too high) detected at line 19
+Overfull \vbox (13.35439pt too high) detected at line 19
  []
 
 [11
@@ -1586,30 +1586,15 @@ nsity_full_time.pdf Graphic file (type pdf)
 sity_full_time.pdf>
 Package pdftex.def Info: ../2_analysis/output/figures/with_control_gradients_in
 dividual_l_czone_density_full_time.pdf  used on input line 4.
-(pdftex.def)             Requested size: 153.64493pt x 111.74385pt.
-
-
-pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/gradient_change
-_individual_l_czone_density_full_time.pdf): PDF inclusion: found PDF version <1
-.6>, but at most version <1.5> allowed
-<../2_analysis/output/figures/gradient_change_individual_l_czone_density_full_t
-ime.pdf, id=161, 397.485pt x 289.08pt>
-File: ../2_analysis/output/figures/gradient_change_individual_l_czone_density_f
-ull_time.pdf Graphic file (type pdf)
-<use ../2_analysis/output/figures/gradient_change_individual_l_czone_density_fu
-ll_time.pdf>
-Package pdftex.def Info: ../2_analysis/output/figures/gradient_change_individua
-l_l_czone_density_full_time.pdf  used on input line 4.
-(pdftex.def)             Requested size: 153.64493pt x 111.74385pt.
+(pdftex.def)             Requested size: 184.3758pt x 134.09439pt.
 )
-Overfull \vbox (36.97539pt too high) detected at line 28
+Overfull \vbox (39.67879pt too high) detected at line 28
  []
 
 [13
 
  <../2_analysis/output/figures/with_control_gradients_individual_l_czone_densit
-y_full_time.pdf> <../2_analysis/output/figures/gradient_change_individual_l_czo
-ne_density_full_time.pdf>])
+y_full_time.pdf>])
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\translate ' on input line 81.
@@ -1618,7 +1603,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 ]
 (../2_analysis/output/figures/distribution_gap_movement_full_time.tex
-<../2_analysis/output/figures/distribution_gap_movement_full_time.png, id=202, 
+<../2_analysis/output/figures/distribution_gap_movement_full_time.png, id=190, 
 1881.0275pt x 1367.1075pt>
 File: ../2_analysis/output/figures/distribution_gap_movement_full_time.png Grap
 hic file (type png)
@@ -1661,11 +1646,11 @@ Package rerunfilecheck Info: File `LLMM_slides.out' has not changed.
 (rerunfilecheck)             Checksum: 8675794C9964A6E395EB78ED810C2FFE;230.
  ) 
 Here is how much of TeX's memory you used:
- 33954 strings out of 480930
- 826143 string characters out of 2899761
+ 33944 strings out of 480930
+ 825464 string characters out of 2899761
  1188606 words of memory out of 3000000
- 48993 multiletter control sequences out of 15000+200000
- 599347 words of font info for 71 fonts, out of 3000000 for 9000
+ 48984 multiletter control sequences out of 15000+200000
+ 596632 words of font info for 70 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,13n,117p,1812b,899s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathi
@@ -1683,9 +1668,9 @@ onts/type1/public/lm/lmssbx10.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX
 iKTeX 2.9/fonts/type1/public/lm/lmsso8.pfb><C:/Users/thecs/AppData/Local/Progra
 ms/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/thecs/AppData/Local/Pr
 ograms/MiKTeX 2.9/fonts/type1/public/lm/lmsy7.pfb>
-Output written on LLMM_slides.pdf (17 pages, 826242 bytes).
+Output written on LLMM_slides.pdf (17 pages, 763477 bytes).
 PDF statistics:
- 270 PDF objects out of 1000 (max. 8388607)
+ 258 PDF objects out of 1000 (max. 8388607)
  47 named destinations out of 1000 (max. 500000)
- 123 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 118 words of extra memory for PDF output out of 10000 (max. 10000000)
 
