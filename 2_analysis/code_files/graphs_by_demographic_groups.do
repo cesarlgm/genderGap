@@ -36,7 +36,6 @@ if "`reg_type'"=="aggregate" {
 
     local year_label  1 "1970" 2 "1980" 3 "1990" 4 "2000" 5 "2010" 6 "2020"
 
-    
     local coefplot_options vert yline(0)  keep(*`indep_var'*) base  ciopt(recast(rcap))  ///
         xlabel(`year_label') ytitle("Coefficient on population density")
     coefplot ft_fe_gap ft_no_child_fe_gap ft_child_fe_gap, `coefplot_options' ///
@@ -129,7 +128,7 @@ else if "`reg_type'"=="individual" {
     
     local coefplot_options vert yline(0)  keep(1.male*`indep_var') base  ciopt(recast(rcap))  ///
         xlabel(`year_label') ytitle("Coefficient on population density") bycoefs yline(0) ///
-        yscale(range(0 .10))
+        yscale(range(-.05 .02))
     
     coefplot `model_all',               `coefplot_options'  ///
         title("All workers")
@@ -163,9 +162,9 @@ else if "`reg_type'"=="individual" {
         title("Full-time workers without college education")
     graph export "output/figures/individual_ft_no_college.png", replace
 
-    local coefplot_options vert yline(0)  keep(`indep_var') base  ciopt(recast(rcap))  ///
-        xlabel(`year_label') ytitle("Coefficient on population density") bycoefs yline(0) ///
-        yscale(range(0 .10)) b(e(b_sex)) se(e(se_sex)))
+    local coefplot_options vert yline(0)  base  ciopt(recast(rcap))  ///
+        xlabel(`year_label') ytitle("Coefficient on population density") yline(0) ///
+        yscale(range(0 .10)) b(b_sex) se(se_sex) bycoefs legend(order(2 "Women" 1 "Men"))
     
     coefplot `model_all',               `coefplot_options'  ///
         title("All workers")

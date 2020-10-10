@@ -18,7 +18,7 @@ local indep_type	0
 local standardize	0
 
 *List of year fir the execution
-local year_list  1970 1980 1990 2000 2010 2020
+local year_list 1950  //2010 2020 1970 1980 1990 2000
 
 if `indep_type'==0 {
 	local indep_var l_czone_density
@@ -35,6 +35,11 @@ else if `indep_type'==1 {
 
 *do "code_files/output_average_stats.do" 		`analysis_type'  2020
 
+
+*===============================================================================
+*GEOGRAPHY MATTERS FOR THE GENDER GAP
+*===============================================================================
+do "code_files/oaxaca_blinder_decomposition.do" `year_list'
 
 *===============================================================================
 *MOVEMENT HIGH-VS LOW DENSITY CZONES
@@ -62,14 +67,14 @@ do "code_files/heteroskedasticity_test.do" 	 l_czone_density full_time 1
 /*
 do "code_files/graphs_by_demographic_groups.do" 	l_czone_density full_time ///
 	1 aggregate   `year_list'
-*/
+
 
 do "code_files/graphs_by_demographic_groups.do" 	l_czone_density full_time ///
 	1 individual   `year_list'
-
+*/
 
 *do "code_files/control_observable_characteristics.do" `analysis_type' ///
-*	`indep_var' `standardize'  `base_year'd
+*	`indep_var' `standardize'  `base_year'
 
 /*
 timer on 	1
@@ -79,10 +84,12 @@ timer off 1
 
 do "code_files/create_individual_regressions.do" 		l_czone_density full_time ///
 	1   `year_list'
-
+	
+	
+/*
 do "code_files/write_regression_coefplots.do" 	l_czone_density full_time ///
 	1   `year_list'
-
+/*
 do "code_files/write_regression_tables.do" 	l_czone_density full_time ///
 	1   `year_list'
 

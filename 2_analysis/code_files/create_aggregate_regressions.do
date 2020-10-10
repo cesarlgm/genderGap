@@ -18,6 +18,7 @@ gettoken 	indep_var 		0: 0
 gettoken 	indiv_sample	0: 0
 gettoken 	density_filter	0: 0
 local 		year_list `0'
+di "`year_list'"
 
 *Location of census files
 global data "../../NSAM/1_build_data/output"
@@ -28,7 +29,7 @@ local 	czone_chars_file "../1_build_database/output/czone_level_dabase_full_time
 *List of variables I am extracting from the census
 local 		var_list		l_hrwage age education marst czone bpl ///	
 							race occ* ind* year female wkswork hrswork perwt ///
-							statefip empstat 
+							statefip empstat nchild 
 
 * Execution parameters
 *Variables to extract from the census
@@ -39,55 +40,59 @@ if "`append_census'"=="1" {
 	*STEP 1: APPEND ALL THE CENSUSES
 	*-----------------------------------------------------------------------------------
 	foreach year in `year_list' {
+		if `year'>1970 {
+			local trantime trantime
+		}
 		di "Appending `year' census", as result
 		local census_name "${data}/cleaned_census_`year'"
-		qui append using `census_name', keep(`var_list')
+		qui append using `census_name', keep(`var_list' `trantime')
 	}
 
+	qui {	
+		*STEP 2: ADD CZONE LEVEL CHARACTERISTICS
+		*----------------------------------------------------------------------------------
+		parallel initialize 4
+		replace year=2010 if year==2011
+		replace year=2020 if year==2018
+		
+		sort year
 
-	*STEP 2: ADD CZONE LEVEL CHARACTERISTICS
-	*----------------------------------------------------------------------------------
-	parallel initialize 4
-	replace year=2010 if year==2011
-	replace year=2020 if year==2018
-	
-	sort year
-
-	parallel, by(year): merge m:1 czone year using `czone_chars_file', nogen ///
-		keepusing(l_czone_density cz_area czone_pop_50 czone_pop) keep(1 3)
+		parallel, by(year): merge m:1 czone year using `czone_chars_file', nogen ///
+			keepusing(l_czone_density cz_area czone_pop_50 czone_pop) keep(1 3)
 
 
-	*STEP 3: DECIDE THE SAMPLE UPON WHICH THE REGRESSIONS ARE RUN + COMPUTE SOME CONTROLS
-	*-----------------------------------------------------------------------------------
-	if "`indiv_sample'"=="full_time" {
-		qui	generate full_time=		wkswork>=40&hrswork>=35
-		qui	replace l_hrwage=. if full_time!=1
+		*STEP 3: DECIDE THE SAMPLE UPON WHICH THE REGRESSIONS ARE RUN + COMPUTE SOME CONTROLS
+		*-----------------------------------------------------------------------------------
+		if "`indiv_sample'"=="full_time" {
+			qui	generate full_time=		wkswork>=40&hrswork>=35
+			qui	replace l_hrwage=. if full_time!=1
+		}
+
+		*I also erase wages for any place with very low population density in 1950
+		replace l_hrwage=. if !(!missing(l_hrwage)&czone_pop_50/cz_area>`density_filter')
+
+		*STEP 4: CREATE MISSING CONTROL VARIABLES
+		*-----------------------------------------------------------------------------------
+		sort year
+		*Classify industries
+		parallel, by(year): do "../1_build_database/code_files/classify_industries_occupations.do" occ1950
+
+		*Flag migrant individuals
+		generate migrant= bpl >= 150
+
+		recode marst (6=1) (3/5=2) (1/2=3), g(marst_grouped)
+		drop 	marst
+		rename 	marst_grouped marst
+
+
+		recode race (1=1) (2=2) (3/9=3), g(race_grouped)
+		drop race
+		rename race_grouped race
+
+		recode education (1/2=1) (3/4=2), g(educ_grouped)
+
+		save "temporary_files/file_for_individual_level_regressions_`indiv_sample'", replace 
 	}
-
-	*I also erase wages for any place with very low population density in 1950
-	replace l_hrwage=. if !(!missing(l_hrwage)&czone_pop_50/cz_area>`density_filter')
-
-	*STEP 4: CREATE MISSING CONTROL VARIABLES
-	*-----------------------------------------------------------------------------------
-	sort year
-	*Classify industries
-	parallel, by(year): do "../1_build_database/code_files/classify_industries_occupations.do" occ1950
-
-	*Flag migrant individuals
-	generate migrant= bpl >= 150
-
-	recode marst (6=1) (3/5=2) (1/2=3), g(marst_grouped)
-	drop 	marst
-	rename 	marst_grouped marst
-
-
-	recode race (1=1) (2=2) (3/9=3), g(race_grouped)
-	drop race
-	rename race_grouped race
-
-	recode education (1/2=1) (3/4=2), g(educ_grouped)
-
-	save "temporary_files/file_for_individual_level_regressions_`indiv_sample'", replace 
 }
 else {
 	use  "temporary_files/file_for_individual_level_regressions_`indiv_sample'", clear 

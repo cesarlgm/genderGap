@@ -3,7 +3,7 @@ local year_list `0'
 local 	czone_chars_file "../1_build_database/output/czone_level_dabase_full_time"
 local errors vce(cl czone)
 
-
+/*
 foreach year in `year_list' {
     local census_name "${data}/cleaned_census_`year'"
     use `census_name', clear
@@ -42,7 +42,7 @@ foreach year in `year_list' {
            [pw=perwt] if full_time&married, absorb(i.year i.age  i.male i.race i.education) `errors'
         estimates save "output/regressions/model_`year'_ft_married",    replace
 
-        eststo model_`year'_single: reghdfe 	l_hrwage  c.`indep_var' i.female#c.`indep_var' ///
+        eststo model_`year'_single: reghdfe 	l_hrwage  c.`indep_var' i.male#c.`indep_var' ///
            [pw=perwt] if full_time&single, absorb(i.year i.age  i.male i.race i.education) `errors'
         estimates save "output/regressions/model_`year'_ft_single",     replace
 
@@ -84,7 +84,7 @@ foreach year in `year_list' {
         
     }
 }
-
+*/
 eststo clear
 foreach year in `year_list' {
     local model_list  model_`year'_all model_`year'_ft model_`year'_ft_married  ///
@@ -95,24 +95,26 @@ foreach year in `year_list' {
 		
     foreach model in `model_list' {
         di "`model'"
-        estimates use "output/regressions/`model'"
-        matrix define est_b=J(1,2,.)
-        matrix define est_se=J(1,2,.)
-        matrix colnames est_b = women men
-        matrix colnames est_se = women men
-        
-        matrix est_b[1,1]=_b[1.male#c.l_czone_density]
-        matrix est_se[1]=_se[1.male#c.l_czone_density]
+        qui { 
+         estimates use "output/regressions/`model'"
+         matrix define est_b=J(1,2,.)
+         matrix define est_se=J(1,2,.)
+         matrix colnames est_b = l_czone_density l_czone_density
+         matrix colnames est_se = l_czone_density l_czone_density
+         
+         matrix est_b[1,1]= _b[c.l_czone_density]
+         matrix est_se[1,1]=  _se[c.l_czone_density]
 
-        *Here I compute the coefficient for men in the model
-        lincom `indep_var'+1.male#c.`indep_var'
-        matrix est_b[1,2]=r(estimate)
-        matrix est_se[1]= r(se)
-      
-        estadd matrix b_sex=est_b
-        estadd matrix se_sex=est_b
-
-        estimates store `model'
+         *Here I compute the coefficient for men in the model
+         lincom `indep_var'+1.male#c.`indep_var'
+         matrix est_b[1,2]=  r(estimate)
+         matrix est_se[1,2]= r(se)
+         
+         estadd matrix b_sex=est_b
+         estadd matrix se_sex=est_se
+         
+         estimates store `model'
+        }
     }
 }
 
