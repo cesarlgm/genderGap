@@ -68,9 +68,31 @@ merge 1:1 czone year using `czone_chars_file', nogen  ///
 
 save "temporary_files/individual_level_regressions_`indiv_sample'", replace
 */
-use "temporary_files/individual_level_regressions_`indiv_sample'", replace
-regress baseline_gap c.`indep_var'#ib1970.year i.year, 			                            vce(cl czone) 	
-estimates save "output/regressions/baseline_individual_`indiv_sample'", 			        replace 
+
+
+
+
+
+
+
+use "../1_build_database/output/czone_level_dabase_full_time", replace
+drop if year==1950
+regress wage_raw_gap c.`indep_var'#ib1970.year i.year, 			                             vce(cl czone) 	
+estimates save "output/regressions/baseline_individual_`indiv_sample'", 			         replace 
+
+reghdfe wage_raw_gap c.`indep_var'#ib1970.year i.year, absorb(region)                        vce(cl czone) 	
+estimates save "output/regressions/baseline_region_individual_`indiv_sample'", 			     replace 
+
+reghdfe wage_raw_gap c.`indep_var'#ib1970.year i.year, absorb(state)                         vce(cl czone) 	
+estimates save "output/regressions/baseline_state_individual_`indiv_sample'", 			     replace 
+
+reghdfe wage_raw_gap c.`indep_var'#ib1970.year i.year, absorb(year#region)                         vce(cl czone) 	
+estimates save "output/regressions/baseline_region_trend_individual_`indiv_sample'", 			     replace 
+
+reghdfe wage_raw_gap c.`indep_var'#ib1970.year i.year, absorb(year#state)                         vce(cl czone) 	
+estimates save "output/regressions/baseline_state_trend_individual_`indiv_sample'", 			     replace 
+
+/*
 regress basic_controls_gap c.`indep_var'#ib1970.year i.year,  							    vce(cl czone) 	
 estimates save "output/regressions/with_basic_controls_individual_`indiv_sample'",	        replace
 regress with_education_gap c.`indep_var'#i.year i.year ,						            vce(cl czone)

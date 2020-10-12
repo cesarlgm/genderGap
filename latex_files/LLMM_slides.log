@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.22)  8 OCT 2020 18:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.22)  12 OCT 2020 19:04
 entering extended mode
 **./LLMM_slides.tex
 (LLMM_slides.tex
@@ -1469,72 +1469,40 @@ File: ts1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 ] [6
 
-] (slides_facts.tex
-(../2_analysis/output/figures/raw_gender_wage_gap_map_full_time.tex
-<../2_analysis/output/figures/raw_wage_map2020_full_time.png, id=71, 1188.44pt 
-x 510.90875pt>
-File: ../2_analysis/output/figures/raw_wage_map2020_full_time.png Graphic file 
-(type png)
-<use ../2_analysis/output/figures/raw_wage_map2020_full_time.png>
-Package pdftex.def Info: ../2_analysis/output/figures/raw_wage_map2020_full_tim
-e.png  used on input line 5.
-(pdftex.def)             Requested size: 307.28987pt x 132.10033pt.
-) [7
+] (slides_facts.tex (../2_analysis/output/tables/cross_cz_statistics.tex)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 7.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 7.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 7.
+LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <12> not available
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 7.
+LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <8> not available
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 7.
+LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <6> not available
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 7.
+[7
 
- <../2_analysis/output/figures/raw_wage_map2020_full_time.png (PNG copy)>]
-(../2_analysis/output/figures/cz_gap_dispersion_full_time.tex
+] [8
 
-pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/cz_gap_dispersi
-on_full_time.pdf): PDF inclusion: found PDF version <1.6>, but at most version 
-<1.5> allowed
-<../2_analysis/output/figures/cz_gap_dispersion_full_time.pdf, id=79, 397.485pt
- x 289.08pt>
-File: ../2_analysis/output/figures/cz_gap_dispersion_full_time.pdf Graphic file
- (type pdf)
-<use ../2_analysis/output/figures/cz_gap_dispersion_full_time.pdf>
-Package pdftex.def Info: ../2_analysis/output/figures/cz_gap_dispersion_full_ti
-me.pdf  used on input line 4.
-(pdftex.def)             Requested size: 184.3758pt x 134.09439pt.
-) [8
-
- <../2_analysis/output/figures/cz_gap_dispersion_full_time.pdf>]
-(../2_analysis/output/figures/cz_gender_gap_persistence_full_time.tex
-
-pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/cz_gender_gap_p
-ersistence_full_time.pdf): PDF inclusion: found PDF version <1.6>, but at most 
-version <1.5> allowed
-<../2_analysis/output/figures/cz_gender_gap_persistence_full_time.pdf, id=95, 3
-97.485pt x 289.08pt>
-File: ../2_analysis/output/figures/cz_gender_gap_persistence_full_time.pdf Grap
-hic file (type pdf)
-<use ../2_analysis/output/figures/cz_gender_gap_persistence_full_time.pdf>
-Package pdftex.def Info: ../2_analysis/output/figures/cz_gender_gap_persistence
-_full_time.pdf  used on input line 3.
-(pdftex.def)             Requested size: 184.3758pt x 134.09439pt.
-) [9
-
- <../2_analysis/output/figures/cz_gender_gap_persistence_full_time.pdf>]
-(../2_analysis/output/figures/changes_in_gap_full_time.tex
+] (../2_analysis/output/figures/changes_in_gap_full_time.tex
 
 pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/change_in_gap.p
 df): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<../2_analysis/output/figures/change_in_gap.pdf, id=117, 397.485pt x 289.08pt>
+<../2_analysis/output/figures/change_in_gap.pdf, id=87, 397.485pt x 289.08pt>
 File: ../2_analysis/output/figures/change_in_gap.pdf Graphic file (type pdf)
 <use ../2_analysis/output/figures/change_in_gap.pdf>
 Package pdftex.def Info: ../2_analysis/output/figures/change_in_gap.pdf  used o
 n input line 4.
 (pdftex.def)             Requested size: 230.46739pt x 167.61798pt.
-) [10
+) [9
 
  <../2_analysis/output/figures/change_in_gap.pdf>]
 (../2_analysis/output/figures/baseline_gradients_l_czone_density_full_time.tex
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9> on input line 3.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 3.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <9> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 3.
-LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <6> not available
 (Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 3.
 
 
@@ -1542,7 +1510,7 @@ pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/baseline_gradie
 nts_l_czone_density_full_time.pdf): PDF inclusion: found PDF version <1.6>, but
  at most version <1.5> allowed
 <../2_analysis/output/figures/baseline_gradients_l_czone_density_full_time.pdf,
- id=133, 397.485pt x 289.08pt>
+ id=103, 397.485pt x 289.08pt>
 File: ../2_analysis/output/figures/baseline_gradients_l_czone_density_full_time
 .pdf Graphic file (type pdf)
 <use ../2_analysis/output/figures/baseline_gradients_l_czone_density_full_time.
@@ -1551,25 +1519,22 @@ Package pdftex.def Info: ../2_analysis/output/figures/baseline_gradients_l_czon
 e_density_full_time.pdf  used on input line 4.
 (pdftex.def)             Requested size: 184.3758pt x 134.09439pt.
 )
-Overfull \vbox (13.35439pt too high) detected at line 19
+Overfull \vbox (13.35439pt too high) detected at line 20
  []
 
-[11
+[10
 
  <../2_analysis/output/figures/baseline_gradients_l_czone_density_full_time.pdf
 >] (../2_analysis/output/tables/interpretaion_table_full_time.tex
-LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <8> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 21.
-
 Overfull \hbox (7.92177pt too wide) in paragraph at lines 2--24
  [] 
  []
 
 )
-Overfull \vbox (6.2568pt too high) detected at line 22
+Overfull \vbox (6.2568pt too high) detected at line 23
  []
 
-[12
+[11
 
 ]
 (../2_analysis/output/figures/with_controls_gradients_individual_l_czone_densit
@@ -1579,7 +1544,7 @@ pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/with_control_gr
 adients_individual_l_czone_density_full_time.pdf): PDF inclusion: found PDF ver
 sion <1.6>, but at most version <1.5> allowed
 <../2_analysis/output/figures/with_control_gradients_individual_l_czone_density
-_full_time.pdf, id=160, 397.485pt x 289.08pt>
+_full_time.pdf, id=137, 397.485pt x 289.08pt>
 File: ../2_analysis/output/figures/with_control_gradients_individual_l_czone_de
 nsity_full_time.pdf Graphic file (type pdf)
 <use ../2_analysis/output/figures/with_control_gradients_individual_l_czone_den
@@ -1588,10 +1553,10 @@ Package pdftex.def Info: ../2_analysis/output/figures/with_control_gradients_in
 dividual_l_czone_density_full_time.pdf  used on input line 4.
 (pdftex.def)             Requested size: 184.3758pt x 134.09439pt.
 )
-Overfull \vbox (39.67879pt too high) detected at line 28
+Overfull \vbox (39.67879pt too high) detected at line 29
  []
 
-[13
+[12
 
  <../2_analysis/output/figures/with_control_gradients_individual_l_czone_densit
 y_full_time.pdf>])
@@ -1599,11 +1564,43 @@ y_full_time.pdf>])
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\translate ' on input line 81.
 
-(detail_slides.tex [14
+(detail_slides.tex
+(../2_analysis/output/figures/raw_gender_wage_gap_map_full_time.tex
+<../2_analysis/output/figures/raw_wage_map2020_full_time.png, id=157, 1188.44pt
+ x 510.90875pt>
+File: ../2_analysis/output/figures/raw_wage_map2020_full_time.png Graphic file 
+(type png)
+<use ../2_analysis/output/figures/raw_wage_map2020_full_time.png>
+Package pdftex.def Info: ../2_analysis/output/figures/raw_wage_map2020_full_tim
+e.png  used on input line 5.
+(pdftex.def)             Requested size: 307.28987pt x 132.10033pt.
+) [13
 
-]
-(../2_analysis/output/figures/distribution_gap_movement_full_time.tex
-<../2_analysis/output/figures/distribution_gap_movement_full_time.png, id=190, 
+ <../2_analysis/output/figures/raw_wage_map2020_full_time.png (PNG copy)>]
+(../2_analysis/output/figures/cz_gender_gap_persistence_full_time.tex
+
+pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/cz_gender_gap_p
+ersistence_full_time.pdf): PDF inclusion: found PDF version <1.6>, but at most 
+version <1.5> allowed
+<../2_analysis/output/figures/cz_gender_gap_persistence_full_time.pdf, id=166, 
+397.485pt x 289.08pt>
+File: ../2_analysis/output/figures/cz_gender_gap_persistence_full_time.pdf Grap
+hic file (type pdf)
+<use ../2_analysis/output/figures/cz_gender_gap_persistence_full_time.pdf>
+Package pdftex.def Info: ../2_analysis/output/figures/cz_gender_gap_persistence
+_full_time.pdf  used on input line 3.
+(pdftex.def)             Requested size: 184.3758pt x 134.09439pt.
+)
+Overfull \vbox (2.91586pt too high) detected at line 13
+ []
+
+[14
+
+ <../2_analysis/output/figures/cz_gender_gap_persistence_full_time.pdf>]
+[15
+
+] (../2_analysis/output/figures/distribution_gap_movement_full_time.tex
+<../2_analysis/output/figures/distribution_gap_movement_full_time.png, id=195, 
 1881.0275pt x 1367.1075pt>
 File: ../2_analysis/output/figures/distribution_gap_movement_full_time.png Grap
 hic file (type png)
@@ -1612,10 +1609,10 @@ Package pdftex.def Info: ../2_analysis/output/figures/distribution_gap_movement
 _full_time.png  used on input line 3.
 (pdftex.def)             Requested size: 245.83282pt x 178.66893pt.
 )
-Overfull \vbox (10.7291pt too high) detected at line 21
+Overfull \vbox (10.7291pt too high) detected at line 34
  []
 
-[15
+[16
 
  <../2_analysis/output/figures/distribution_gap_movement_full_time.png (PNG cop
 y)>]) (LLMM_slides.bbl
@@ -1623,9 +1620,9 @@ y)>]) (LLMM_slides.bbl
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\translate ' on input line 1.
 
-[16
+[17
 
-]) [17
+]) [18
 
 ]
 \tf@nav=\write6
@@ -1646,31 +1643,34 @@ Package rerunfilecheck Info: File `LLMM_slides.out' has not changed.
 (rerunfilecheck)             Checksum: 8675794C9964A6E395EB78ED810C2FFE;230.
  ) 
 Here is how much of TeX's memory you used:
- 33944 strings out of 480930
- 825464 string characters out of 2899761
- 1188606 words of memory out of 3000000
- 48984 multiletter control sequences out of 15000+200000
- 596632 words of font info for 70 fonts, out of 3000000 for 9000
+ 33966 strings out of 480930
+ 825355 string characters out of 2899761
+ 1189606 words of memory out of 3000000
+ 48996 multiletter control sequences out of 15000+200000
+ 601532 words of font info for 79 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,13n,117p,1812b,899s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathi
-t.enc}{C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-m
-athsy.enc}{C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/
-lm-rm.enc}{C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/
-lm-ts1.enc}<C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
-/lm/lmmi10.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/lm/lmmi9.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
-/public/lm/lmss10.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/t
-ype1/public/lm/lmss8.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/font
-s/type1/public/lm/lmss9.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/f
-onts/type1/public/lm/lmssbx10.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX
- 2.9/fonts/type1/public/lm/lmsso10.pfb><C:/Users/thecs/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/public/lm/lmsso8.pfb><C:/Users/thecs/AppData/Local/Progra
-ms/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/thecs/AppData/Local/Pr
-ograms/MiKTeX 2.9/fonts/type1/public/lm/lmsy7.pfb>
-Output written on LLMM_slides.pdf (17 pages, 763477 bytes).
+pdfTeX warning (dest): name{slide:interpretation} has been referenced but doe
+s not exist, replaced by a fixed one
+
+{C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.
+enc}{C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mat
+hit.enc}{C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm
+-rm.enc}{C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm
+-ts1.enc}<C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/l
+m/lmmi10.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/lm/lmmi9.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
+ublic/lm/lmss10.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/lm/lmss8.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/
+type1/public/lm/lmss9.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fon
+ts/type1/public/lm/lmssbx10.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2
+.9/fonts/type1/public/lm/lmsso10.pfb><C:/Users/thecs/AppData/Local/Programs/MiK
+TeX 2.9/fonts/type1/public/lm/lmsso8.pfb><C:/Users/thecs/AppData/Local/Programs
+/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/thecs/AppData/Local/Prog
+rams/MiKTeX 2.9/fonts/type1/public/lm/lmsy7.pfb>
+Output written on LLMM_slides.pdf (18 pages, 713673 bytes).
 PDF statistics:
- 258 PDF objects out of 1000 (max. 8388607)
- 47 named destinations out of 1000 (max. 500000)
- 118 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 264 PDF objects out of 1000 (max. 8388607)
+ 53 named destinations out of 1000 (max. 500000)
+ 113 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -28,16 +28,17 @@ grscheme, ncolor(7) style(tableau)
 
 *Models in levels
 *----------------------------------------------------------------------------------------
-local model_list baseline
+local model_list baseline baseline_region baseline_state  baseline_region_trend // baseline_state_trend
 foreach model in `model_list' {
-    estimates use "output/regressions/`model'_aggregate_`indiv_sample'" 
+    estimates use "output/regressions/`model'_individual_`indiv_sample'" 
     eststo `model'
 }
 
 *GRAPH 1: GRADIENT WITHOUT ANY CONTROLS
 *------------------------------------------------------------------------------------------
-coefplot `model_list', keep(*density*) yline(0) ///
-    legend(off) ///
+coefplot `model_list', keep(*`indep_var'*) yline(0) ///
+    legend(order(2 "No controls" 4 "Census division f.e" 6 "State f.e." 8 "Census division x year f.e." ) ///
+    ring(0) pos(2)) ///
     ytitle("w{sup:male}-w{sup:female} gradient ({&beta}{sub:t})")  ///
     ciopt(recast(rcap)) base vert  xlabel(`year_label')
 
@@ -55,7 +56,7 @@ local figure_list baseline_gradients_`indep_var'_`indiv_sample'
 latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') ///
     note(`figure_note') figlab(`figure_labs' `figure_labs') ///
     title(`figure_title')  dofile(`do_location') rowsize((10/6))  tiny 
-
+/*
 
 *GRAPH 2: ADDING GAP BETWEEN MEN AND WOMEN CHARACTERISTICS
 *------------------------------------------------------------------------------------------
