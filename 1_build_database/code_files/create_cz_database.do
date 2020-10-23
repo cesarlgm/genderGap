@@ -11,14 +11,9 @@ global data "C:\Users\thecs\Dropbox\boston_university\7-Research\NSAM\1_build_da
 *Working directory
 cd "C:\Users\thecs\Dropbox\boston_university\7-Research\genderGap\1_build_database"
 
-
-
-*Database type 0=gender 1=race
-*Execution parameters
-local data_type=	4
 local industry 		ind1950
 local occupation 	occ1950
-local year_list 1950 1970 1980 1990 2000 2010 2020
+local year_list  	1950 1970 1980 1990 2000 2010 2020
 
 
 foreach year in  `year_list' {
@@ -39,6 +34,7 @@ foreach year in  `year_list' {
 		g female_migrant=	native_migrant if female
 		g male_migrant=		native_migrant if !female
 		g full_time=		wkswork>=40&hrswork>=35
+		g female_head=		relate==1&female
 		
 		*Classification of industris
 		do "code_files/classify_industries_occupations.do" `occupation'
@@ -91,22 +87,86 @@ foreach year in  `year_list' {
 		merge m:1 	czone  using "../1_build_database/output/czone_area", nogen keep(1 3)
 		
 		rename czone_pop czone_pop_50
-		
+
 		local filter if full_time==1& (czone_pop_50/cz_area>1) 
+		
 		*Extracting gender specific premiums		
 		reghdfe l_hrwage  `filter' [pw=perwt], ///
 			absorb(i.czone#i.female, savefe)
 		rename  __hdfe1__ l_wage_baseline
 
 		cap drop __*__
+		
+		reghdfe l_hrwage  `filter' [pw=perwt], ///
+			absorb(i.czone#i.female i.age i.grouped_race i.migrant, savefe)
+		rename  __hdfe1__ l_wage_basic
 
+		cap drop __*__
+
+		*Basic human capital proxies
+		reghdfe l_hrwage  `filter' [pw=perwt], ///
+			absorb(i.czone#i.female i.age i.grouped_race i.migrant i.education, savefe)
+		rename  __hdfe1__ l_wage_human
+
+		cap drop __*__
+
+		*Adding occupation and industry fixed effects
+		reghdfe l_hrwage  `filter' [pw=perwt], ///
+			absorb(i.czone#i.female i.age i.grouped_race i.migrant i.education i.ind1950 i.occ1950, savefe)
+		rename  __hdfe1__ l_wage_full
+
+		cap drop __*__
+
+		*Family structure variables
+		reghdfe l_hrwage  `filter' [pw=perwt], ///
+			absorb(i.czone#i.female i.age i.grouped_race i.migrant i.education i.ind1950 i.occ1950 i.married i.nchild, savefe)
+		rename  __hdfe1__ l_wage_fam
+
+		cap drop __*__
+
+		*Female head dummy
+		reghdfe l_hrwage  `filter' [pw=perwt], ///
+			absorb(i.czone#i.female i.age i.grouped_race i.migrant i.education i.ind1950 i.occ1950 i.married i.nchild i.female_head, savefe)
+		rename  __hdfe1__ l_wage_fam_full
+
+		cap drop __*__
+
+		cap drop *hdfe*
+		
+
+		*Transportation time
+        if `year'>1970 {
+            reghdfe l_hrwage trantime [pw=perwt]  `filter' , absorb(i.czone#i.female i.age i.grouped_race i.migrant i.education i.ind1950 ///
+				 i.occ1950 i.married i.nchild i.female_head) savefe
+
+            rename __hdfe1__ l_wage_ttime
+            cap drop *hdfe*
+		}
 		gcollapse (mean) l_wage*, by(female czone year) fast
 		reshape wide l_wage_*, i(czone year) j(female)
-
+		
 		*Renaming variables
 		rename  l_wage_baseline0 male_l_wage 	
 		rename  l_wage_baseline1 female_l_wage 	
 
+		rename  l_wage_basic0 male_l_wage_basic
+		rename  l_wage_basic1 female_l_wage_basic
+
+		rename  l_wage_human0 male_l_wage_human
+		rename  l_wage_human1 female_l_wage_human
+
+		rename  l_wage_full0 male_l_wage_full
+		rename  l_wage_full1 female_l_wage_full
+
+		rename  l_wage_fam0 male_l_wage_fam
+		rename  l_wage_fam1 female_l_wage_fam	
+		
+		rename  l_wage_fam_full0 male_l_wage_fam_full
+		rename  l_wage_fam_full1 female_l_wage_fam_full	
+
+		cap rename  l_wage_ttime0 male_l_wage_tti
+		cap rename  l_wage_ttime1 female_l_wage_tti	
+		
 		merge m:1 czone year using `aggregate_vars_`year'', nogen keep(1 3)
 		merge m:1 	czone using "../1_build_database/output/czone_area", nogen keep(1 3)
 		
@@ -114,12 +174,17 @@ foreach year in  `year_list' {
 		generate l_czone_density=	log(czone_pop/cz_area)
 		
 		generate wage_raw_gap=male_l_wage-female_l_wage
-		
+		generate wage_bas_gap=male_l_wage_basic-female_l_wage_basic
+		generate wage_hum_gap=male_l_wage_human-female_l_wage_human
+		generate wage_ful_gap=male_l_wage_full-female_l_wage_full
+		generate wage_fam_gap=male_l_wage_fam-female_l_wage_fam
+		generate wage_ffu_gap=male_l_wage_fam_full-female_l_wage_fam_full
+		cap generate wage_tti_gap=male_l_wage_tti-female_l_wage_tti
+
 		tempfile collapsed`year'
-		save `collapsed`year''
-		
-		
+		save `collapsed`year''	
 	}
+	
 }
 
 clear
@@ -159,3 +224,5 @@ foreach region in `region_list' {
 drop reg_*
 
 save "output/czone_level_dabase_`name'", replace
+
+

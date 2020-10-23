@@ -16,14 +16,23 @@
 	\label{slide:baseline}
 	\textbf{\alert{Regression specification:}}	$w^{men}_{rt}-w^{women}_{rt}=\alpha_{rt}+\beta_{t}\ln(density)_{rt}+ \dots$
 	\input{../2_analysis/output/figures/baseline_gradients_l_czone_density_full_time.tex}
-\beamerbutton{\hyperlink{slide:interpretation}{On coefficient size}} \hspace{.5cm} 	\beamerbutton{\hyperlink{slide:distribution}{Distribution illustration}}	 \hspace{.5cm} 	\beamerbutton{\hyperlink{slide:distribution}{Is this about gender?}} \hspace{.5cm}	\beamerbutton{\hyperlink{slide:distribution}{Within-group graphs}}		
+\beamerbutton{\hyperlink{slide:interpretation}{On coefficient size}} \hspace{.5cm} 	\beamerbutton{\hyperlink{slide:distribution}{Distribution illustration}}	 \hspace{.5cm} 	\beamerbutton{\hyperlink{slide:race}{Is this about gender?}} \hspace{.5cm}	\beamerbutton{\hyperlink{slide:married}{Within-group graphs}}		
 \end{frame}
+
 \begin{frame}{How big are these coefficients?}  
 		\input{../2_analysis/output/tables/interpretaion_table_full_time.tex}
 \end{frame}
+
 \begin{frame}{What can account for the change in the density-gradient?}
 	\label{slide:controls}
 	\textbf{\alert{Regression specification:}} $w^{men}_{rt}-w^{women}_{rt}=\alpha_{rt}+\beta_{t}\ln(density)_t$
 	\input{../2_analysis/output/figures/with_controls_gradients_individual_l_czone_density_full_time.tex}
+	\beamerbutton{\hyperlink{slide:residual}{How do I control for individual characteristics?}}
+\end{frame}
+
+\begin{frame}{Adding czone-level variables}
+	\label{slide:cz_controls}
+	\textbf{\alert{Regression specification:}} $w^{men}_{rt}-w^{women}_{rt}=\alpha_{rt}+\beta_{t}\ln(density)_t+X_{rt}\gamma_t$
+	\input{../2_analysis/output/figures/with_controls_gradients_czone_l_czone_density_full_time.tex}
 	\beamerbutton{\hyperlink{slide:residual}{How do I control for individual characteristics?}}
 \end{frame}

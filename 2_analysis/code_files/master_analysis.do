@@ -31,9 +31,14 @@ else if `indep_type'==1 {
 *===============================================================================
 *CREATE MAP WITH GEOGRAPHY OF THE GENDER GAP IN THE US
 *===============================================================================
+
 *do "code_files/create_gender_gap_maps.do" 		`analysis_type'
 
-*do "code_files/gap_level_variation.do" 		`analysis_type'
+*do "code_files/create_misc_wage_graphs.do" 		`year_list'
+
+
+*do "code_files/gap_level_variation.do" 		`year_list'
+*do "code_files/gap_level_variation.do" 		`year_list'
 
 *do "code_files/output_average_stats.do" 		`analysis_type'  2020
 
@@ -83,22 +88,20 @@ timer on 	1
 do "code_files/create_aggregate_regressions.do" 		l_czone_density full_time ///
 	1   `year_list'
 timer off 1
-*/
+
 
 *Create regressions on czone density
 do "code_files/create_individual_regressions.do" 		l_czone_density full_time ///
 	1   `year_list'
-	
-	
 
-do "code_files/write_regression_coefplots.do" 	l_czone_density full_time ///
+do "code_files/write_regression_coefplots.do" 			l_czone_density full_time ///
 	1   `year_list'
-
+*/
 *Create regressions on czone population 	
 do "code_files/create_individual_regressions.do" 		l_czone_pop full_time ///
 	1   `year_list'
-	
-do "code_files/write_regression_coefplots.do" 	l_czone_pop full_time ///
+
+do "code_files/write_regression_coefplots.do" 			l_czone_pop full_time ///
 	1   `year_list'
 
 	

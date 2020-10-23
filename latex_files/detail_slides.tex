@@ -27,8 +27,32 @@
 		\beamerbutton{\hyperlink{slide:controls}{Return}}
 	\end{enumerate}
 \end{frame}
+
 \begin{frame}{Low vs high density CZ}
 	\label{slide:distribution}
 	\input{../2_analysis/output/figures/distribution_gap_movement_full_time.tex}
 	\beamerbutton{\hyperlink{slide:baseline}{Return}}
+\end{frame}
+
+
+\begin{frame}{Within-marital status graphs}
+	\label{slide:married}
+	\textbf{\alert{Regression specification:}}	$w^{men}_{rt}-w^{women}_{rt}=\alpha_{rt}+\beta_{t}\ln(density)_{rt}+ \dots$
+	\input{../2_analysis/output/figures/by_married_czone_l_czone_pop_full_time.tex}
+	\beamerbutton{\hyperlink{slide:baseline}{Return}}
+\end{frame}
+
+\begin{frame}{Within-having children status graphs}
+	\label{slide:has_children}
+	\textbf{\alert{Regression specification:}}	$w^{men}_{rt}-w^{women}_{rt}=\alpha_{rt}+\beta_{t}\ln(density)_{rt}+ \dots$
+	\input{../2_analysis/output/figures/by_children_l_czone_pop_full_time.tex}
+	\beamerbutton{\hyperlink{slide:baseline}{Return}}
+\end{frame}
+
+
+\begin{frame}{Is this about gender? pattern doesn't appear for across race}
+	\label{slide:race}
+	\textbf{\alert{Regression specification:}}	$w^{white}_{rt}-w^{black}_{rt}=\alpha_{rt}+\beta_{t}\ln(density)_{rt}+ \dots$
+	\input{../2_analysis/output/figures/baseline_race_gradients_l_czone_density_full_time.tex}
+	\beamerbutton{\hyperlink{slide:baseline}{Return}}		
 \end{frame}
