@@ -1,0 +1,35 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\thecs\Dropbox\boston_university\7-Research\genderGap\2_analysis\output/log_files/average_population_by_decile.txt
+  log type:  text
+ opened on:  28 Oct 2020, 11:41:39
+
+. 
+. *Average population in the czone in 2020, by population density quantile
+. 
+. *Deciles 1-6 are relatively small places with 10-110k average total population
+. table density_quantile if year==2020, c(mean czone_pop)  format(%9.0fc)
+
+--------------------------
+Populatio |
+n density |
+tercile   | mean(czone_~p)
+----------+---------------
+        1 |         11,773
+        2 |         25,000
+        3 |         43,796
+        4 |         53,270
+        5 |         85,008
+        6 |        110,536
+        7 |        125,259
+        8 |        236,850
+        9 |        383,068
+       10 |      1,615,977
+--------------------------
+
+. log close
+      name:  <unnamed>
+       log:  C:\Users\thecs\Dropbox\boston_university\7-Research\genderGap\2_analysis\output/log_files/average_population_by_decile.txt
+  log type:  text
+ closed on:  28 Oct 2020, 11:41:39
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------

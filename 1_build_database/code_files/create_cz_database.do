@@ -13,7 +13,7 @@ cd "C:\Users\thecs\Dropbox\boston_university\7-Research\genderGap\1_build_databa
 
 local industry 		ind1950
 local occupation 	occ1950
-local year_list  	1950 1970 1980 1990 2000 2010 2020
+local year_list  	1950 //1970 1980 1990 2000 2010 2020
 
 
 foreach year in  `year_list' {
@@ -35,12 +35,16 @@ foreach year in  `year_list' {
 		g male_migrant=		native_migrant if !female
 		g full_time=		wkswork>=40&hrswork>=35
 		g female_head=		relate==1&female
+		g employed=			empstat==1
 		
 		*Classification of industris
 		do "code_files/classify_industries_occupations.do" `occupation'
 		
 		tempfile census
 		save `census'
+		
+		
+		
 		
 		*STEP 1> computing czone level variables
 		preserve
@@ -62,19 +66,65 @@ foreach year in  `year_list' {
 
 		*Replacing afact to count the observations correctly
 		replace afact=. if missing(l_hrwage)|!full_time
+		
+		
+		*STEP 2> compute employment to population ratio by education
+		preserve
+			tempfile etp_education_`year'
+			gcollapse (sum) employed (count) population=age, ///
+				by(year czone female  high_education) fast
+			generate  etp=employed/population
+			
+			drop employed population
+			
+			reshape wide etp, i(czone year female) j(high_education)
 
-
-		*STEP 2> computing population counts by czone-gender
-		gcollapse (count) population=age (count) observations=l_hrwage (mean) in_labforce [pw=perwt], ///
+			label var etp1 "Employment to population ratio high education" 
+			label var etp0 "Employment to population ratio low education"
+			
+			rename etp1 etp_high
+			rename etp0 etp_low
+			
+			save `etp_education_`year''
+		restore
+		
+		*STEP 3> compute employment to population ratio by marital status
+		preserve
+			tempfile etp_`year'
+			gcollapse (sum) employed (count) population=age, ///
+				by(year czone female  married) fast
+			generate  etp=employed/population
+			
+			drop employed population
+			
+			reshape wide etp, i(czone year female) j(married)
+			
+			label var etp1 "Employment to population ratio married" 
+			label var etp0 "Employment to population ratio single"
+			
+			rename etp1 etp_married
+			rename etp0 etp_single
+			
+			merge 1:1 czone year female using  `etp_education_`year'', nogen
+			save `etp_`year''
+		restore
+		
+		*STEP 3> computing population counts by czone-gender
+		gcollapse (count) population=age (count) observations=l_hrwage (mean) ///
+			in_labforce [pw=perwt], ///
 			by(female czone year)
 		
 		egen czone_pop=sum(population), by(czone year)
+		
+	
+		
+		
 		
 		reshape wide population in_labforce observations, i(czone year) j(female)
 		
 		rename (population0 population1 in_labforce0 in_labforce1 observations0 observations1) ///
 			(male_pop female_pop male_lfp female_lfp male_observations female_observations)
-
+	
 			
 		merge m:1 czone using `czone_vars', nogen
 		
@@ -87,46 +137,46 @@ foreach year in  `year_list' {
 		merge m:1 	czone  using "../1_build_database/output/czone_area", nogen keep(1 3)
 		
 		rename czone_pop czone_pop_50
-
+		
 		local filter if full_time==1& (czone_pop_50/cz_area>1) 
 		
 		*Extracting gender specific premiums		
 		reghdfe l_hrwage  `filter' [pw=perwt], ///
-			absorb(i.czone#i.female, savefe)
+			absorb(i.czone#i.female, savefe) nocons
 		rename  __hdfe1__ l_wage_baseline
 
 		cap drop __*__
 		
 		reghdfe l_hrwage  `filter' [pw=perwt], ///
-			absorb(i.czone#i.female i.age i.grouped_race i.migrant, savefe)
+			absorb(i.czone#i.female i.age i.grouped_race i.migrant, savefe) nocons
 		rename  __hdfe1__ l_wage_basic
 
 		cap drop __*__
 
 		*Basic human capital proxies
 		reghdfe l_hrwage  `filter' [pw=perwt], ///
-			absorb(i.czone#i.female i.age i.grouped_race i.migrant i.education, savefe)
+			absorb(i.czone#i.female i.age i.grouped_race i.migrant i.education, savefe) nocons
 		rename  __hdfe1__ l_wage_human
 
 		cap drop __*__
 
 		*Adding occupation and industry fixed effects
 		reghdfe l_hrwage  `filter' [pw=perwt], ///
-			absorb(i.czone#i.female i.age i.grouped_race i.migrant i.education i.ind1950 i.occ1950, savefe)
+			absorb(i.czone#i.female i.age i.grouped_race i.migrant i.education i.ind1950 i.occ1950, savefe) nocons
 		rename  __hdfe1__ l_wage_full
 
 		cap drop __*__
 
 		*Family structure variables
 		reghdfe l_hrwage  `filter' [pw=perwt], ///
-			absorb(i.czone#i.female i.age i.grouped_race i.migrant i.education i.ind1950 i.occ1950 i.married i.nchild, savefe)
+			absorb(i.czone#i.female i.age i.grouped_race i.migrant i.education i.ind1950 i.occ1950 i.married i.nchild, savefe) nocons
 		rename  __hdfe1__ l_wage_fam
 
 		cap drop __*__
 
 		*Female head dummy
 		reghdfe l_hrwage  `filter' [pw=perwt], ///
-			absorb(i.czone#i.female i.age i.grouped_race i.migrant i.education i.ind1950 i.occ1950 i.married i.nchild i.female_head, savefe)
+			absorb(i.czone#i.female i.age i.grouped_race i.migrant i.education i.ind1950 i.occ1950 i.married i.nchild i.female_head, savefe) nocons
 		rename  __hdfe1__ l_wage_fam_full
 
 		cap drop __*__
@@ -142,7 +192,9 @@ foreach year in  `year_list' {
             rename __hdfe1__ l_wage_ttime
             cap drop *hdfe*
 		}
-		gcollapse (mean) l_wage*, by(female czone year) fast
+		
+		gcollapse (mean) l_wage* , by(female czone year) fast
+		
 		reshape wide l_wage_*, i(czone year) j(female)
 		
 		*Renaming variables
@@ -183,6 +235,7 @@ foreach year in  `year_list' {
 
 		tempfile collapsed`year'
 		save `collapsed`year''	
+		
 	}
 	
 }
@@ -224,5 +277,15 @@ foreach region in `region_list' {
 drop reg_*
 
 save "output/czone_level_dabase_`name'", replace
+/*
 
-
+*===============================================================================
+*APPENDING EMPLOYMENT TO POPULATION RATIO FILES
+*===============================================================================
+clear
+foreach year in `year_list' {
+	append using  `etp_`year''
+}
+merge m:1 year czone  "output/czone_level_dabase_`name'", nogen
+drop if missing(male_l_wage)
+save "output/etp_file_`name'", replace
