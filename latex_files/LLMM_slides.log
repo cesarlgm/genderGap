@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.22)  20 OCT 2020 09:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.22)  11 NOV 2020 19:33
 entering extended mode
 **./LLMM_slides.tex
 (LLMM_slides.tex
@@ -1223,24 +1223,24 @@ File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 ) (LLMM_slides.aux)
 \openout1 = `LLMM_slides.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
 LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
-48.
+52.
 
 ("C:\Users\thecs\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\ot1lmss.fd"
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1302,7 +1302,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 ) ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box84
-Package hyperref Info: Link coloring OFF on input line 48.
+Package hyperref Info: Link coloring OFF on input line 52.
 
 ("C:\Users\thecs\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\nameref.s
 ty"
@@ -1318,59 +1318,59 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count362
 )
-LaTeX Info: Redefining \ref on input line 48.
-LaTeX Info: Redefining \pageref on input line 48.
-LaTeX Info: Redefining \nameref on input line 48.
+LaTeX Info: Redefining \ref on input line 52.
+LaTeX Info: Redefining \pageref on input line 52.
+LaTeX Info: Redefining \nameref on input line 52.
  (LLMM_slides.out) (LLMM_slides.out)
 \@outlinefile=\write5
 \openout5 = `LLMM_slides.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 48.
+(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 52.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 48.
+(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 52.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 48.
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 52.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 48.
+(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 52.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmss/m/n --> OT1/lmr/m/n on input line 48.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 48.
+(Font)                  OT1/lmss/m/n --> OT1/lmr/m/n on input line 52.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> OT1/lmss/b/n on input line 48.
+(Font)                  OT1/lmr/bx/n --> OT1/lmss/b/n on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/lmr/bx/n --> OT1/lmss/b/n on input line 48.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 48.
+(Font)                  OT1/lmr/bx/n --> OT1/lmss/b/n on input line 52.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> OT1/lmss/m/n on input line 48.
+(Font)                  OT1/lmss/m/n --> OT1/lmss/m/n on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> OT1/lmss/m/n on input line 48.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 48.
+(Font)                  OT1/lmss/bx/n --> OT1/lmss/m/n on input line 52.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> OT1/lmss/m/it on input line 48.
+(Font)                  OT1/lmr/m/it --> OT1/lmss/m/it on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/lmr/bx/it --> OT1/lmss/m/it on input line 48.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 48.
+(Font)                  OT1/lmr/bx/it --> OT1/lmss/m/it on input line 52.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> OT1/lmtt/m/n on input line 48.
+(Font)                  OT1/lmtt/m/n --> OT1/lmtt/m/n on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> OT1/lmtt/m/n on input line 48.
+(Font)                  OT1/lmtt/m/n --> OT1/lmtt/m/n on input line 52.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/lmss/m/n --> OT1/lmss/b/n on input line 48.
+(Font)                  OT1/lmss/m/n --> OT1/lmss/b/n on input line 52.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/lmss/m/it --> OT1/lmss/b/it on input line 48.
+(Font)                  OT1/lmss/m/it --> OT1/lmss/b/it on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/lmss/b/n --> OT1/lmr/b/n on input line 48.
+(Font)                  OT1/lmss/b/n --> OT1/lmr/b/n on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/lmss/b/n --> OT1/lmss/b/n on input line 48.
+(Font)                  OT1/lmss/b/n --> OT1/lmss/b/n on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/m/n --> OT1/lmss/b/n on input line 48.
+(Font)                  OT1/lmss/m/n --> OT1/lmss/b/n on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/lmss/m/it --> OT1/lmss/b/it on input line 48.
+(Font)                  OT1/lmss/m/it --> OT1/lmss/b/it on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> OT1/lmtt/b/n on input line 48.
+(Font)                  OT1/lmtt/m/n --> OT1/lmtt/b/n on input line 52.
 
 ("C:\Users\thecs\AppData\Local\Programs\MiKTeX 2.9\tex/latex/translator\transla
 tor-basic-dictionary-English.dict"
@@ -1405,138 +1405,202 @@ Package pgfplots notification 'compat/show suggested version=true': you might b
 enefit from \pgfplotsset{compat=1.17} (current compat level: 1.9).
 
 (LLMM_slides.nav)
-Overfull \vbox (13.79993pt too high) detected at line 50
+Overfull \vbox (13.79993pt too high) detected at line 54
  []
 
 [1
 
 {C:/Users/thecs/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 5
-2.
+(introduction_slides.tex
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
+.
 
 ("C:\Users\thecs\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-52.
+1.
 
 ("C:\Users\thecs\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-52.
+1.
 
 ("C:\Users\thecs\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 52.
+(Font)              <10> on input line 1.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 52.
+(Font)              <7> on input line 1.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 52.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
-
+(Font)              <5> on input line 1.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 1.
 
 ("C:\Users\thecs\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
 ("C:\Users\thecs\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <10> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 52.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 1.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <7> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 52.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 1.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <5> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 52.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 1.
 [2
-
-] [3
-
-] [4
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 
-76.
-
-("C:\Users\thecs\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\ts1lmss.fd"
+16.
+ ("C:\Users\thecs\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\ts1lmss.fd"
 File: ts1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-[5
-
-] [6
-
-] (slides_facts.tex (../2_analysis/output/tables/cross_cz_statistics.tex)
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 7.
+(Font)              <9> on input line 16.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 7.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 7.
-LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <12> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 7.
-LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <8> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 7.
-LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <6> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 7.
-[7
-
-] [8
-
-] (../2_analysis/output/figures/changes_in_gap_full_time.tex
-
-pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/change_in_gap.p
-df): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<../2_analysis/output/figures/change_in_gap.pdf, id=87, 397.485pt x 289.08pt>
-File: ../2_analysis/output/figures/change_in_gap.pdf Graphic file (type pdf)
-<use ../2_analysis/output/figures/change_in_gap.pdf>
-Package pdftex.def Info: ../2_analysis/output/figures/change_in_gap.pdf  used o
-n input line 4.
-(pdftex.def)             Requested size: 230.46739pt x 167.61798pt.
-) [9
-
- <../2_analysis/output/figures/change_in_gap.pdf>]
-(../2_analysis/output/figures/baseline_gradients_l_czone_density_full_time.tex
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 3.
+(Font)              <6> on input line 16.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <9> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 3.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 16.
+LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <6> not available
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 16.
+ [3
+
+] [4
+
+]) (slides_facts.tex
+(../2_analysis/output/figures/l_czone_density_2020.tex
+<../2_analysis/output/figures/l_czone_density_2020.png, id=44, 877.2775pt x 637
+.38126pt>
+File: ../2_analysis/output/figures/l_czone_density_2020.png Graphic file (type 
+png)
+<use ../2_analysis/output/figures/l_czone_density_2020.png>
+Package pdftex.def Info: ../2_analysis/output/figures/l_czone_density_2020.png 
+ used on input line 4.
+(pdftex.def)             Requested size: 153.64493pt x 111.63092pt.
+) [5
+
+ <../2_analysis/output/figures/l_czone_density_2020.png (PNG copy)>]
+(../2_analysis/output/figures/l_czone_density_2020_big_CZ.tex
+<../2_analysis/output/figures/l_czone_density_2020_big_CZ.png, id=54, 877.2775p
+t x 637.38126pt>
+File: ../2_analysis/output/figures/l_czone_density_2020_big_CZ.png Graphic file
+ (type png)
+<use ../2_analysis/output/figures/l_czone_density_2020_big_CZ.png>
+Package pdftex.def Info: ../2_analysis/output/figures/l_czone_density_2020_big_
+CZ.png  used on input line 4.
+(pdftex.def)             Requested size: 153.64493pt x 111.63092pt.
+
+Underfull \hbox (badness 2111) in paragraph at lines 5--5
+[]\OT1/lmss/bx/n/5 Note: \OT1/lmss/m/n/5 fig-ure re-stricts to CZ with more tha
+n 1 peo-ple per
+ []
 
 
-pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/baseline_gradie
-nts_l_czone_density_full_time.pdf): PDF inclusion: found PDF version <1.6>, but
- at most version <1.5> allowed
-<../2_analysis/output/figures/baseline_gradients_l_czone_density_full_time.pdf,
- id=103, 397.485pt x 289.08pt>
-File: ../2_analysis/output/figures/baseline_gradients_l_czone_density_full_time
-.pdf Graphic file (type pdf)
-<use ../2_analysis/output/figures/baseline_gradients_l_czone_density_full_time.
-pdf>
-Package pdftex.def Info: ../2_analysis/output/figures/baseline_gradients_l_czon
-e_density_full_time.pdf  used on input line 4.
-(pdftex.def)             Requested size: 184.3758pt x 134.09439pt.
+Underfull \hbox (badness 1112) in paragraph at lines 5--5
+\OT1/lmss/m/n/5 10 Nov 2020 at 18:18:42. Fig-ure gen-er-ated us-ing the dofile
+ []
+
+) (../2_analysis/output/figures/l_czone_density_2020_w.tex
+<../2_analysis/output/figures/l_czone_density_2020_w.png, id=55, 877.2775pt x 6
+37.38126pt>
+File: ../2_analysis/output/figures/l_czone_density_2020_w.png Graphic file (typ
+e png)
+<use ../2_analysis/output/figures/l_czone_density_2020_w.png>
+Package pdftex.def Info: ../2_analysis/output/figures/l_czone_density_2020_w.pn
+g  used on input line 4.
+(pdftex.def)             Requested size: 153.64493pt x 111.63092pt.
+) [6
+
+ <../2_analysis/output/figures/l_czone_density_2020_big_CZ.png (PNG copy)> <../
+2_analysis/output/figures/l_czone_density_2020_w.png (PNG copy)>]
+(../2_analysis/output/figures/l_czone_density_2020_hum.tex
+<../2_analysis/output/figures/l_czone_density_2020_hum.png, id=61, 877.2775pt x
+ 637.38126pt>
+File: ../2_analysis/output/figures/l_czone_density_2020_hum.png Graphic file (t
+ype png)
+<use ../2_analysis/output/figures/l_czone_density_2020_hum.png>
+Package pdftex.def Info: ../2_analysis/output/figures/l_czone_density_2020_hum.
+png  used on input line 4.
+(pdftex.def)             Requested size: 153.64493pt x 111.63092pt.
+) [7
+
+ <../2_analysis/output/figures/l_czone_density_2020_hum.png (PNG copy)>]
+(../2_analysis/output/figures/l_czone_density_1970_vs_2020.tex
+<../2_analysis/output/figures/l_czone_density_1970_vs_2020.png, id=68, 877.2775
+pt x 637.38126pt>
+File: ../2_analysis/output/figures/l_czone_density_1970_vs_2020.png Graphic fil
+e (type png)
+<use ../2_analysis/output/figures/l_czone_density_1970_vs_2020.png>
+Package pdftex.def Info: ../2_analysis/output/figures/l_czone_density_1970_vs_2
+020.png  used on input line 4.
+(pdftex.def)             Requested size: 153.64493pt x 111.63092pt.
 )
-Overfull \vbox (13.35439pt too high) detected at line 20
+(../2_analysis/output/figures/baseline_l_czone_density_full_time.tex
+
+pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/baseline_l_czon
+e_density_full_time.pdf): PDF inclusion: found PDF version <1.6>, but at most v
+ersion <1.5> allowed
+<../2_analysis/output/figures/baseline_l_czone_density_full_time.pdf, id=70, 39
+7.485pt x 289.08pt>
+File: ../2_analysis/output/figures/baseline_l_czone_density_full_time.pdf Graph
+ic file (type pdf)
+<use ../2_analysis/output/figures/baseline_l_czone_density_full_time.pdf>
+Package pdftex.def Info: ../2_analysis/output/figures/baseline_l_czone_density_
+full_time.pdf  used on input line 4.
+(pdftex.def)             Requested size: 153.64493pt x 111.74385pt.
+)
+Overfull \vbox (3.82825pt too high) detected at line 45
+ []
+
+[8
+
+ <../2_analysis/output/figures/l_czone_density_1970_vs_2020.png (PNG copy)> <..
+/2_analysis/output/figures/baseline_l_czone_density_full_time.pdf>] [9
+
+]
+(../2_analysis/output/figures/baseline_large_l_czone_density_full_time.tex
+<../2_analysis/output/figures/baseline_large_l_czone_density_full_time.png, id=
+100, 877.2775pt x 637.38126pt>
+File: ../2_analysis/output/figures/baseline_large_l_czone_density_full_time.png
+ Graphic file (type png)
+<use ../2_analysis/output/figures/baseline_large_l_czone_density_full_time.png>
+
+Package pdftex.def Info: ../2_analysis/output/figures/baseline_large_l_czone_de
+nsity_full_time.png  used on input line 4.
+(pdftex.def)             Requested size: 153.64493pt x 111.63092pt.
+)
+(../2_analysis/output/figures/baseline_w_l_czone_density_full_time.tex
+<../2_analysis/output/figures/baseline_w_l_czone_density_full_time.png, id=102,
+ 877.2775pt x 637.38126pt>
+File: ../2_analysis/output/figures/baseline_w_l_czone_density_full_time.png Gra
+phic file (type png)
+<use ../2_analysis/output/figures/baseline_w_l_czone_density_full_time.png>
+Package pdftex.def Info: ../2_analysis/output/figures/baseline_w_l_czone_densit
+y_full_time.png  used on input line 4.
+(pdftex.def)             Requested size: 153.64493pt x 111.63092pt.
+)
+Overfull \vbox (17.51524pt too high) detected at line 68
  []
 
 [10
 
- <../2_analysis/output/figures/baseline_gradients_l_czone_density_full_time.pdf
->] (../2_analysis/output/tables/interpretaion_table_full_time.tex
-Overfull \hbox (7.92177pt too wide) in paragraph at lines 2--24
- [] 
- []
-
+ <../2_analysis/output/figures/baseline_large_l_czone_density_full_time.png (PN
+G copy)> <../2_analysis/output/figures/baseline_w_l_czone_density_full_time.png
+ (PNG copy)>]
+(../2_analysis/output/figures/baseline_fe_l_czone_density_full_time.tex
+<../2_analysis/output/figures/baseline_fe_l_czone_density_full_time.png, id=109
+, 877.2775pt x 637.38126pt>
+File: ../2_analysis/output/figures/baseline_fe_l_czone_density_full_time.png Gr
+aphic file (type png)
+<use ../2_analysis/output/figures/baseline_fe_l_czone_density_full_time.png>
+Package pdftex.def Info: ../2_analysis/output/figures/baseline_fe_l_czone_densi
+ty_full_time.png  used on input line 4.
+(pdftex.def)             Requested size: 153.64493pt x 111.63092pt.
 )
-Overfull \vbox (6.2568pt too high) detected at line 24
- []
-
-[11
-
-]
 (../2_analysis/output/figures/with_controls_gradients_individual_l_czone_densit
 y_full_time.tex
 
@@ -1544,22 +1608,206 @@ pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/with_control_gr
 adients_individual_l_czone_density_full_time.pdf): PDF inclusion: found PDF ver
 sion <1.6>, but at most version <1.5> allowed
 <../2_analysis/output/figures/with_control_gradients_individual_l_czone_density
-_full_time.pdf, id=139, 397.485pt x 289.08pt>
+_full_time.pdf, id=111, 397.485pt x 289.08pt>
 File: ../2_analysis/output/figures/with_control_gradients_individual_l_czone_de
 nsity_full_time.pdf Graphic file (type pdf)
 <use ../2_analysis/output/figures/with_control_gradients_individual_l_czone_den
 sity_full_time.pdf>
 Package pdftex.def Info: ../2_analysis/output/figures/with_control_gradients_in
 dividual_l_czone_density_full_time.pdf  used on input line 4.
-(pdftex.def)             Requested size: 184.3758pt x 134.09439pt.
+(pdftex.def)             Requested size: 153.64493pt x 111.74385pt.
 )
-Overfull \vbox (53.47871pt too high) detected at line 31
+Overfull \vbox (3.71532pt too high) detected at line 79
  []
 
-[12
+[11
 
- <../2_analysis/output/figures/with_control_gradients_individual_l_czone_densit
-y_full_time.pdf>]
+ <../2_analysis/output/figures/baseline_fe_l_czone_density_full_time.png (PNG c
+opy)> <../2_analysis/output/figures/with_control_gradients_individual_l_czone_d
+ensity_full_time.pdf>] [12
+
+]
+(../2_analysis/output/figures/premium_by_gender_full_time.tex
+<../2_analysis/output/figures/premium_by_gender_full_time.png, id=134, 877.2775
+pt x 637.38126pt>
+File: ../2_analysis/output/figures/premium_by_gender_full_time.png Graphic file
+ (type png)
+<use ../2_analysis/output/figures/premium_by_gender_full_time.png>
+Package pdftex.def Info: ../2_analysis/output/figures/premium_by_gender_full_ti
+me.png  used on input line 4.
+(pdftex.def)             Requested size: 153.64493pt x 111.63092pt.
+)
+(../2_analysis/output/figures/two_decade_changes_full_time.tex
+
+pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/lfp_gap_full_ti
+me.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allo
+wed
+<../2_analysis/output/figures/lfp_gap_full_time.pdf, id=136, 397.485pt x 289.08
+pt>
+File: ../2_analysis/output/figures/lfp_gap_full_time.pdf Graphic file (type pdf
+)
+<use ../2_analysis/output/figures/lfp_gap_full_time.pdf>
+Package pdftex.def Info: ../2_analysis/output/figures/lfp_gap_full_time.pdf  us
+ed on input line 4.
+(pdftex.def)             Requested size: 153.64493pt x 111.74385pt.
+)
+Overfull \vbox (19.92816pt too high) detected at line 100
+ []
+
+[13
+
+ <../2_analysis/output/figures/premium_by_gender_full_time.png (PNG copy)> <../
+2_analysis/output/figures/lfp_gap_full_time.pdf>]
+(../2_analysis/output/figures/lfp_gap_full_time.tex
+File: ../2_analysis/output/figures/lfp_gap_full_time.pdf Graphic file (type pdf
+)
+<use ../2_analysis/output/figures/lfp_gap_full_time.pdf>
+Package pdftex.def Info: ../2_analysis/output/figures/lfp_gap_full_time.pdf  us
+ed on input line 4.
+(pdftex.def)             Requested size: 153.64493pt x 111.74385pt.
+)
+(../2_analysis/output/figures/change_lfp_full_time.tex
+
+pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/d_lfp_gender_fu
+ll_time.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5>
+ allowed
+<../2_analysis/output/figures/d_lfp_gender_full_time.pdf, id=156, 397.485pt x 2
+89.08pt>
+File: ../2_analysis/output/figures/d_lfp_gender_full_time.pdf Graphic file (typ
+e pdf)
+<use ../2_analysis/output/figures/d_lfp_gender_full_time.pdf>
+Package pdftex.def Info: ../2_analysis/output/figures/d_lfp_gender_full_time.pd
+f  used on input line 4.
+(pdftex.def)             Requested size: 153.64493pt x 111.74385pt.
+)
+Overfull \vbox (19.92816pt too high) detected at line 114
+ []
+
+[14
+
+ <../2_analysis/output/figures/d_lfp_gender_full_time.pdf>] [15
+
+] [16
+
+]
+(../2_analysis/output/figures/with_controls_gradients_individual_l_czone_densit
+y_full_time.tex
+File: ../2_analysis/output/figures/with_control_gradients_individual_l_czone_de
+nsity_full_time.pdf Graphic file (type pdf)
+<use ../2_analysis/output/figures/with_control_gradients_individual_l_czone_den
+sity_full_time.pdf>
+Package pdftex.def Info: ../2_analysis/output/figures/with_control_gradients_in
+dividual_l_czone_density_full_time.pdf  used on input line 4.
+(pdftex.def)             Requested size: 153.64493pt x 111.74385pt.
+) [17
+
+] [18
+
+]
+(../2_analysis/output/figures/with_ind_gradients_individual_l_czone_density_ful
+l_time.tex
+
+pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/with_ind_gradie
+nts_individual_l_czone_density_full_time.pdf): PDF inclusion: found PDF version
+ <1.6>, but at most version <1.5> allowed
+<../2_analysis/output/figures/with_ind_gradients_individual_l_czone_density_ful
+l_time.pdf, id=196, 397.485pt x 289.08pt>
+File: ../2_analysis/output/figures/with_ind_gradients_individual_l_czone_densit
+y_full_time.pdf Graphic file (type pdf)
+<use ../2_analysis/output/figures/with_ind_gradients_individual_l_czone_density
+_full_time.pdf>
+Package pdftex.def Info: ../2_analysis/output/figures/with_ind_gradients_indivi
+dual_l_czone_density_full_time.pdf  used on input line 4.
+(pdftex.def)             Requested size: 153.64493pt x 111.74385pt.
+) [19
+
+ <../2_analysis/output/figures/with_ind_gradients_individual_l_czone_density_fu
+ll_time.pdf>] [20
+
+] [21
+
+]
+(../2_analysis/output/tables/cross_cz_statistics.tex)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 179.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 179.
+LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <12> not available
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 179.
+
+LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <8> not available
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 179.
+
+ [22
+
+] [23
+
+]
+(../2_analysis/output/figures/changes_in_gap_full_time.tex
+
+pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/change_in_gap.p
+df): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
+<../2_analysis/output/figures/change_in_gap.pdf, id=237, 397.485pt x 289.08pt>
+File: ../2_analysis/output/figures/change_in_gap.pdf Graphic file (type pdf)
+<use ../2_analysis/output/figures/change_in_gap.pdf>
+Package pdftex.def Info: ../2_analysis/output/figures/change_in_gap.pdf  used o
+n input line 4.
+(pdftex.def)             Requested size: 230.46739pt x 167.61798pt.
+) [24
+
+ <../2_analysis/output/figures/change_in_gap.pdf>]
+(../2_analysis/output/figures/baseline_gradients_l_czone_density_full_time.tex
+
+pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/baseline_gradie
+nts_l_czone_density_full_time.pdf): PDF inclusion: found PDF version <1.6>, but
+ at most version <1.5> allowed
+<../2_analysis/output/figures/baseline_gradients_l_czone_density_full_time.pdf,
+ id=253, 397.485pt x 289.08pt>
+File: ../2_analysis/output/figures/baseline_gradients_l_czone_density_full_time
+.pdf Graphic file (type pdf)
+<use ../2_analysis/output/figures/baseline_gradients_l_czone_density_full_time.
+pdf>
+Package pdftex.def Info: ../2_analysis/output/figures/baseline_gradients_l_czon
+e_density_full_time.pdf  used on input line 4.
+(pdftex.def)             Requested size: 184.3758pt x 134.09439pt.
+) [25
+
+ <../2_analysis/output/figures/baseline_gradients_l_czone_density_full_time.pdf
+>] [26
+
+] [27
+
+] [28
+
+]
+(../2_analysis/output/tables/interpretaion_table_full_time.tex
+Overfull \hbox (7.92177pt too wide) in paragraph at lines 2--24
+ [] 
+ []
+
+)
+Overfull \vbox (6.2568pt too high) detected at line 221
+ []
+
+[29
+
+]
+(../2_analysis/output/figures/with_controls_gradients_individual_l_czone_densit
+y_full_time.tex
+File: ../2_analysis/output/figures/with_control_gradients_individual_l_czone_de
+nsity_full_time.pdf Graphic file (type pdf)
+<use ../2_analysis/output/figures/with_control_gradients_individual_l_czone_den
+sity_full_time.pdf>
+Package pdftex.def Info: ../2_analysis/output/figures/with_control_gradients_in
+dividual_l_czone_density_full_time.pdf  used on input line 4.
+(pdftex.def)             Requested size: 307.28987pt x 223.48772pt.
+)
+Overfull \vbox (129.07211pt too high) detected at line 228
+ []
+
+[30
+
+]
 (../2_analysis/output/figures/with_controls_gradients_czone_l_czone_density_ful
 l_time.tex
 
@@ -1567,7 +1815,7 @@ pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/with_control_gr
 adients_czone_l_czone_density_full_time.pdf): PDF inclusion: found PDF version 
 <1.6>, but at most version <1.5> allowed
 <../2_analysis/output/figures/with_control_gradients_czone_l_czone_density_full
-_time.pdf, id=160, 397.485pt x 289.08pt>
+_time.pdf, id=310, 397.485pt x 289.08pt>
 File: ../2_analysis/output/figures/with_control_gradients_czone_l_czone_density
 _full_time.pdf Graphic file (type pdf)
 <use ../2_analysis/output/figures/with_control_gradients_czone_l_czone_density_
@@ -1576,141 +1824,17 @@ Package pdftex.def Info: ../2_analysis/output/figures/with_control_gradients_cz
 one_l_czone_density_full_time.pdf  used on input line 4.
 (pdftex.def)             Requested size: 184.3758pt x 134.09439pt.
 )
-Overfull \vbox (53.47871pt too high) detected at line 38
+Overfull \vbox (53.47871pt too high) detected at line 235
  []
 
-[13
+[31
 
  <../2_analysis/output/figures/with_control_gradients_czone_l_czone_density_ful
 l_time.pdf>])
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\translate ' on input line 82.
+(hyperref)                removing `\translate ' on input line 78.
 
-(detail_slides.tex
-(../2_analysis/output/figures/raw_gender_wage_gap_map_full_time.tex
-<../2_analysis/output/figures/raw_wage_map2020_full_time.png, id=180, 1188.44pt
- x 510.90875pt>
-File: ../2_analysis/output/figures/raw_wage_map2020_full_time.png Graphic file 
-(type png)
-<use ../2_analysis/output/figures/raw_wage_map2020_full_time.png>
-Package pdftex.def Info: ../2_analysis/output/figures/raw_wage_map2020_full_tim
-e.png  used on input line 5.
-(pdftex.def)             Requested size: 307.28987pt x 132.10033pt.
-) [14
-
- <../2_analysis/output/figures/raw_wage_map2020_full_time.png (PNG copy)>]
-(../2_analysis/output/figures/cz_gender_gap_persistence_full_time.tex
-
-pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/cz_gender_gap_p
-ersistence_full_time.pdf): PDF inclusion: found PDF version <1.6>, but at most 
-version <1.5> allowed
-<../2_analysis/output/figures/cz_gender_gap_persistence_full_time.pdf, id=188, 
-397.485pt x 289.08pt>
-File: ../2_analysis/output/figures/cz_gender_gap_persistence_full_time.pdf Grap
-hic file (type pdf)
-<use ../2_analysis/output/figures/cz_gender_gap_persistence_full_time.pdf>
-Package pdftex.def Info: ../2_analysis/output/figures/cz_gender_gap_persistence
-_full_time.pdf  used on input line 3.
-(pdftex.def)             Requested size: 184.3758pt x 134.09439pt.
-)
-Overfull \vbox (2.91586pt too high) detected at line 13
- []
-
-[15
-
- <../2_analysis/output/figures/cz_gender_gap_persistence_full_time.pdf>]
-[16
-
-] (../2_analysis/output/figures/distribution_gap_movement_full_time.tex
-<../2_analysis/output/figures/distribution_gap_movement_full_time.png, id=217, 
-1881.0275pt x 1367.1075pt>
-File: ../2_analysis/output/figures/distribution_gap_movement_full_time.png Grap
-hic file (type png)
-<use ../2_analysis/output/figures/distribution_gap_movement_full_time.png>
-Package pdftex.def Info: ../2_analysis/output/figures/distribution_gap_movement
-_full_time.png  used on input line 3.
-(pdftex.def)             Requested size: 245.83282pt x 178.66893pt.
-)
-Overfull \vbox (10.7291pt too high) detected at line 35
- []
-
-[17
-
- <../2_analysis/output/figures/distribution_gap_movement_full_time.png (PNG cop
-y)>]
-(../2_analysis/output/figures/by_married_czone_l_czone_pop_full_time.tex
-
-pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/by_married_czon
-e_l_czone_pop_full_time.pdf): PDF inclusion: found PDF version <1.6>, but at mo
-st version <1.5> allowed
-<../2_analysis/output/figures/by_married_czone_l_czone_pop_full_time.pdf, id=22
-4, 397.485pt x 289.08pt>
-File: ../2_analysis/output/figures/by_married_czone_l_czone_pop_full_time.pdf G
-raphic file (type pdf)
-<use ../2_analysis/output/figures/by_married_czone_l_czone_pop_full_time.pdf>
-Package pdftex.def Info: ../2_analysis/output/figures/by_married_czone_l_czone_
-pop_full_time.pdf  used on input line 4.
-(pdftex.def)             Requested size: 184.3758pt x 134.09439pt.
-)
-Overfull \vbox (39.67879pt too high) detected at line 43
- []
-
-[18
-
- <../2_analysis/output/figures/by_married_czone_l_czone_pop_full_time.pdf>]
-(../2_analysis/output/figures/by_children_l_czone_pop_full_time.tex
-
-pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/by_children_l_c
-zone_pop_full_time.pdf): PDF inclusion: found PDF version <1.6>, but at most ve
-rsion <1.5> allowed
-<../2_analysis/output/figures/by_children_l_czone_pop_full_time.pdf, id=242, 39
-7.485pt x 289.08pt>
-File: ../2_analysis/output/figures/by_children_l_czone_pop_full_time.pdf Graphi
-c file (type pdf)
-<use ../2_analysis/output/figures/by_children_l_czone_pop_full_time.pdf>
-Package pdftex.def Info: ../2_analysis/output/figures/by_children_l_czone_pop_f
-ull_time.pdf  used on input line 4.
-(pdftex.def)             Requested size: 184.3758pt x 134.09439pt.
-)
-Overfull \vbox (39.67879pt too high) detected at line 50
- []
-
-[19
-
- <../2_analysis/output/figures/by_children_l_czone_pop_full_time.pdf>]
-(../2_analysis/output/figures/baseline_race_gradients_l_czone_density_full_time
-.tex
-
-pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/baseline_race_g
-radients_l_czone_density_full_time.pdf): PDF inclusion: found PDF version <1.6>
-, but at most version <1.5> allowed
-<../2_analysis/output/figures/baseline_race_gradients_l_czone_density_full_time
-.pdf, id=262, 397.485pt x 289.08pt>
-File: ../2_analysis/output/figures/baseline_race_gradients_l_czone_density_full
-_time.pdf Graphic file (type pdf)
-<use ../2_analysis/output/figures/baseline_race_gradients_l_czone_density_full_
-time.pdf>
-Package pdftex.def Info: ../2_analysis/output/figures/baseline_race_gradients_l
-_czone_density_full_time.pdf  used on input line 4.
-(pdftex.def)             Requested size: 184.3758pt x 134.09439pt.
-)
-Overfull \vbox (27.02885pt too high) detected at line 58
- []
-
-[20
-
- <../2_analysis/output/figures/baseline_race_gradients_l_czone_density_full_tim
-e.pdf>]) (LLMM_slides.bbl
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\translate ' on input line 1.
-
-[21
-
-]) [22
-
-]
 \tf@nav=\write6
 \openout6 = `LLMM_slides.nav'.
 
@@ -1720,29 +1844,44 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 \tf@snm=\write8
 \openout8 = `LLMM_slides.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 148.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 148.
- (LLMM_slides.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 148.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 148.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 144.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 144.
+(LLMM_slides.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 144.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 144.
 Package rerunfilecheck Info: File `LLMM_slides.out' has not changed.
-(rerunfilecheck)             Checksum: 8675794C9964A6E395EB78ED810C2FFE;230.
+(rerunfilecheck)             Checksum: 4CA0FF56E3EE124326A4720E136735D1;47.
  ) 
 Here is how much of TeX's memory you used:
- 34035 strings out of 480930
- 829348 string characters out of 2899761
- 1189606 words of memory out of 3000000
- 49040 multiletter control sequences out of 15000+200000
- 601532 words of font info for 79 fonts, out of 3000000 for 9000
+ 34145 strings out of 480930
+ 835809 string characters out of 2899761
+ 1188606 words of memory out of 3000000
+ 49114 multiletter control sequences out of 15000+200000
+ 601909 words of font info for 80 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,13n,117p,1812b,899s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{slide:interpretation} has been referenced but doe
-s not exist, replaced by a fixed one
+ 71i,13n,117p,1812b,964s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{slide:residual} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{slide:married} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{slide:distribution} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{slide:interpretation} has been referenced but does 
+not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{slide:race} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{slide:map} has been referenced but does not exist, 
+replaced by a fixed one
 
 {C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.
+enc}{C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.
 enc}{C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mat
 hit.enc}{C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm
--rm.enc}{C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm
 -ts1.enc}<C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/l
 m/lmmi10.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
 ic/lm/lmmi9.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
@@ -1754,10 +1893,10 @@ ts/type1/public/lm/lmssbx10.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2
 TeX 2.9/fonts/type1/public/lm/lmsso8.pfb><C:/Users/thecs/AppData/Local/Programs
 /MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/thecs/AppData/Local/Prog
 rams/MiKTeX 2.9/fonts/type1/public/lm/lmsy5.pfb><C:/Users/thecs/AppData/Local/P
-rograms/MiKTeX 2.9/fonts/type1/public/lm/lmsy7.pfb>
-Output written on LLMM_slides.pdf (22 pages, 977023 bytes).
+rograms/MiKTeX 2.9/fonts/type1/public/lm/lmsy9.pfb>
+Output written on LLMM_slides.pdf (31 pages, 998860 bytes).
 PDF statistics:
- 347 PDF objects out of 1000 (max. 8388607)
- 65 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 391 PDF objects out of 1000 (max. 8388607)
+ 75 named destinations out of 1000 (max. 500000)
+ 136 words of extra memory for PDF output out of 10000 (max. 10000000)
 

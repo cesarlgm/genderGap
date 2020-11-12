@@ -72,7 +72,7 @@ else if "`indep_var'"=="l_czone_pop" {
 }
 
 use "../1_build_database/output/czone_level_dabase_`name'", clear
-
+/*
 *I add the state indicator
 merge m:1 czone using "input/cw_czone_state", keep(1 3) nogen
 merge m:1 czone year using ///

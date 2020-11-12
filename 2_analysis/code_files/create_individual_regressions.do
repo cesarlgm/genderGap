@@ -11,10 +11,29 @@ local 	czone_chars_file "../1_build_database/output/czone_level_dabase_full_time
 GENDER REGRESSIONS
 *************************************************************************************************************************************/
 use "../1_build_database/output/czone_level_dabase_full_time", clear
+
+
+sort czone year
+by czone: generate czone_pop_70=czone_pop[2]
+by czone: generate l_czone_density_50=l_czone_density[1]
+
 drop if year==1950
-regress wage_raw_gap c.`indep_var'#ib1970.year i.year,                                  vce(cl czone) 	
+regress wage_raw_gap c.`indep_var'#ib1970.year i.year,        vce(cl czone)                            	
 estimates save "output/regressions/baseline_individual_`indiv_sample'", 		replace 
 
+
+regress wage_raw_gap c.`indep_var'#ib1970.year i.year [aw=czone_pop_70] ,  vce(cl czone)                	
+estimates save "output/regressions/baseline_individual_`indiv_sample'_w", 		replace 
+
+*Limiting to the largest CZ
+*All these places had at least 50000 people in 1950, whcih would roughly correspond with the 
+*the definition of urbanized areas from the census according to this document
+* https://www2.census.gov/geo/pdfs/reference/GARM/Ch12GARM.pdf
+regress wage_raw_gap c.`indep_var'#ib1970.year i.year if l_czone_density_50>2, vce(cl czone)                  	
+estimates save "output/regressions/baseline_large_individual_`indiv_sample'",  replace
+
+
+*Absorbing permanent region / state /  variation
 reghdfe wage_raw_gap c.`indep_var'#ib1970.year i.year, absorb(region)                   vce(cl czone) 	
 estimates save "output/regressions/baseline_region_individual_`indiv_sample'", 		replace 
 
@@ -26,6 +45,75 @@ estimates save "output/regressions/baseline_region_trend_individual_`indiv_sampl
 
 reghdfe wage_raw_gap c.`indep_var'#ib1970.year i.year, absorb(year#state)               vce(cl czone) 	
 estimates save "output/regressions/baseline_state_trend_individual_`indiv_sample'", 	replace 
+
+*/
+
+/*************************************************************************************************************************************
+URBAN WAGE PREMIUM BY GENDER
+*************************************************************************************************************************************/
+regress male_l_wage c.`indep_var'#ib1970.year i.year ,                           vce(cl czone) 	
+estimates save "output/regressions/male_urban_premium_`indiv_sample'", 		        replace 
+
+regress female_l_wage c.`indep_var'#ib1970.year i.year,                         vce(cl czone) 	
+estimates save "output/regressions/female_urban_premium_`indiv_sample'", 		        replace 
+
+regress male_l_wage c.`indep_var'#ib1970.year i.year [aw=czone_pop_70] ,         vce(cl czone) 	
+estimates save "output/regressions/male_urban_premium_w_`indiv_sample'", 		        replace 
+
+regress female_l_wage c.`indep_var'#ib1970.year i.year [aw=czone_pop_70],       vce(cl czone) 	
+estimates save "output/regressions/female_urban_premium_w_`indiv_sample'", 		        replace 
+
+regress male_l_wage_human c.`indep_var'#ib1970.year i.year,                           vce(cl czone) 	
+estimates save "output/regressions/male_human_`indiv_sample'", 		        replace 
+
+regress female_l_wage_human c.`indep_var'#ib1970.year i.year,                         vce(cl czone) 	
+estimates save "output/regressions/female_human_`indiv_sample'", 		        replace 
+
+regress male_l_wage_human c.`indep_var'#ib1970.year i.year [aw=czone_pop_70] ,         vce(cl czone) 	
+estimates save "output/regressions/male_human_w_`indiv_sample'", 		        replace 
+
+regress female_l_wage_human c.`indep_var'#ib1970.year i.year [aw=czone_pop_70],       vce(cl czone) 	
+estimates save "output/regressions/female_human_w_`indiv_sample'", 		        replace 
+
+/*************************************************************************************************************************************
+CHANGE IN URBAN REAL WAGES
+*************************************************************************************************************************************/
+xtset czone year, delta(10)
+
+sort czone year 
+generate d_male_l_wage=         male_l_wage-male_l_wage[_n-2]
+generate d_female_l_wage=       female_l_wage-female_l_wage[_n-2]
+
+generate lfp_gap=         male_lfp-female_lfp
+
+
+generate d_male_lfp=         male_lfp-male_lfp[_n-2]
+generate d_female_lfp=       female_lfp-female_lfp[_n-2]
+
+
+regress lfp_gap c.`indep_var'#i.year i.year   if year>1950,                           vce(cl czone) 	
+estimates save "output/regressions/lfp_gap_`indiv_sample'", 		        replace 
+
+
+regress d_male_l_wage c.`indep_var'#i.year i.year   if year>1980,                           vce(cl czone) 	
+estimates save "output/regressions/d_male_l_wage_`indiv_sample'", 		        replace 
+
+regress d_female_l_wage c.`indep_var'#i.year i.year  if year>1980,                         vce(cl czone) 	
+estimates save "output/regressions/d_female_l_wage_`indiv_sample'", 		        replace 
+
+
+regress d_male_lfp c.`indep_var'#i.year i.year   if year>1980,                           vce(cl czone) 	
+estimates save "output/regressions/d_male_lfp_`indiv_sample'", 		        replace 
+
+regress d_female_lfp c.`indep_var'#i.year i.year  if year>1980,                         vce(cl czone) 	
+estimates save "output/regressions/d_female_lfp_`indiv_sample'", 		        replace 
+
+
+/*
+
+regress female_l_wage c.`indep_var'#ib1970.year i.year [aw=czone_pop_70],                   vce(cl czone) 	
+estimates save "output/regressions/baseline_individual_`indiv_sample'_w", 		replace 
+
 
 
 /*************************************************************************************************************************************
@@ -49,27 +137,54 @@ reghdfe wage_raw_gap c.`indep_var'#ib1970.year i.year, absorb(year#state)       
 estimates save "output/regressions/baseline_race_state_trend_individual_`indiv_sample'", 			     replace 
 
 
-
+*/
 /*************************************************************************************************************************************
 REGRESSIONS CONTROLLING FOR INDIVIDUAL CHARACTERISTICS
 *************************************************************************************************************************************/
 use "../1_build_database/output/czone_level_dabase_full_time", clear
 drop if year==1950
-local fixed_effects i.region#i.year
-reghdfe wage_bas_gap c.`indep_var'#i.year i.year ,	    absorb(`fixed_effects')		                    vce(cl czone)
+local fixed_effects i.year
+reghdfe wage_bas_gap c.`indep_var'#i.year,	    absorb(`fixed_effects')  vce(cl czone)
 estimates save "output/regressions/with_bas_controls_individual_`indiv_sample'",       	    replace
-reghdfe wage_hum_gap c.`indep_var'#i.year i.year ,	    absorb(`fixed_effects')	                           vce(cl czone)
+reghdfe wage_hum_gap c.`indep_var'#i.year ,	    absorb(`fixed_effects')	                           vce(cl czone)
 estimates save "output/regressions/with_hum_controls_individual_`indiv_sample'",            replace
-reghdfe wage_ful_gap c.`indep_var'#i.year i.year ,		 absorb(`fixed_effects')						        vce(cl czone)
-estimates save "output/regressions/with_ful_controls_individual_`indiv_sample'", 	        replace
-reghdfe wage_fam_gap c.`indep_var'#i.year i.year ,		 absorb(`fixed_effects')						        vce(cl czone)
+reghdfe wage_ful_gap c.`indep_var'#i.year ,		 absorb(`fixed_effects')						        vce(cl czone)
+estimates save "output/regressions/with_ful_controls_individul_`indiv_sample'", 	        replace
+reghdfe wage_fam_gap c.`indep_var'#i.year ,		 absorb(`fixed_effects')						        vce(cl czone)
 estimates save "output/regressions/with_fam_controls_individual_`indiv_sample'", 	        replace
-reghdfe wage_ffu_gap c.`indep_var'#i.year i.year ,		 absorb(`fixed_effects')						        vce(cl czone)
+reghdfe wage_ffu_gap c.`indep_var'#i.year ,		 absorb(`fixed_effects')						        vce(cl czone)
 estimates save "output/regressions/with_ffu_controls_individual_`indiv_sample'", 	        replace
-reghdfe wage_tti_gap c.`indep_var'#i.year i.year ,		 absorb(`fixed_effects')				        vce(cl czone)
+reghdfe wage_tti_gap c.`indep_var'#i.year ,		 absorb(`fixed_effects')				        vce(cl czone)
+estimates save "output/regressions/with_trantime_controls_individual_`indiv_sample'", 	    replace
+
+/*
+/*************************************************************************************************************************************
+BY EDUCATION GROUP
+*************************************************************************************************************************************/
+use "../1_build_database/output/by_education_file_full_time", clear
+
+
+
+
+/*
+use "../1_build_database/output/czone_level_dabase_full_time", clear
+drop if year==1950
+local fixed_effects i.year
+reghdfe wage_bas_gap c.`indep_var'#i.year,	    absorb(`fixed_effects')		                    vce(cl czone)
+estimates save "output/regressions/with_bas_controls_individual_`indiv_sample'",       	    replace
+reghdfe wage_hum_gap c.`indep_var'#i.year ,	    absorb(`fixed_effects')	                           vce(cl czone)
+estimates save "output/regressions/with_hum_controls_individual_`indiv_sample'",            replace
+reghdfe wage_ful_gap c.`indep_var'#i.year ,		 absorb(`fixed_effects')						        vce(cl czone)
+estimates save "output/regressions/with_ful_controls_individul_`indiv_sample'", 	        replace
+reghdfe wage_fam_gap c.`indep_var'#i.year ,		 absorb(`fixed_effects')						        vce(cl czone)
+estimates save "output/regressions/with_fam_controls_individual_`indiv_sample'", 	        replace
+reghdfe wage_ffu_gap c.`indep_var'#i.year ,		 absorb(`fixed_effects')						        vce(cl czone)
+estimates save "output/regressions/with_ffu_controls_individual_`indiv_sample'", 	        replace
+reghdfe wage_tti_gap c.`indep_var'#i.year ,		 absorb(`fixed_effects')				        vce(cl czone)
 estimates save "output/regressions/with_trantime_controls_individual_`indiv_sample'", 	    replace
 
 
+/*
 
 /********************************************************************************************************************************
 GRAPH 4: CONTROLLING FOR CZ LEVEL CHARACTERISTICS

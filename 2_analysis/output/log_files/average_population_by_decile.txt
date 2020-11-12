@@ -1,8 +1,9 @@
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  C:\Users\thecs\Dropbox\boston_university\7-Research\genderGap\2_analysis\output/log_files/average_population_by_decile.txt
+       log:  C:\Users\thecs\Dropbox\boston_university\7-Research\genderGap\2_analysi
+> s\output/log_files/average_population_by_decile.txt
   log type:  text
- opened on:  28 Oct 2020, 11:41:39
+ opened on:   2 Nov 2020, 21:44:12
 
 . 
 . *Average population in the czone in 2020, by population density quantile
@@ -29,7 +30,8 @@ tercile   | mean(czone_~p)
 
 . log close
       name:  <unnamed>
-       log:  C:\Users\thecs\Dropbox\boston_university\7-Research\genderGap\2_analysis\output/log_files/average_population_by_decile.txt
+       log:  C:\Users\thecs\Dropbox\boston_university\7-Research\genderGap\2_analysi
+> s\output/log_files/average_population_by_decile.txt
   log type:  text
- closed on:  28 Oct 2020, 11:41:39
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ closed on:   2 Nov 2020, 21:44:12
+------------------------------------------------------------------------------------

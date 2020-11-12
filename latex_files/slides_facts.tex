@@ -1,9 +1,181 @@
+\begin{frame}{Today the gender gap is \textbf{\alert{narrower}} in denser labor markets}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\input{../2_analysis/output/figures/l_czone_density_2020.tex}
+		\column{0.5\textwidth}
+		The negative gradient is robust to:
+		\bitem
+			\item Limiting to the largest CZ 	\beamerbutton{\hyperlink{slide:map}{Largest CZ}}. 
+			\item Weighting scheme 	\beamerbutton{\hyperlink{slide:map}{Weighted regression}}.
+			\item Controlling for individual characteristics \beamerbutton{\hyperlink{slide:map}{Residualized wages}}.
+		\eitem
+	\end{columns}
+\end{frame}
+
+\begin{frame}{The negative correlation is robust}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\textbf{\alert{Limiting to the largest CZ}}
+		{\tiny\input{../2_analysis/output/figures/l_czone_density_2020_big_CZ.tex}}
+		\column{0.5\textwidth}
+		\textbf{\alert{Weighting by population}}
+		{\tiny\input{../2_analysis/output/figures/l_czone_density_2020_w.tex}}
+	\end{columns} 
+\end{frame}
+
+
+\begin{frame}{It is robust to accounting for individual characteristics}
+	\begin{columns}
+		\column{.5\textwidth}
+		\input{../2_analysis/output/figures/l_czone_density_2020_hum.tex}
+		\column{.5\textwidth}
+	\end{columns} 
+\end{frame}
+
+
+\begin{frame}{The gender-gap density gradient has declined since 1970}
+\begin{columns}
+	\column{0.5\textwidth}
+	\input{../2_analysis/output/figures/l_czone_density_1970_vs_2020.tex}
+	\beamerbutton{\hyperlink{slide:map}{Graph without absorb}} 
+	\column{0.5\textwidth}
+	\input{../2_analysis/output/figures/baseline_l_czone_density_full_time.tex}
+	\beamerbutton{\hyperlink{slide:map}{With individual controls}}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Robustness}
+	The change in the gradient is robust to:
+	\bitem 
+		\item Limiting regressions to the biggest CZ	\beamerbutton{\hyperlink{slide:map}{biggest CZ}}.
+		\item Using weighting schemes commonly used in the literature (estimates become much more imprecise) \beamerbutton{\hyperlink{slide:map}{population weighting}}
+		\item Using only within-region / within-state variation  \beamerbutton{\hyperlink{slide:map}{adding FE}}
+		\item Adjusting wages by: age, education, foreign born dummy, and education \beamerbutton{\hyperlink{slide:map}{residualizing wages}}.
+		\item Using log of CZ population as independent variable \beamerbutton{\hyperlink{slide:map}{population as density measure}}.
+	\eitem 
+\end{frame}
+
+
+\begin{frame}{Robustness}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\input{../2_analysis/output/figures/baseline_large_l_czone_density_full_time.tex}
+		\beamerbutton{\hyperlink{slide:map}{With individual controls}}
+		\column{0.5\textwidth}
+		\input{../2_analysis/output/figures/baseline_w_l_czone_density_full_time.tex}
+		\beamerbutton{\hyperlink{slide:map}{Graph without absorb}} 
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Robustness}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\input{../2_analysis/output/figures/baseline_fe_l_czone_density_full_time.tex}
+		\beamerbutton{\hyperlink{slide:map}{With individual controls}}
+		\column{0.5\textwidth}
+	    { \tiny	\input{../2_analysis/output/figures/with_controls_gradients_individual_l_czone_density_full_time.tex}}
+		\beamerbutton{\hyperlink{slide:map}{Graph without absorb}} 
+	\end{columns}
+\end{frame}
+
+\begin{frame}{The gradient decline in perspective: several benchmarks}
+	\bitem
+		\item Translate coefficients in terms of gap from small vs densest CZ
+		\item Coefficients are percent of gender gap sd.
+		\item Change in coefficients in terms of urban wage premium.
+	\eitem 
+\end{frame}
+
+
+\begin{frame}{A tale of women's success and male decline in denser labor markets}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\input{../2_analysis/output/figures/premium_by_gender_full_time.tex}
+		\beamerbutton{\hyperlink{slide:map}{Graph without absorb}}
+		\column{0.5\textwidth}
+		\input{../2_analysis/output/figures/two_decade_changes_full_time.tex}
+		\beamerbutton{\hyperlink{slide:map}{Weighted regressions}}
+		\beamerbutton{\hyperlink{slide:map}{With individual controls}}
+	\end{columns}
+\end{frame}
+
+
+
+\begin{frame}{A tale of women's success and male decline in denser labor markets}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\input{../2_analysis/output/figures/lfp_gap_full_time.tex}
+		\beamerbutton{\hyperlink{slide:map}{Graph without absorb}}
+		\column{0.5\textwidth}
+		\input{../2_analysis/output/figures/change_lfp_full_time.tex}
+		\beamerbutton{\hyperlink{slide:map}{Weighted regressions}}
+		\beamerbutton{\hyperlink{slide:map}{With individual controls}}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{What can explain the decline in the gradient?}
+	\bitem 
+		\item Increased sorting of high-skill women in the densest CZ.
+		\item Rise of women college education
+		\item CZ industrial structure.
+	\eitem 
+\end{frame}
+\begin{frame}{Industrial structure}
+	\bitem 
+	\item Increased sorting of high-skill women in the densest CZ.
+	\item Rise of women college education
+	\item CZ industrial structure.
+	\eitem 
+\end{frame}
+
+\begin{frame}{Not readily explained by sorting on human-capital variables}
+ 	\begin{columns}
+ 		\column{0.5\textwidth}
+ 		\bitem
+	 		\item If high-skill women increasingly sort into into denser labor markets (relative to men)$\implies$gender gaps in denser CZ will decrease faster over time.
+	 		\bitem
+	 		\item Decrease in the gradient should disappear once education is taken into account.
+	 		\item Not supported by the data.
+	 		\eitem 
+ 		\eitem 
+		\column{0.5\textwidth}	
+		 { \tiny	\input{../2_analysis/output/figures/with_controls_gradients_individual_l_czone_density_full_time.tex}}
+ 	\end{columns}
+\end{frame}
+\begin{frame}{Change in the gender gap gradient is concentrated in workers without a college degree}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\column{0.5\textwidth}
+	\end{columns} 
+\end{frame}
+
+\begin{frame}{The role of industries}
+	\begin{columns}
+	\column{0.5\textwidth}
+
+	\column{0.5\textwidth}	
+	{ \tiny	\input{../2_analysis/output/figures/with_ind_gradients_individual_l_czone_density_full_time.tex}}
+\end{columns}
+\end{frame}
+\begin{frame}{Is it polarization of the occupational structure?}
+	\bitem
+	\item 
+	\eitem 
+\end{frame}
+\begin{frame}{Not explained by increase in inequality}
+	\bitem
+	\item 
+	\eitem 
+\end{frame}
+
+
 \begin{frame}{\textbf{Fact 1:} there are persistent differences in \underline{the level} of the gender gap across CZ} 
 \label{slide:fact1}
 {\scriptsize\input{../2_analysis/output/tables/cross_cz_statistics.tex}}
 \textbf{\alert{Persistence:}} 20-year auto-correlation coefficient $>$ 50\%.
 
-\beamerbutton{\hyperlink{slide:map}{Geographical pattern}}\hspace{1cm} \beamerbutton{\hyperlink{slide:map}{Persistence}}
+\beamerbutton{\hyperlink{slide:map}{Geographical pattern}}\hspace{1cm} 
 \end{frame}
 
 \begin{frame}{Fact 2: there is wide variation in the \underline{change} of gender wage gap across CZ}
@@ -16,7 +188,32 @@
 	\label{slide:baseline}
 	\textbf{\alert{Regression specification:}}	$w^{men}_{rt}-w^{women}_{rt}=\alpha_{rt}+\beta_{t}\ln(density)_{rt}+ \dots$
 	\input{../2_analysis/output/figures/baseline_gradients_l_czone_density_full_time.tex}
-\beamerbutton{\hyperlink{slide:interpretation}{On coefficient size}} \hspace{.5cm} 	\beamerbutton{\hyperlink{slide:distribution}{Distribution illustration}}	 \hspace{.5cm} 	\beamerbutton{\hyperlink{slide:race}{Is this about gender?}} \hspace{.5cm}	\beamerbutton{\hyperlink{slide:married}{Within-group graphs}}		
+\end{frame}
+\begin{frame}{The change in the gender-gap gradient is big}
+	\bitem
+		\item 
+		\item Men vs women urban wage premium
+	\eitem
+\end{frame}
+\begin{frame}{}
+This change in the gradient:
+\bitem
+	\item is not driven \textbf{\alert{permanent}} regional differences across the US [graph adding the fixed effects].
+	\item is not driven any single CZ [1970 vs 2020 graph].
+	\item is not present when looking at race \beamerbutton{\hyperlink{slide:race}{race graphs}}.
+	\item is also present when I zoom in on the 240 most dense labor markets [limit to the 40\% most dense labor markets]
+	\item also appears when including part-time workers in the sample
+\eitem	
+\beamerbutton{\hyperlink{slide:interpretation}{On coefficient size}} \hspace{.5cm} 	\beamerbutton{\hyperlink{slide:distribution}{Distribution illustration}}	 \hspace{.5cm} 	\hspace{.5cm}	\beamerbutton{\hyperlink{slide:married}{Within-group graphs}}	
+\end{frame}
+
+\begin{frame}{What is driving these pattern? A mix of women's progress and men decline}
+	There are two distinct periods:
+	\bitem
+		\item \textbf{\alert{1970-1990}:} both sexes gain in denser CZ, but women's gains are larger.
+		\item \textbf{\alert{1990-2010}:} changes in the gradient are driven by men's decline in denser labor markets.
+	\eitem
+	
 \end{frame}
 
 \begin{frame}{How big are these coefficients?}  

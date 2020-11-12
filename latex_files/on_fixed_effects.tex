@@ -1,0 +1,31 @@
+\section{When would the national level fixed-effects account for the cross-sectional variation?}
+
+Suppose the wage profile of individuals is determined as follows:
+\beqn
+	w_{ir}=\lambda_e
+\eeqn
+where $\lambda_e$ is a national-level fixed effects. Then,
+\beqn
+\bar{w}_{r}^g=\sum_e\lambda_es_{r}^g
+\eeqn
+then the gender gap in a given commuting zone is given by,
+\beqn
+\bar{w}_{r}^m-\bar{w}_{r}^f=\sum_e^g\lambda_e^g(s_{r}^m-s_{r}^f)
+\eeqn
+suppose that:
+\beqn
+s_{r}^g=\alpha_e^g+\beta_e^g\log(density)_r
+\eeqn
+then gender gap equation becomes,
+\beqn
+\bar{w}_{r}^m-\bar{w}_{r}^f=\sum_e\lambda_e(\alpha_e^m-\alpha_e^f)+\sum_e\lambda_e(\beta_e^m-\beta_e^f)\log(density)_r
+\eeqn
+It follows that $\sum_e\beta_e^g=1$. This follows from the identity below holding for all CZ:
+\beqn
+	1=\sum_es_{er}^g=\sum_e\alpha_e^g+(\sum_e\beta_e^g)\log(density)_r
+\eeqn
+So a negative coefficient in density requires:
+\beqn
+\sum_e\lambda_e(\beta_e^m-\beta_e^f)<0
+\eeqn
+Which roughly requires that have a higher gradient on density in employment in ``high-pay'' groups relative to men. 
