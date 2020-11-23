@@ -142,20 +142,107 @@ estimates save "output/regressions/baseline_race_state_trend_individual_`indiv_s
 REGRESSIONS CONTROLLING FOR INDIVIDUAL CHARACTERISTICS
 *************************************************************************************************************************************/
 use "../1_build_database/output/czone_level_dabase_full_time", clear
+
+sort czone year
+by czone: generate czone_pop_70=czone_pop[2]
+by czone: generate l_czone_density_50=l_czone_density[1]
+
 drop if year==1950
-local fixed_effects i.year
-reghdfe wage_bas_gap c.`indep_var'#i.year,	    absorb(`fixed_effects')  vce(cl czone)
+
+reg wage_bas_gap c.`indep_var'#i.year i.year,	   vce(cl czone)
 estimates save "output/regressions/with_bas_controls_individual_`indiv_sample'",       	    replace
-reghdfe wage_hum_gap c.`indep_var'#i.year ,	    absorb(`fixed_effects')	                           vce(cl czone)
+reg wage_hum_gap c.`indep_var'#i.year i.year,	                           vce(cl czone)
 estimates save "output/regressions/with_hum_controls_individual_`indiv_sample'",            replace
-reghdfe wage_ful_gap c.`indep_var'#i.year ,		 absorb(`fixed_effects')						        vce(cl czone)
+reg wage_ind_gap c.`indep_var'#i.year i.year,							        vce(cl czone)
 estimates save "output/regressions/with_ful_controls_individul_`indiv_sample'", 	        replace
-reghdfe wage_fam_gap c.`indep_var'#i.year ,		 absorb(`fixed_effects')						        vce(cl czone)
+reg wage_fam_gap c.`indep_var'#i.year i.year,							        vce(cl czone)
 estimates save "output/regressions/with_fam_controls_individual_`indiv_sample'", 	        replace
-reghdfe wage_ffu_gap c.`indep_var'#i.year ,		 absorb(`fixed_effects')						        vce(cl czone)
+reg wage_ffu_gap c.`indep_var'#i.year i.year,							        vce(cl czone)
 estimates save "output/regressions/with_ffu_controls_individual_`indiv_sample'", 	        replace
-reghdfe wage_tti_gap c.`indep_var'#i.year ,		 absorb(`fixed_effects')				        vce(cl czone)
+reg wage_tti_gap c.`indep_var'#i.year i.year ,					        vce(cl czone)
 estimates save "output/regressions/with_trantime_controls_individual_`indiv_sample'", 	    replace
+
+
+/*************************************************************************************************************************************
+SEPARATING THE REGRESSIONS BY GENDER
+*************************************************************************************************************************************/
+local fixed_effects i.year
+foreach variable in l_wage l_wage_bas l_wage_human l_wage_full lfp{
+        reghdfe male_`variable' c.`indep_var'#i.year,	    absorb(`fixed_effects')  vce(cl czone)
+        estimates save "output/regressions/male_`variable'_`indiv_sample'",       	    replace
+
+        reghdfe female_`variable' c.`indep_var'#i.year,	    absorb(`fixed_effects')  vce(cl czone)
+        estimates save "output/regressions/female_`variable'_`indiv_sample'",       	    replace
+
+        sort czone year
+        by czone: generate d_male_`variable'=male_`variable'-male_`variable'[_n-2]
+        
+        reg d_male_`variable' c.`indep_var'#i.year i.year ,	      vce(cl czone)
+        estimates save "output/regressions/d_male_`variable'_`indiv_sample'",       	    replace
+
+        sort czone year
+        by czone: generate d_female_`variable'=female_`variable'-female_`variable'[_n-2]
+
+        reg d_female_`variable' c.`indep_var'#i.year i.year ,	      vce(cl czone)
+        estimates save "output/regressions/d_female_`variable'_`indiv_sample'",       	    replace
+}
+
+
+
+/*************************************************************************************************************************************
+REGRESSIONS BY INDUSTRY
+*************************************************************************************************************************************/
+use "../1_build_database/output/ind_average_wages_full_time", clear
+
+sort czone ind_type year
+by czone ind_type: generate l_czone_density_50=l_czone_density[1]
+
+drop if year==1950
+
+levelsof ind_type
+eststo clear
+foreach industry in `r(levels)' {
+        regress ind_wage_gap i.year#c.`indep_var' i.year if ind_type==`industry' ///
+                & l_czone_density_50>0 , vce(cl czone)
+        estimates save "output/regressions/gap_ind_`industry'",       	    replace
+
+
+        regress male_l_hrwage i.year#c.`indep_var' i.year if ind_type==`industry' ///
+                & l_czone_density_50>0 , vce(cl czone)
+        estimates save "output/regressions/male_wage_ind_`industry'",       	    replace
+
+        
+        regress female_l_hrwage i.year#c.`indep_var' i.year if ind_type==`industry' ///
+                & l_czone_density_50>0 , vce(cl czone)
+        estimates save "output/regressions/female_wage_ind_`industry'",       	    replace
+}
+
+gegen total_male_emp= sum(male_employment), by(czone year)
+gegen total_female_emp= sum(female_employment), by(czone year)
+
+generate male_ind_share=male_employment/total_male_emp
+generate female_ind_share=female_employment/total_female_emp
+
+generate gender_emp_gap=male_ind_share-female_ind_share
+
+
+*Changes in wages
+
+by czone ind_type: g d_male_l_hrwage=   male_l_hrwage-male_l_hrwage[_n-2]
+by czone ind_type: g d_female_l_hrwage= female_l_hrwage-female_l_hrwage[_n-2]
+
+
+levelsof ind_type
+foreach industry in `r(levels)' {
+        regress d_male_l_hrwage i.year#c.`indep_var' i.year if ind_type==`industry' ///
+                & l_czone_density_50>0 , vce(cl czone)
+        estimates save "output/regressions/d_male_wage_ind_`industry'",       	   replace
+
+
+        regress d_female_l_hrwage i.year#c.`indep_var' i.year if ind_type==`industry' ///
+                & l_czone_density_50>0 , vce(cl czone)
+        estimates save "output/regressions/d_female_wage_ind_`industry'",      replace
+}
 
 /*
 /*************************************************************************************************************************************

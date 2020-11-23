@@ -42,9 +42,6 @@ foreach year in  `year_list' {
 		
 		tempfile census
 		save `census'
-		
-		generate l_hrwage_full=l_hrwage 	if missing(full_time)|full_time==0
-
 	
 		*STEP 1> computing czone level variables
 		preserve
@@ -147,7 +144,7 @@ foreach year in  `year_list' {
 		rename  __hdfe1__ l_wage_by_education
 		cap drop __*__
 		
-		/*
+		
 		reghdfe l_hrwage  `filter' [pw=perwt], ///
 			absorb(i.czone#i.female i.age i.grouped_race i.migrant, savefe) nocons
 		rename  __hdfe1__ l_wage_basic
@@ -163,8 +160,29 @@ foreach year in  `year_list' {
 
 		*Adding occupation and industry fixed effects
 		reghdfe l_hrwage  `filter' [pw=perwt], ///
+			absorb(i.czone#i.female i.age i.grouped_race i.migrant i.education i.ind1950, savefe) nocons
+		rename  __hdfe1__ l_wage_ind
+
+		cap drop __*__
+
+		*Adding occupation and industry fixed effects
+		reghdfe l_hrwage  `filter' [pw=perwt], ///
+			absorb(i.czone#i.female i.age i.grouped_race i.migrant i.education i.ind1950#i.female, savefe) nocons
+		rename  __hdfe1__ l_wage_indf
+
+		cap drop __*__
+
+		*Adding occupation and industry fixed effects
+		reghdfe l_hrwage  `filter' [pw=perwt], ///
 			absorb(i.czone#i.female i.age i.grouped_race i.migrant i.education i.ind1950 i.occ1950, savefe) nocons
 		rename  __hdfe1__ l_wage_full
+
+		cap drop __*__
+
+		*Adding occupation and industry fixed effects
+		reghdfe l_hrwage  `filter' [pw=perwt], ///
+			absorb(i.czone#i.female i.age i.grouped_race i.migrant i.education i.ind1950 i.occ1950#i.female, savefe) nocons
+		rename  __hdfe1__ l_wage_fulf
 
 		cap drop __*__
 
@@ -222,7 +240,7 @@ foreach year in  `year_list' {
 				
 			save `by_gender_ind_`year''
 		restore
-		
+		*/
 		
 		gcollapse (mean) l_wage* , by(female czone year) fast
 		
@@ -238,8 +256,17 @@ foreach year in  `year_list' {
 		rename  l_wage_human0 male_l_wage_human
 		rename  l_wage_human1 female_l_wage_human
 
+		rename  l_wage_ind0 male_l_wage_ind
+		rename  l_wage_ind1 female_l_wage_ind
+
+		rename  l_wage_indf0 male_l_wage_indf
+		rename  l_wage_indf1 female_l_wage_indf
+
 		rename  l_wage_full0 male_l_wage_full
 		rename  l_wage_full1 female_l_wage_full
+
+		rename  l_wage_fulf0 male_l_wage_fulf
+		rename  l_wage_fulf1 female_l_wage_fulf
 
 		rename  l_wage_fam0 male_l_wage_fam
 		rename  l_wage_fam1 female_l_wage_fam	
@@ -256,13 +283,16 @@ foreach year in  `year_list' {
 		generate l_czone_pop=		log(czone_pop)
 		generate l_czone_density=	log(czone_pop/cz_area)
 		
-		generate wage_raw_gap=male_l_wage-female_l_wage
-		generate wage_bas_gap=male_l_wage_basic-female_l_wage_basic
-		generate wage_hum_gap=male_l_wage_human-female_l_wage_human
-		generate wage_ful_gap=male_l_wage_full-female_l_wage_full
-		generate wage_fam_gap=male_l_wage_fam-female_l_wage_fam
-		generate wage_ffu_gap=male_l_wage_fam_full-female_l_wage_fam_full
-		cap generate wage_tti_gap=male_l_wage_tti-female_l_wage_tti
+		generate wage_raw_gap=			male_l_wage-female_l_wage
+		generate wage_bas_gap=			male_l_wage_basic-female_l_wage_basic
+		generate wage_hum_gap=			male_l_wage_human-female_l_wage_human
+		generate wage_ind_gap=			male_l_wage_ind-female_l_wage_ind
+		generate wage_indf_gap=			male_l_wage_indf-female_l_wage_indf
+		generate wage_ful_gap=			male_l_wage_full-female_l_wage_full
+		generate wage_fulf_gap=			male_l_wage_fulf-female_l_wage_fulf
+		generate wage_fam_gap=			male_l_wage_fam-female_l_wage_fam
+		generate wage_ffu_gap=			male_l_wage_fam_full-female_l_wage_fam_full
+		cap generate wage_tti_gap=		male_l_wage_tti-female_l_wage_tti
 
 		tempfile collapsed`year'
 		save `collapsed`year''	

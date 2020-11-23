@@ -93,18 +93,20 @@ do "code_files/graphs_by_demographic_groups.do" 	l_czone_density full_time ///
 timer on 	1
 do "code_files/create_aggregate_regressions.do" 		l_czone_density full_time ///
 	1   `year_list'
-timer off 1
+timer ofbr
 
-*/
 *Create regressions on czone density
 do "code_files/create_individual_regressions.do" 		l_czone_density full_time ///
 	1   `year_list'
 
+*/
 
 do "code_files/write_regression_coefplots.do" 			l_czone_density full_time ///
 	1   `year_list'
+
 	
-/*
+/*	
+
 
 *Create regressions on czone population 	
 do "code_files/create_individual_regressions.do" 		l_czone_pop full_time ///

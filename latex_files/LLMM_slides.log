@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.22)  11 NOV 2020 19:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.22)  19 NOV 2020 14:42
 entering extended mode
 **./LLMM_slides.tex
 (LLMM_slides.tex
@@ -1473,26 +1473,26 @@ LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <6> not available
 
 ]) (slides_facts.tex
 (../2_analysis/output/figures/l_czone_density_2020.tex
-<../2_analysis/output/figures/l_czone_density_2020.png, id=44, 877.2775pt x 637
-.38126pt>
-File: ../2_analysis/output/figures/l_czone_density_2020.png Graphic file (type 
-png)
-<use ../2_analysis/output/figures/l_czone_density_2020.png>
-Package pdftex.def Info: ../2_analysis/output/figures/l_czone_density_2020.png 
- used on input line 4.
-(pdftex.def)             Requested size: 153.64493pt x 111.63092pt.
+<../2_analysis/output/figures/change_1970_2020.png, id=44, 1303.87125pt x 948.5
+4375pt>
+File: ../2_analysis/output/figures/change_1970_2020.png Graphic file (type png)
+
+<use ../2_analysis/output/figures/change_1970_2020.png>
+Package pdftex.def Info: ../2_analysis/output/figures/change_1970_2020.png  use
+d on input line 4.
+(pdftex.def)             Requested size: 153.64493pt x 111.76508pt.
 ) [5
 
- <../2_analysis/output/figures/l_czone_density_2020.png (PNG copy)>]
+ <../2_analysis/output/figures/change_1970_2020.png (PNG copy)>]
 (../2_analysis/output/figures/l_czone_density_2020_big_CZ.tex
-<../2_analysis/output/figures/l_czone_density_2020_big_CZ.png, id=54, 877.2775p
-t x 637.38126pt>
+<../2_analysis/output/figures/l_czone_density_2020_big_CZ.png, id=54, 1241.6387
+5pt x 902.37125pt>
 File: ../2_analysis/output/figures/l_czone_density_2020_big_CZ.png Graphic file
  (type png)
 <use ../2_analysis/output/figures/l_czone_density_2020_big_CZ.png>
 Package pdftex.def Info: ../2_analysis/output/figures/l_czone_density_2020_big_
 CZ.png  used on input line 4.
-(pdftex.def)             Requested size: 153.64493pt x 111.63092pt.
+(pdftex.def)             Requested size: 153.64493pt x 111.65329pt.
 
 Underfull \hbox (badness 2111) in paragraph at lines 5--5
 []\OT1/lmss/bx/n/5 Note: \OT1/lmss/m/n/5 fig-ure re-stricts to CZ with more tha
@@ -1501,43 +1501,43 @@ n 1 peo-ple per
 
 
 Underfull \hbox (badness 1112) in paragraph at lines 5--5
-\OT1/lmss/m/n/5 10 Nov 2020 at 18:18:42. Fig-ure gen-er-ated us-ing the dofile
+\OT1/lmss/m/n/5 17 Nov 2020 at 13:42:00. Fig-ure gen-er-ated us-ing the dofile
  []
 
 ) (../2_analysis/output/figures/l_czone_density_2020_w.tex
-<../2_analysis/output/figures/l_czone_density_2020_w.png, id=55, 877.2775pt x 6
-37.38126pt>
+<../2_analysis/output/figures/l_czone_density_2020_w.png, id=55, 1241.63875pt x
+ 902.37125pt>
 File: ../2_analysis/output/figures/l_czone_density_2020_w.png Graphic file (typ
 e png)
 <use ../2_analysis/output/figures/l_czone_density_2020_w.png>
 Package pdftex.def Info: ../2_analysis/output/figures/l_czone_density_2020_w.pn
 g  used on input line 4.
-(pdftex.def)             Requested size: 153.64493pt x 111.63092pt.
+(pdftex.def)             Requested size: 153.64493pt x 111.65329pt.
 ) [6
 
  <../2_analysis/output/figures/l_czone_density_2020_big_CZ.png (PNG copy)> <../
 2_analysis/output/figures/l_czone_density_2020_w.png (PNG copy)>]
 (../2_analysis/output/figures/l_czone_density_2020_hum.tex
-<../2_analysis/output/figures/l_czone_density_2020_hum.png, id=61, 877.2775pt x
- 637.38126pt>
+<../2_analysis/output/figures/l_czone_density_2020_hum.png, id=61, 1241.63875pt
+ x 902.37125pt>
 File: ../2_analysis/output/figures/l_czone_density_2020_hum.png Graphic file (t
 ype png)
 <use ../2_analysis/output/figures/l_czone_density_2020_hum.png>
 Package pdftex.def Info: ../2_analysis/output/figures/l_czone_density_2020_hum.
 png  used on input line 4.
-(pdftex.def)             Requested size: 153.64493pt x 111.63092pt.
+(pdftex.def)             Requested size: 153.64493pt x 111.65329pt.
 ) [7
 
  <../2_analysis/output/figures/l_czone_density_2020_hum.png (PNG copy)>]
 (../2_analysis/output/figures/l_czone_density_1970_vs_2020.tex
-<../2_analysis/output/figures/l_czone_density_1970_vs_2020.png, id=68, 877.2775
-pt x 637.38126pt>
+<../2_analysis/output/figures/l_czone_density_1970_vs_2020.png, id=68, 1241.638
+75pt x 902.37125pt>
 File: ../2_analysis/output/figures/l_czone_density_1970_vs_2020.png Graphic fil
 e (type png)
 <use ../2_analysis/output/figures/l_czone_density_1970_vs_2020.png>
 Package pdftex.def Info: ../2_analysis/output/figures/l_czone_density_1970_vs_2
 020.png  used on input line 4.
-(pdftex.def)             Requested size: 153.64493pt x 111.63092pt.
+(pdftex.def)             Requested size: 153.64493pt x 111.65329pt.
 )
 (../2_analysis/output/figures/baseline_l_czone_density_full_time.tex
 
@@ -1564,26 +1564,26 @@ Overfull \vbox (3.82825pt too high) detected at line 45
 ]
 (../2_analysis/output/figures/baseline_large_l_czone_density_full_time.tex
 <../2_analysis/output/figures/baseline_large_l_czone_density_full_time.png, id=
-100, 877.2775pt x 637.38126pt>
+100, 1241.63875pt x 902.37125pt>
 File: ../2_analysis/output/figures/baseline_large_l_czone_density_full_time.png
  Graphic file (type png)
 <use ../2_analysis/output/figures/baseline_large_l_czone_density_full_time.png>
 
 Package pdftex.def Info: ../2_analysis/output/figures/baseline_large_l_czone_de
 nsity_full_time.png  used on input line 4.
-(pdftex.def)             Requested size: 153.64493pt x 111.63092pt.
+(pdftex.def)             Requested size: 153.64493pt x 111.65329pt.
 )
 (../2_analysis/output/figures/baseline_w_l_czone_density_full_time.tex
 <../2_analysis/output/figures/baseline_w_l_czone_density_full_time.png, id=102,
- 877.2775pt x 637.38126pt>
+ 1241.63875pt x 902.37125pt>
 File: ../2_analysis/output/figures/baseline_w_l_czone_density_full_time.png Gra
 phic file (type png)
 <use ../2_analysis/output/figures/baseline_w_l_czone_density_full_time.png>
 Package pdftex.def Info: ../2_analysis/output/figures/baseline_w_l_czone_densit
 y_full_time.png  used on input line 4.
-(pdftex.def)             Requested size: 153.64493pt x 111.63092pt.
+(pdftex.def)             Requested size: 153.64493pt x 111.65329pt.
 )
-Overfull \vbox (17.51524pt too high) detected at line 68
+Overfull \vbox (17.53761pt too high) detected at line 68
  []
 
 [10
@@ -1593,13 +1593,13 @@ G copy)> <../2_analysis/output/figures/baseline_w_l_czone_density_full_time.png
  (PNG copy)>]
 (../2_analysis/output/figures/baseline_fe_l_czone_density_full_time.tex
 <../2_analysis/output/figures/baseline_fe_l_czone_density_full_time.png, id=109
-, 877.2775pt x 637.38126pt>
+, 1241.63875pt x 902.37125pt>
 File: ../2_analysis/output/figures/baseline_fe_l_czone_density_full_time.png Gr
 aphic file (type png)
 <use ../2_analysis/output/figures/baseline_fe_l_czone_density_full_time.png>
 Package pdftex.def Info: ../2_analysis/output/figures/baseline_fe_l_czone_densi
 ty_full_time.png  used on input line 4.
-(pdftex.def)             Requested size: 153.64493pt x 111.63092pt.
+(pdftex.def)             Requested size: 153.64493pt x 111.65329pt.
 )
 (../2_analysis/output/figures/with_controls_gradients_individual_l_czone_densit
 y_full_time.tex
@@ -1617,7 +1617,7 @@ Package pdftex.def Info: ../2_analysis/output/figures/with_control_gradients_in
 dividual_l_czone_density_full_time.pdf  used on input line 4.
 (pdftex.def)             Requested size: 153.64493pt x 111.74385pt.
 )
-Overfull \vbox (3.71532pt too high) detected at line 79
+Overfull \vbox (3.73769pt too high) detected at line 79
  []
 
 [11
@@ -1628,14 +1628,14 @@ ensity_full_time.pdf>] [12
 
 ]
 (../2_analysis/output/figures/premium_by_gender_full_time.tex
-<../2_analysis/output/figures/premium_by_gender_full_time.png, id=134, 877.2775
-pt x 637.38126pt>
+<../2_analysis/output/figures/premium_by_gender_full_time.png, id=134, 1241.638
+75pt x 902.37125pt>
 File: ../2_analysis/output/figures/premium_by_gender_full_time.png Graphic file
  (type png)
 <use ../2_analysis/output/figures/premium_by_gender_full_time.png>
 Package pdftex.def Info: ../2_analysis/output/figures/premium_by_gender_full_ti
 me.png  used on input line 4.
-(pdftex.def)             Requested size: 153.64493pt x 111.63092pt.
+(pdftex.def)             Requested size: 153.64493pt x 111.65329pt.
 )
 (../2_analysis/output/figures/two_decade_changes_full_time.tex
 
@@ -1729,14 +1729,14 @@ ll_time.pdf>] [20
 ]
 (../2_analysis/output/tables/cross_cz_statistics.tex)
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 179.
+(Font)              <12> on input line 181.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 179.
+(Font)              <8> on input line 181.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <12> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 179.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 181.
 
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <8> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 179.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 181.
 
  [22
 
@@ -1786,7 +1786,7 @@ Overfull \hbox (7.92177pt too wide) in paragraph at lines 2--24
  []
 
 )
-Overfull \vbox (6.2568pt too high) detected at line 221
+Overfull \vbox (6.2568pt too high) detected at line 223
  []
 
 [29
@@ -1802,7 +1802,7 @@ Package pdftex.def Info: ../2_analysis/output/figures/with_control_gradients_in
 dividual_l_czone_density_full_time.pdf  used on input line 4.
 (pdftex.def)             Requested size: 307.28987pt x 223.48772pt.
 )
-Overfull \vbox (129.07211pt too high) detected at line 228
+Overfull \vbox (129.07211pt too high) detected at line 230
  []
 
 [30
@@ -1824,7 +1824,7 @@ Package pdftex.def Info: ../2_analysis/output/figures/with_control_gradients_cz
 one_l_czone_density_full_time.pdf  used on input line 4.
 (pdftex.def)             Requested size: 184.3758pt x 134.09439pt.
 )
-Overfull \vbox (53.47871pt too high) detected at line 235
+Overfull \vbox (53.47871pt too high) detected at line 237
  []
 
 [31
@@ -1853,8 +1853,8 @@ Package rerunfilecheck Info: File `LLMM_slides.out' has not changed.
 (rerunfilecheck)             Checksum: 4CA0FF56E3EE124326A4720E136735D1;47.
  ) 
 Here is how much of TeX's memory you used:
- 34145 strings out of 480930
- 835809 string characters out of 2899761
+ 34146 strings out of 480930
+ 835797 string characters out of 2899761
  1188606 words of memory out of 3000000
  49114 multiletter control sequences out of 15000+200000
  601909 words of font info for 80 fonts, out of 3000000 for 9000
@@ -1894,7 +1894,7 @@ TeX 2.9/fonts/type1/public/lm/lmsso8.pfb><C:/Users/thecs/AppData/Local/Programs
 /MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/thecs/AppData/Local/Prog
 rams/MiKTeX 2.9/fonts/type1/public/lm/lmsy5.pfb><C:/Users/thecs/AppData/Local/P
 rograms/MiKTeX 2.9/fonts/type1/public/lm/lmsy9.pfb>
-Output written on LLMM_slides.pdf (31 pages, 998860 bytes).
+Output written on LLMM_slides.pdf (31 pages, 1237336 bytes).
 PDF statistics:
  391 PDF objects out of 1000 (max. 8388607)
  75 named destinations out of 1000 (max. 500000)

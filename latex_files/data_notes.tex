@@ -1,0 +1,26 @@
+\section{Data notes}
+\subsection{Residualization procedure}
+Throughout this document I explore the relationship between average wages (gender wage gap) and CZ population density. I am also interested in how this relationship has changed over time.
+
+To discard the possibility that the observed relationships arise because of simple changes in the population composition, I compute average wages net of individuals' characteristics.
+
+\paragraph{Procedure}
+\benu
+	\item I regress log of the individuals' wages on individual characteristics separately by year, including a gender $\times$ CZ fixed effect. Models are estimated separately for each census year.
+	\beqns
+		w_{igrt}=X_{irt}\gamma_t+\lambda_{rt}^g
+	\eeqns
+	\item $\hat{\lambda}_{grt}$ is my estimate of CZ wages, net of individual characteristics.
+	\item I compute the CZ-specific gender gap as:
+	\beqns
+		gap_{rt}=\hat{\lambda}_{rt}^m-\hat{\lambda}_{rt}^f
+	\eeqns
+\eenu
+
+Throughout the document, the control variables $X_{irt}$ come into for different sets:
+\bitem
+	\item \textbf{Basic controls:} age dummies, race dummies, and foreign born dummy.
+	\item \textbf{Human capital:} basic controls + 4-level education dummies.
+	\item \textbf{Industry controls:} human capital controls + $\approx$ 150 industry fixed effects.
+	\item \textbf{Full controls:} industry controls + occupation fixed effects.
+\eitem
