@@ -12,6 +12,11 @@ Black, S.~E. and Spitz-Oener, A. (2010).
   content of women's work}.
 \newblock {\em Review of Economics and Statistics}, 92(1):187--194.
 
+\bibitem[de~la Roca and Puga, 2017]{DelaRoca2017}
+de~la Roca, J. and Puga, D. (2017).
+\newblock {Learning byworking in big cities}.
+\newblock {\em Review of Economic Studies}, 84(1):106--142.
+
 \bibitem[Duranton and Puga, 2020]{Duranton2020}
 Duranton, G. and Puga, D. (2020).
 \newblock {The economics of urban density}.
@@ -40,5 +45,11 @@ Olivetti, C. and Petrongolo, B. (2014).
 Olivetti, C. and Petrongolo, B. (2016).
 \newblock {The Evolution of Gender Gaps in Industrialized Countries}.
 \newblock {\em Annual Review of Economics}, 8(1):405--434.
+
+\bibitem[Phimister, 2005]{Phimister2005}
+Phimister, E. (2005).
+\newblock {Urban effects on participation and wages: Are there gender
+  differences?}
+\newblock {\em Journal of Urban Economics}, 58(3):513--536.
 
 \end{thebibliography}

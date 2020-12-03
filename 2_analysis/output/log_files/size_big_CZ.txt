@@ -1,12 +1,10 @@
------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  C:\Users\thecs\Dropbox\boston_university\7-Research\genderGap\2_
-> analysis\output/log_files/size_big_CZ.txt
+       log:  C:\Users\thecs\Dropbox\boston_university\7-Research\genderGap\2_analysis\output/log_files/size_big_CZ.txt
   log type:  text
- opened on:  23 Nov 2020, 16:25:27
+ opened on:  30 Nov 2020, 11:17:22
 
-. *This is the share of the US population (in the relevant age range) that is
->  accounted by CZ I selected
+. *This is the share of the US population (in the relevant age range) that is accounted by CZ I selected
 . gcollapse (sum) czone_pop, by(year big_CZ)
 
 . table year [aw=czone_pop], c(mean big_CZ)
@@ -26,8 +24,7 @@ year      | mean(big_CZ)
 
 . log close
       name:  <unnamed>
-       log:  C:\Users\thecs\Dropbox\boston_university\7-Research\genderGap\2_
-> analysis\output/log_files/size_big_CZ.txt
+       log:  C:\Users\thecs\Dropbox\boston_university\7-Research\genderGap\2_analysis\output/log_files/size_big_CZ.txt
   log type:  text
- closed on:  23 Nov 2020, 16:25:27
------------------------------------------------------------------------------
+ closed on:  30 Nov 2020, 11:17:22
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

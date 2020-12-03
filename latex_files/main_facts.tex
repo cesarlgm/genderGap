@@ -1,5 +1,5 @@
 \section{Basic findings}
-\subsection{Densest CZ have experienced a largest decline in the gender wage gap}
+\subsection{Densest CZ have experienced faster decline in the gender wage gap}
 Consider the regression
 \beqns
 	gap_{r2020}-gap_{r1970}=\alpha + \beta\ln(density)_{r1970}
@@ -10,8 +10,11 @@ where $gap_r=w_r^{male}-w_r^{female}$, where $w$ stands for average log-wage in 
 Table \ref{table:overall_change} shows the estimates of $\beta$ for different average wage measures. All the estimates are significant and negative $\implies$ densest CZ experienced a significantly larger reductions in the gender wage gap. 
 
 \paragraph{Several observations}
+
+%Add a little of perspective in terms of what happens if I move from x cz to y cz.
+
 \bitem 
-	\item \textbf{Density measure:} \cite{Duranton2020} argue that total population is more linked to the ``experienced'' density in a labor market, than the ``naive'' measure of population density. Table \ref{table:overall_change} shows that the gradient is virtually unchanged when using: ``naive'' CZ population density, or total CZ population.
+	\item \textbf{Density measure:} \cite{Duranton2020} argue that total population is more linked to the ``experienced'' density in a labor market than the ``naive'' population density. Table \ref{table:overall_change} shows that the gradient is virtually unchanged when using: ``naive'' CZ population density, or total CZ population.
 	\item \textbf{Magnitude of the coefficient:} The gradient is large under multiple benchmarks. Let's focus on interpreting the gradient for the raw wage gap on population density.
 	\bitem 
 		\item \textbf{Standardized effect} an increase of 1 s.d. in population density (1.18) $\implies$ a change of -.4 s.d.  in the gender wage gap.  A model with just just population density accounts for 17\% of the variation 1970-2020 gender gap change.
@@ -79,12 +82,28 @@ Figure \ref{fig:big_CZ} shows that this is not the case. There I compare the gra
 	\item Big CZ also feature a decline in the gender-gap gradient. However, this decline is concentrated on the 1970-1990 period. From then on, the gradient remains negative and roughly constant. Panel (b) shows that the picture remains unchanged if I adjust wages for age / race.
 \eenu
 
+%can I explain this with just the changes in the industrial structure?
+
 \begin{block}{Takeway from this exercise:}
 	The gender gap gradient is not driven just by small CZ. Big CZ feature a more striking pattern of gradient decline during 1970-1990. Smaller CZ do drive the gradual decline from 1990 onward.
 \end{block}
 
 \input{../2_analysis/output/figures/big_cz_full_time.tex}
 
+\subsubsection{Is this about gender?}
+
+Given the facts shown above, a natural question to ask is whether this is really about gender? In other words, do I see similar patterns when, for instance, I examine race? To test this I perform a similar exercise for the black-white gap. I run the regression,
+\beqns
+	w^{white}_{rt}-w^{black}_{rt}=\alpha_t+\beta_t\ln(density)_{rt}
+\eeqns
+Figure \ref{fig:race_gradient} shows the estimated $\beta_t$. The decline in the gradient does not appear in race. In fact, with the exception of 1990, there is little change in the gradient over the whole period.
+
+\begin{block}{Takeaway}
+ There is something distinct between the interaction of gender and population density
+\end{block}
+
+\input{../2_analysis/output/figures/baseline_race_gradients_l_czone_density_full_time.tex}
+ 
 \section{Questions inspired by these facts?}
 \bitem
 	\item Why has the decline in the urban premium has been less severe for women over the period?
@@ -104,9 +123,9 @@ For the sake of the argument, suppose $e$ indexes education. Here $\delta_e$ rep
 \beqns
 		w_{rt}^g=\alpha_t+\sum_es_{ert}^g\delta_{et}+\sum_es_{ert}\gamma_{ert}+u_{rt}
 \eeqns
-To fix ideas, let us impose the strong assumption that $\gamma_{ert}=\omega^g_t\ln(density)_{rt}$ the above equation reduces to:
+To fix ideas, let us impose the strong assumption that $\gamma_{ert}=\omega^g_t\ln(density)_{rt}+\nu_{rt}$ the above equation reduces to:
 \beqns
-	w_{rt}^g=\alpha_t+\sum_es_{ert}^g\delta_e+\omega^g\ln(density)_{rt}+u_{rt}
+	w_{rt}^g=\alpha_t+\sum_es_{ert}^g\delta_{et}+\omega^g_t\ln(density)_{rt}+v_{rt}
 \eeqns
 By running the regression:
 \beqns
@@ -121,7 +140,7 @@ therefore $\beta^g_t$ has two components
 	\item $\omega^g_t=$ gender-specific urban wage premium.
 	\item A term reflecting bias due to heterogeneous composition of the population across labor markets. For example, if high-wage groups are more likely to locate in cites $\implies$ $\beta^g_t$ overestimates the gains from moving to a city.
 \eitem
-I will impose another strong assumption. Let $\frac{cov(\sum_es_{er}\delta_e,\ln(density))}{var(\ln(density)_r)}=\chi^g$.
+I will impose another strong assumption. Let $\frac{cov(\sum_es_{ert}\delta_{et},\ln(density))}{var(\ln(density)_{rt})}=\chi^g_t$.
 
 Then, abusing a bit of notation, we have
 \beqns
@@ -130,33 +149,36 @@ Then, abusing a bit of notation, we have
 This simple model suggests a procedure to decompose the density gradient into the selection / urban premium components.
 \benu
 	\item $\beta_t^g$ is obtained from a simple regression of average \textit{raw wages} on population density.
-	\item Under the assumption of $\gamma_{er}=\omega^g\ln(density)_r$ an individual's wage is reduced to:
+	\item Under the assumption of $\gamma_{ert}=\omega^g_t\ln(density)_{rt}$ an individual's wage is reduced to:
 	\beqns
 		w^g_{iert}=\alpha_t+\delta_{et}+\gamma_{rt}^g+\varepsilon_i
 	\eeqns
 	which is just a regression of individual's wages on education fixed-effects, and a gender$\times$CZ fixed effects. In this case $\gamma_{rt	}^g$ gives an estimate of $\omega^g_t\ln(density)_{rt}$.
-	\item From there, it is straight forward to obtain an estimate of the urban wage premium, just estimate the regression:
+	\item From there, it is straightforward to obtain an estimate of the urban wage premium, just estimate the regression:
 	\beqns
-		\gamma^g_{rt}=\eta_t + \omega_t^g ln(density)_{rt}
+		\gamma^g_{rt}=\eta_t + \omega_t^g ln(density)_{rt}+\nu_{rt}
 	\eeqns 
 	\item The selection component is obtained out of the difference between the estimates in part 1 and 3.
 \eenu
 \subparagraph{Some remarks:}
 \bitem 
-	\item In the discussion above I am assuming that the urban wage premium is the same for education groups $\gamma_{er}^g=\omega^g\ln(density)_{rt}$. If the premium were education-specific then,
+	\item In the discussion above I am assuming that the urban wage premium is the same for education groups $\gamma_{er}^g=\omega^g_t\ln(density)_{rt}$. If the premium were education-specific then,
 	\beqns
 		w_{rt}^g=\alpha_t+\sum_es_{ert}^g\delta_{et}+\sum_es_{ert}\omega^g_{et}\ln(density)_{ert}+u_{rt}
 	\eeqns
-	which would introduce heterogeneity of density gradient across commuting zones. One can easily explore whether this is an issue by estimating $\omega^g$ by education group (this is feasible only when there is a limited number of education groups).
+	which would introduce heterogeneity in the density gradient across commuting zones. One can easily explore whether this is an issue by estimating $\omega^g$ by education group (this is feasible only when there is a limited number of education groups).
 \eitem 
 
 \paragraph{Results}
-\subparagraph{Premium today:} in the table below I show the decomposition described above under different sets of controls.\newline
+\subparagraph{Premium today:} in the table below I show the decomposition described above under different sets of controls.
+
+\addfig{.75}{../2_analysis/output/tables/decomposition_premium_2020}
+
 \textbf{Interpretation notes:}
 \bitem
 	\item From left to right, each column adds a new set of regressors controls. Thus the interpretation of the selection component in, say the human capital column, is how much of the density gradient is accounted by the human capital controls, over an above the basic set of controls. As a result, the $\%$ explained column is computed relative to the adjusted premium in the basic column.
 	\item A negative selection component $\implies$ denser cities have higher shares of low wage groups.
-	\item A positive component $\implies$ denser cities have higher shares of low income groups.
+	\item A positive component $\implies$ denser cities have lower shares of low income groups.
 \eitem
 \textbf{What does stand out?}
 \bitem
@@ -171,7 +193,7 @@ The table below shows the decomposition of the density gradient for three select
 \bitem 
 	\item In 1970, city women were more likely to come from low education groups. This had reversed by 2020.
 	\item 1970-1990: Accounting for industry of employment eliminates the gender gap in the urban premium. Even though both genders are employed in higher pay industries in cities, men are more likely to do so $\implies$ most of density premium can be explained by gender segregation across industries.
-	\item Note however, that industry and occupation do not erase the gap in the urban premium across genders in 2020. Even after accounting for industry and employment, the women's premium is 56\% larger than men's.
+	\item Note however, that industry and occupation does not erase the gap in the urban premium across genders in 2020. Even after accounting for industry and employment, the women's premium is 56\% larger than men's.
 	\item The table also makes clear the pattern already noted by [cite autor here]. There's a precipitous decline in men's urban wage premium. If we concentrated in the last column, between 1990 and 2020 men's premium declines by 61\%. What is remarkable, is that women's premium is relatively more resilient, declining by 40\% over the same period.
 	\item Without adjusting for industry and occupation men's decline in the premium was so strong that it went from being \textit{above} women's, to being below it.
 \eitem 
@@ -216,7 +238,7 @@ The attached coefficient plots basically paint the same picture. They also sugge
 
 \addfig{.75}{../2_analysis/output/tables/decomposition_1990_2020}
 
-\subsection{Are the results above driven different wage premium across educational groups?}
+\subsection{Are the results above driven by different wage premium across educational groups?}
 
 \noindent\textbf{Short answer}: no. But the drift in the gender-gap gradient is driven by workers without a bachelor degree.
 
@@ -228,14 +250,14 @@ Panel a in figure \ref{figure:education_shares} shows that women educational att
 
 In panel a of figure \ref{figure:education}, I show estimates of $\beta_{et}$ for the following regression model:
 \beqns
-w^m_{rt}-w^f_{rt}=\alpha_{et}+\beta_{et}\ln(density)_{rt}
+w^m_{ret}-w^f_{ret}=\alpha_{et}+\beta_{et}\ln(density)_{rt}
 \eeqns
 If all the variation is driven by changes in education-specific urban wage premium, then we should expect $\beta_{et}$ to be zero in all years. This is not what the data shows. The gender-gap gradient is positive and mostly constant for college graduates. The decline in the gradient arises for non-college graduates only. Panel b shows that adjusting the gap for age and race does not change this finding (panel b).
 
 
 Panels c and d show the density premiums by gender. There I plot the density slope in regressions of the form:
 \beqns 
-	w^g_{rt}=\alpha_{et}^g+\beta_{et}^g\ln(density)_{rt}
+	w^g_{ret}=\alpha_{et}^g+\beta_{et}^g\ln(density)_{rt}
 \eeqns
 
 \bitem
@@ -251,12 +273,185 @@ Although education is an endogenous outcome, it is remarkable that the urban wag
 
 \input{../2_analysis/output/figures/education_gradient_full_time}
 
-\subsection{1970-1990: a tale of women's accession to high pay industries}
+\subsection{1970-1990}
 
 Figure \ref{fig:controls} suggests that industry of employment accounts for both the (i) cross-sectional gender-gap gradient, and (ii) its decline during 1990-2020. Here I zoom in on the relationship between industrial structure, population density, and employment shares across genders.
 
-\subsubsection{Which are the high-pay industries?}
+\subsubsection{What are the high pay industries?}
+
+Figure \ref{fig:which_pay} shows two main facts:
+\bitem
+	\item High pay industries are primarily manufacturing in 1970-2020.
+	\item Over time, high-pay industries become more service-intensive.	
+\eitem 
+
+\input{../2_analysis/output/figures/industries_ranking.tex}
+
+\subsubsection{Women are less likely to be employed in high pay industries}
+
+I include 147 industry classifications. 
+
+First I show that there are differences across gender in the likelihood of being employed in a high pay industry. For this I run the regression:
+
+\beqns
+	s_{t}^g=\alpha_t^g+\beta^g_t\lambda_{jt}
+\eeqns
+where $s_{t}^g$ indicates the nation-wide employment share of gender $g$ in industry $j$, and $\lambda_jt$ represents the industry fixed effect obtained in the first stage regressions.
+
+\input{../2_analysis/output/figures/gender_ind_empshares.tex}
+
+\input{../2_analysis/output/figures/gender_empshare_distribution.tex}
+
+Figure \ref{figure:ind_gender_shares} shows the estimated $\beta^g$ for both genders.
+
+Two features that stand out:
+\bitem
+	\item On average women are less likely to be employed in the high wage industries. That said, estimates become much noisier from 1990 onward.
+	\item There's a slight downward trend in men's likelihood of being employed in high-wage industries.
+\eitem
+Panel a of figure \ref{fig:gender_distribution} gives a more detailed description of the employment distributions by gender. Women in 1970 are primarily concentrated in low-pay industries, but over 1970 to 1990, they gained access to industries with better pay. 
+
+
+Men's evolution is also interesting. A comparison between panels (a) and (b) in \ref{fig:gender_distribution} reveals two facts:
+\benu
+	\item In 1970, men are highly concentrated in industries at the top of the pay distribution. Panel (a) also shows that there is persistence in this employment distribution. They continue to concentrated in industries that were high pay in 1970, even in 2020.
+	\item However, panel (b) that the industry ranking has changed, so that from 1990 onward, men are not as concentrated in high-pay industries as panel (b) suggests $\implies$ men's jobs are in relative decline \textit{at the national level} 
+\eenu
+In parallel, men stat the period with a high concentration in high-pay industries, but this concentration diffuses over time.
+
+ Panel b also shows that even though men are still disproportionately concentrated on industries that were highly-paid in 1970, they are no longer high pay by the end of the period.
+
+All in all, this exercise suggests that women's employment distribution is becoming more like men's. But this happens in part by men being less likely to be employed in high-wage industries.
+
+\subsubsection{High pay industries are larger in denser cities}
+
+
+Figure \ref{fig:ind_cities} studies the relationship between high-pay industries and population density. To construct this figure, first I define an industry as being high-pay, it is in the top tercile of the national relative-pay rank. Rankings are computed separately for each year. Next I compute the CZ-level employment shares in high-pay industries.
+\bitem
+	\item Panel (a) shows that dense cities are highly specialized in high-pay industries. However, this specialization decreases over time.
+	\item Panel (b) shows a similar pattern as the scatterplots. There I plot the slope coefficient in the regression:
+	\beqns
+		s_{rt}^{high pay}=\alpha_t+\beta_{}\ln(density)_{rt}
+	\eeqns
+	the ``fixed ranking'' line computes the employment shares when the industry pay rank is fixed to 1970 values. The ``variable ranking'' allows the ranking to change over time. Either way, the message is the same: dense cities were highly specialized in high-pay-industries, but this specialization reduces over time.
+\eitem
+
+
+Ten industries disappear over the  sample period. Check what is happening to them
+
+\input{../2_analysis/output/figures/high_wage_ind_cities.tex}
+
+
+
+\subsubsection{Can the industrial composition alone account for the gender-gap gradient?}
+Yes, at least for the 1970-1990. To test this let's decompose the change in wages into a part that reflects only changes in the industrial employment distribution, and a second component that reflects only changes in average wages. Note that,
+\beqns
+w_{rt}^g-w_{r1970}^g=\sum_j(s_{rjt}^g-s_{rj1970}^g)w^g_{rjt}+\sum_js^g_{rj1970}(w_{rjt}^g-w_{rj1970}^g)
+\eeqns
+\bitem
+	\item $\sum_j(s_{rjt}^g-s_{rj1970}^g)w^g_{rjt}$: captures only changes in the employment distribution over time.
+	\item $\sum_js^g_{rj1970}(w_{rjt}^g-w_{rj1970}^g)$ captures only changes in the industrial average wages.
+\eitem
+Then if we consider the following two regressions:
+\beqns
+	w_{rt}&=&\alpha_{t} + \beta_t\ln(density)_{rt}\\
+\sum_js^g_{rj1970}w_{rjt}^g&=&\bar{\beta}_{t} + \bar{\beta}_t\ln(density)_{rt}
+\eeqns
+Then following the above decomposition we can readily interpret the density coefficients as follows:
+\bitem
+	\item $\beta_t-\bar{\beta}_t$: change in the urban wage premium explained by changes in the industrial employment distribution.
+	\item $\bar{\beta}_t-\beta_{1970}$: change in the urban wage premium that is explained by the evolution of industrial average wages.
+\eitem 
+
+\input{../2_analysis/output/figures/fixed_shares_gradient.tex}
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Taking the model presented in the previous 
+Following the wage model presented in previous sections, the industry fixed effects account for the density gradient as long as there are differences by gender in the employment distributions by gender. As a quick check, consider the regression:
+\beqns
+gap_{rt}=\alpha_t+\beta_{t}\ln(density)_{rt}+\chi_t(s_{rt}^{highpay,m}-s_{rt}^{highpay,f})+\delta_ts_{rt}^{highpay,m}sh
+\eeqns
+where $s_{rt}^{highpay,g}$ is the employment share in high-pay industries for gender $g$. Panels (a) and (b) of figure \ref{fig:high_wage_gradients} show the coefficient on density in the above regression. Two facts stand out:
+\benu
+\item Most of the cross-sectional correlation between density and the gender gap during the period 1970-1990 is accounted for the share of employment in high-pay industries.
+\item Adding these additional regressors also accounts for \textit{change in the gradient over this period}. 
+\eenu
+
+\input{../2_analysis/output/figures/high_wage_coefficients.tex}
+
+\subsubsection{Is this about decline of these industries, or women's access to these coveted jobs?}
+Consider the following regression:
+\beqns
+gap_{rt}=\alpha_t+\beta_{t}\ln(density)_{rt}+\chi_ts_{rt}^{highpay}+\delta_t{male\_share}_{rt}^{highpay,f}
+\eeqns
+The idea here is to distinguish between two possible stories:
+\bitem
+	\item \textbf{Decline of high pay industries:} men in cities are heavily concentrated in industries that in urban decline.
+	\item \textbf{Women access to better employment:} women in cities are initially excluded from high-pay jobs. Over time, they are able to access to these high-pay, which looks like a gain relative to men.
+\eitem
+
+\subsubsection{High pay industries are mostly manufacturing industries. Is 1970-1990 this about manufacturing?}
+
+
+No. Suppose the story at work here is:
+\bitem
+	\item Manufacturing is concentrated in cities.
+	\item Manufacturing is heavily male and high-pay.
+	\item Over time, women get access to these coveted jobs.
+\eitem
+
+Then, this could be captured in the regression,
+\beqns
+	gap_{rt}=\alpha_t+\beta_{t}\ln(density)_{rt}+\chi_ts_{rt}^{manufacturing}
+\eeqns
+where we should expect the density gradient to disappear during 1970-1990. This is not what figure shows \ref{fig:manufacturing_gradients}. Thus the point has to be more subtle.
+
+\input{../2_analysis/output/figures/manufacturing_coefficients.tex}
+
+
+\subsubsection{What is different about the high-pay industries?}
+
+
+
+\subsubsection{Why doesn't industry account for the drift after 1990?}
+
+Following evidence presented in \ref{fig:ind_cities} the gradient on high-pay industries essentially disappears $\implies$ CZ-industry specialization stops driving the gradient.
+
+It would also be hart to argue that gender differences  across 
+
+\input{../2_analysis/output/figures/high_pay_gender_gradient.tex}
+
+
+\subsubsection{Taking stock:}
+\textbf{Explaining the positive gradient during 1970-1990}
+\bitem
+	\item High-pay industries were heavily concentrated in dense commuting zones.
+	\item These high pay industries (mostly manufacturing) where heavily male.
+	\item The two above facts $\implies$ women were less likely to have high pay in densest cities $\implies$ positive gender-gap gradient over 1970-1990.
+\eitem
+\bitem
+	\item Over time, high-pay industries become more service intensive. Services more female-friendly industries $\implies$ there's little difference in the employment distribution 
+	\item Moreover, industries (such as manufacturing) are in fast decline in the densest labor markets.
+\eitem
+So, overall I think that 1970-1990 can be explained by decline in manufacturing. Whatever is happening from 1990 cannot be explained by manufacturing decline. Gradient in manufacturing is likely flat by the end of the period.	
+
+[next step$=>$ what happens if I just control for the share of manufacturing in the aggregate level regression]
+
+[structural transformation was larger in denser cities $\implies$ change towards female driven industries]
+
+[Story after the 1990s appear to be more complicated]

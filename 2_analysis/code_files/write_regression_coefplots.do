@@ -113,12 +113,12 @@ grscheme, ncolor(7) style(tableau)
 *Creation of the graph
 coefplot density population, keep(*indep*) yline(0)   ytitle("w{sup:male}-w{sup:female} gradient ({&beta}{sub:t})")  ///
      base vert  xlabel(`year_label')  legend(order(2 "Regressor: log population density" 4 "Regressor: log of total population")) ///
-    lwidth(*2) ciopts(recast(rline) lpattern(dash)) recast(line) level(90)
+    lwidth(*2) ciopts(recast(rline) lpattern(dash)) recast(connected) level(90)
 graph export "output/figures/baseline_`indiv_sample'.png", replace
 
 coefplot density density_bas, keep(*indep*) yline(0)   ytitle("w{sup:male}-w{sup:female} gradient ({&beta}{sub:t})")  ///
      base vert  xlabel(`year_label')  legend(order(2 "Raw wage gap" 4 "Gap net of basic controls")) ///
-         lwidth(*2) ciopts(recast(rline) lpattern(dash)) recast(line) level(90)
+         lwidth(*2) ciopts(recast(rline) lpattern(dash)) recast(connected) level(90)
 graph export "output/figures/baseline_bas_`indiv_sample'.png", replace
 
 
@@ -147,7 +147,7 @@ eststo state: regress wage_raw_gap i.year#c.`indep_var' i.year i.state if year>1
 
 coefplot baseline region state , keep(*`indep_var'*) yline(0)   ytitle("w{sup:male}-w{sup:female} gradient ({&beta}{sub:t})")  ///
      base vert  xlabel(`year_label')  legend(order(2 "No f.e." 4 "Region f.e." 6 "State f.e.") ring(0) pos(2)) ///
-    lwidth(*2) ciopts(recast(rcap)) recast(line) level(90)
+    lwidth(*2) ciopts(recast(rcap)) recast(connected) level(90)
 
 graph export "output/figures/region_fe_`indiv_sample'.png", replace
 
@@ -177,12 +177,12 @@ eststo bigCZbas: regress wage_bas_gap i.year#c.`indep_var' i.year  if year>1950&
 
 coefplot baseline bigCZraw , keep(*`indep_var'*) yline(0)   ytitle("w{sup:male}-w{sup:female} gradient ({&beta}{sub:t})")  ///
      base vert  xlabel(`year_label')  legend(order(2 "All" 4 "Big CZ") ring(0) pos(2)) ///
-    lwidth(*2) ciopts(recast(rcap)) recast(line) level(90)
+    lwidth(*2) ciopts(recast(rcap)) recast(connected) level(90)
 graph export "output/figures/baseline_big_`indiv_sample'.png", replace
 
 coefplot baseline_bas bigCZbas , keep(*`indep_var'*) yline(0)   ytitle("w{sup:male}-w{sup:female} gradient ({&beta}{sub:t})")  ///
      base vert  xlabel(`year_label')  legend(order(2 "All" 4 "Big CZ") ring(0) pos(2)) ///
-    lwidth(*2) ciopts(recast(rcap)) recast(line) level(90)
+    lwidth(*2) ciopts(recast(rcap)) recast(connected) level(90)
 graph export "output/figures/basic_big_`indiv_sample'.png", replace
 
 
@@ -223,7 +223,7 @@ eststo  gap_4:    reg wage_ful_gap c.`indep_var'#ib1970.year i.year if year>1950
 
 coefplot gap_*, keep(*`indep_var'*) yline(0)   ytitle("Gender gap gradient ({&beta}{sub:t})")  ///
     base vert  xlabel(`year_label')  legend(order(2 "Net of age/rage" 4 "+ education" 6 "+ industry" 8 "+ occ") ring(0) pos(2)) ///
-    lwidth(*2) ciopts(recast(rcap)) recast(line) ///
+    lwidth(*2) ciopts(recast(rcap)) recast(connected) ///
     level(90)
 
 
@@ -242,13 +242,6 @@ latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') /
 
 
 
-
-
-
-
-
-/*
-/*
 /*******************************************************************************************
 *LOOKING AT THE WAGE PREMIUM BY GENDER
 ********************************************************************************************/
@@ -259,9 +252,6 @@ foreach gender in male female {
     eststo `gender'_3:    reg `gender'_l_wage_ind c.`indep_var'#ib1970.year i.year if year>1950,        vce(cl czone) 	
     eststo `gender'_4:    reg `gender'_l_wage_full c.`indep_var'#ib1970.year i.year if year>1950,       vce(cl czone) 	
 }
-
-
-
 
 
 /*******************************************************************************************
@@ -277,7 +267,7 @@ eststo female_average: regress female_cz_educsh ibn.year if `filter', vce(cl czo
 
 coefplot male_average female_average, keep(*year) yline(0)   ytitle("Average CZ share of college graduates")  ///
     base vert  xlabel(`year_label')  legend(order(2 "Male" 4 "Female")) ///
-    lwidth(*2) ciopts(recast(rline) lpattern(dash)) recast(line) ///
+    lwidth(*2) ciopts(recast(rline) lpattern(dash)) recast(connected) ///
     level(90)
 graph export "output/figures/education_share_average.png", replace
 
@@ -288,7 +278,7 @@ eststo female_high: regress female_cz_educsh i.year i.year#c.`indep_var' if `fil
 
 coefplot male_high female_high, keep(*`indep_var'*) yline(0)   ytitle("College education gradient ({&beta}{sub:t})")  ///
     base vert  xlabel(`year_label')  legend(order(2 "Raw wage gap" 4 "Gap net of basic controls")) ///
-    lwidth(*2) ciopts(recast(rline) lpattern(dash)) recast(line) ///
+    lwidth(*2) ciopts(recast(rline) lpattern(dash)) recast(connected) ///
     level(90)
 graph export "output/figures/education_share_gradients.png", replace
 
@@ -324,14 +314,14 @@ eststo female_low: regress female_l_wage_bas c.`indep_var'#ib1970.year i.year if
 *Gender gap by education level
 coefplot high low, keep(*`indep_var'*) vert base yline(0) ///
   xlabel(`year_label')  legend(order(2 "With bachelor degree" 4 "Without bachelor degree")) ///
-  lwidth(*2) ciopts(recast(rline) lpattern(dash)) recast(line) ///
+  lwidth(*2) ciopts(recast(rline) lpattern(dash)) recast(connected) ///
   level(90)
 graph export "output/figures/education_gap_full_time.png", replace
 
 *Gender gap by education level
 coefplot high_bas low_bas, keep(*`indep_var'*) vert base yline(0) ///
   xlabel(`year_label')  legend(order(2 "With bachelor degree" 4 "Without bachelor degree")) ///
-  lwidth(*2) ciopts(recast(rline) lpattern(dash)) recast(line) ///
+  lwidth(*2) ciopts(recast(rline) lpattern(dash)) recast(connected) ///
   level(90)
 graph export "output/figures/education_gap_bas_full_time.png", replace
 
@@ -339,14 +329,14 @@ graph export "output/figures/education_gap_bas_full_time.png", replace
 *Urban premium by gender, high education
 coefplot male_high female_high, keep(*`indep_var'*) vert base ///
   xlabel(`year_label')  legend(order(2 "Men" 4 "Women"))  ///
-  lwidth(*2) ciopts(recast(rline) lpattern(dash)) recast(line) ///
+  lwidth(*2) ciopts(recast(rline) lpattern(dash)) recast(connected) ///
   level(90)
 graph export "output/figures/education_high_premium_full_time.png", replace
 
 *Urban premium by gender, low education
 coefplot male_low female_low, keep(*`indep_var'*) vert base  ///
   xlabel(`year_label')  legend(order(2 "Men" 4 "Women"))  ///
-  lwidth(*2) ciopts(recast(rline) lpattern(dash)) recast(line) ///
+  lwidth(*2) ciopts(recast(rline) lpattern(dash)) recast(connected) ///
   level(90)
 graph export "output/figures/education_low_premium_full_time.png", replace
 
@@ -366,13 +356,12 @@ latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') /
 
 
 
-
-/*
+*See what can I kill here
 
 /*******************************************************************************************
 *GRAPH 1: CONTRAST BINSCATTER
 ********************************************************************************************/
-
+/*
 grscheme, ncolor(7) style(tableau)
 
 binscatter wage_raw_gap `indep_var'   if inlist(year, 2020), nq(25) by(year) ///
@@ -611,294 +600,7 @@ latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') /
     note(`figure_note') figlab(`figure_labs' `figure_labs') ///
     title(`figure_title')  dofile(`do_location')  tiny
 
-
-local model_list baseline with_hum_controls with_ful_controls
-foreach model in `model_list' {
-    estimates use "output/regressions/`model'_individual_`indiv_sample'" 
-    eststo `model'
-}
-
-coefplot `model_list', keep(*density*) yline(0) ///
-    legend(order(2 "No controls" 4 "+ human capital controls" 6 "+ ind and occ") ring(0) pos(2)) ///
-    ytitle("w{sup:male}-w{sup:female} gradient ({&beta}{sub:t})")  ///
-    ciopt(recast(rcap)) base vert  xlabel(`year_label')
-
-graph export "output/figures/with_ind_gradients_individual_`indep_var'_`indiv_sample'.pdf", replace
-
-/*
-
-local figure_title "Coefficient on population density $ \beta_t $ controlling for worker characteristics"
-local figure_name "output/figures/with_ind_gradients_individual_`indep_var'_`indiv_sample'.tex"
-local figure_note "figure restricts to CZ with more than `density_filter' people per km$^2$. The regressions are done on data aggregated at the CZ level. Bars show 95\% robust confidence intervals.  Standard errors clustered at the CZ level."
-local figure_path "../2_analysis/output/figures"
-
-local figure_list with_ind_gradients_individual_`indep_var'_`indiv_sample'
-
-latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') ///
-    note(`figure_note') figlab(`figure_labs' `figure_labs') ///
-    title(`figure_title')  dofile(`do_location')  tiny
-
-local model_list l_wage l_wage_bas l_wage_human l_wage_full 
-foreach model in `model_list' {
-    estimates use "output/regressions/male_`model'_`indiv_sample'" 
-    eststo male_`model'
-
-    estimates use "output/regressions/female_`model'_`indiv_sample'" 
-    eststo female_`model'
-
-    estimates use "output/regressions/d_male_`model'_`indiv_sample'" 
-    eststo d_male_`model'
-
-    estimates use "output/regressions/d_female_`model'_`indiv_sample'" 
-    eststo d_female_`model'
-}
-
-local year_label 1 "1970-1990" 2 "1980-2000" 3 "1990-2010" 4 "2000-2020"
-coefplot  d_male_l_wage d_female_l_wage, keep(*density*) yline(0) ///
-    legend(order(2 "Men" 4 "Women") ring(0) pos(2)) ///
-    ytitle("w{sup:male}-w{sup:female} gradient ({&beta}{sub:t})")  ///
-    ciopt(recast(rcap)) base vert  xlabel(`year_label') //yscale(range(0 .1))
-
-
-
-*ABSOUTE CHANGE IN WAGES
-binscatter d_l_wage_human d_l_wage_human l_czone_density if year==2010, ///
-    legend(order(1 "Men" 2 "Women")) yline(0) ///
-    xtitle("Log of population density") colors(tableau) ///
-    ytitle("Change in average log-wages") ///
-    title(Change in wages 1990-2010)
-graph export "output/figures/d_male_change_wages_2010.png", replace
-
-binscatter d_male_l_wage d_female_l_wage l_czone_density if year==2020, ///
-    legend(order(1 "Men" 2 "Women"))  yline(0) ///
-    xtitle("Log of population density")  colors(tableau) ///
-    ytitle("Change in average log-wages")     title(Change in wages 2000-2020)
-graph export "output/figures/d_male_change_wages_2020.png", replace
-
-binscatter d_male_lfp d_female_lfp l_czone_density if year==2010&l_czone_density_50>1, ///
-    legend(order(1 "Men" 2 "Women"))  yline(0) ///
-    line(qfit) ///
-    xtitle("Log of population density")  colors(tableau) ///
-    ytitle("Change LFP")     title(Change in LFP 1990-2010)
-graph export "output/figures/d_change_lfp_2010.png", replace
-
-
-binscatter d_female_l_wage d_female_lfp l_czone_density if year==2020&l_czone_density_50>1, ///
-    legend(order(1 "Men" 2 "Women"))  yline(0) ///
-    line(qfit) ///
-    xtitle("Log of population density")  colors(tableau) ///
-    ytitle("Change LFP")     title(Change in LFP 1990-2010)
 */
-
-/********************************************************************************************************
-COEFPLOTS BY INDUSTRY
-********************************************************************************************************/
-forvalues industry=1/8 {
-        estimates use "output/regressions/gap_ind_`industry'",       	 
-        eststo gap_ind_`industry'
-
-        estimates use "output/regressions/male_wage_ind_`industry'",       	    
-        eststo male_ind_`industry'
-
-        estimates use "output/regressions/female_wage_ind_`industry'",       	 
-        eststo female_ind_`industry'
-
-        estimates use "output/regressions/d_male_wage_ind_`industry'",       	 
-        eststo d_male_ind_`industry'
-
-        estimates use "output/regressions/d_female_wage_ind_`industry'",       	 
-        eststo d_female_ind_`industry'
-
-}
-
-local year_label 1 "1970" 2 "1980" 3 "1990" 4 "2000" 5 "2010" 6 "2020"
-
-coefplot baseline gap_ind_2, keep(*`indep_var') base vert yline(0) ///
-     xlabel(`year_label') ///
-    legend(order(2 "All industries" 4 "Manufacturing")) 
-
-/*
-local year_label 1 "1970-1990" 2 "1980-2000" 3 "1990-2010" 4 "2000-2020"
-coefplot d_male_ind_2 d_female_ind_2, keep(*`indep_var') base vert yline(0) ///
-     xlabel(`year_label') legend(order(2 "Men" 4 "Women" ))
-
-
-/*
-
-coefplot d_male_ind_3 d_female_ind_3, keep(*`indep_var') base vert yline(0) ///
-     xlabel(`year_label') legend(order(2 "Manufacturing" 4 "Finance - transportation - business services" 6 "Professional services"))
-
-coefplot d_male_ind_4 d_female_ind_4, keep(*`indep_var') base vert yline(0) ///
-     xlabel(`year_label') legend(order(2 "Manufacturing" 4 "Finance - transportation - business services" 6 "Professional services"))
-
-coefplot d_male_ind_5 d_female_ind_5, keep(*`indep_var') base vert yline(0) ///
-     xlabel(`year_label') legend(order(2 "Manufacturing" 4 "Finance - transportation - business services" 6 "Professional services"))
-
-coefplot d_male_ind_6 d_female_ind_6, keep(*`indep_var') base vert yline(0) ///
-     xlabel(`year_label') legend(order(2 "Manufacturing" 4 "Finance - transportation - business services" 6 "Professional services"))
-
-
-
-
-
-
-binscatter d_male_lfp d_female_lfp l_czone_density if year==2020&l_czone_density_50>1, ///
-    legend(order(1 "Men" 2 "Women"))  yline(0) ///
-    line(qfit) ///
-    xtitle("Log of population density")  colors(tableau) ///
-    ytitle("Change LFP")     title(Change in LFP 2000-2020)
-graph export "output/figures/d_change_lfp_2020.png", replace
-
-
-
-
-coefplot female*, keep(*density*) yline(0) ///
-    legend(order(2 "No controls" 4 "+ human capital controls" 6 "+ ind and occ") ring(0) pos(2)) ///
-    ytitle("w{sup:male}-w{sup:female} gradient ({&beta}{sub:t})")  ///
-    ciopt(recast(rcap)) base vert  xlabel(`year_label') yscale(range(0 .1))
-
-
-graph export "output/figures/with_ind_gradients_individual_`indep_var'_`indiv_sample'.pdf", replace
-
-
-
-/********************************************************************************************************
-CHANGE IN URBAN WAGE GRADIENT
-********************************************************************************************************/
-local model_list male_human  female_human
-foreach model in `model_list' {
-    estimates use "output/regressions/`model'_`indiv_sample'" 
-    eststo `model'
-
-    estimates use "output/regressions/`model'_w_`indiv_sample'" 
-    eststo `model'_w
-}
-
-coefplot `model_list' , keep(*`indep_var'*) yline(0) ///
-    legend(order(2 "Men" 4 "Women" ) ///
-    ring(0) pos(2)) ///
-    ytitle("Average wage")  ///
-    ciopt(recast(rcap)) base vert  ///
-    xlabel(`year_label') ///
-    yscale(range(0 .1)) ylabel(0(.02).1)  
-
-graph export "output/figures/premium_by_gender_`indiv_sample'.png", replace
-
-
-*Writing the coefplot
-local figure_title "Coefficient on population density $ \beta_t $"
-local figure_name "output/figures/premium_by_gender_`indiv_sample'.tex"
-local figure_note "figure restricts to CZ with more than `density_filter' people per km$^2$. Bars show 95\% confidence intervals. Standard errors clustered at the CZ level."
-local figure_path "../2_analysis/output/figures"
-
-
-local figure_list premium_by_gender_`indiv_sample'
-
-latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') ///
-    note(`figure_note') figlab(`figure_labs' `figure_labs') ///
-    title(`figure_title')  dofile(`do_location')   tiny 
-
-
-
-local model_list d_male_l_wage  d_female_l_wage 
-foreach model in `model_list' {
-    estimates use "output/regressions/`model'_`indiv_sample'" 
-    eststo `model'
-}
-
-
-local year_label   1 "1990" 2 "2000" 3 "2010" 4 "2020"
-
-
-coefplot `model_list' , keep(*`indep_var'*) yline(0) ///
-    legend(order(2 "Men" 4 "Women" ) ///
-    ring(0) pos(2)) ///
-    ytitle("Bi-decadal change in log average wage")  ///
-    ciopt(recast(rcap)) base vert  ///
-    xlabel(`year_label')
-
-graph export "output/figures/two_decade_changes_`indiv_sample'.pdf", replace
-
-
-*Writing the coefplot
-local figure_title "Coefficient on population density $ \beta_t $"
-local figure_name "output/figures/two_decade_changes_`indiv_sample'.tex"
-local figure_note "figure restricts to CZ with more than `density_filter' people per km$^2$. Bars show 95\% confidence intervals. Standard errors clustered at the CZ level."
-local figure_path "../2_analysis/output/figures"
-
-
-local figure_list two_decade_changes_`indiv_sample'
-
-latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') ///
-    note(`figure_note') figlab(`figure_labs' `figure_labs') ///
-    title(`figure_title')  dofile(`do_location')  tiny 
-
-/*********************************************************************************
-    LABOR FORCE PARTICIPATION
-**********************************************************************************/
-
-
-local model_list lfp_gap d_male_lfp  d_female_lfp 
-foreach model in `model_list' {
-    estimates use "output/regressions/`model'_`indiv_sample'" 
-    eststo `model'
-}
-
-
-local year_label  1 "1970" 2 "1990" 3 "1990" 4 "2000" 5 "2010" 6 "2020"
-
-
-coefplot lfp_gap , keep(*`indep_var'*) yline(0) ///
-    ytitle("Men's lfp - womens' lfp")  ///
-    ciopt(recast(rcap)) base vert  ///
-    xlabel(`year_label')
-
-graph export "output/figures/lfp_gap_`indiv_sample'.pdf", replace
-
-
-*Writing the coefplot
-local figure_title "Coefficient on population density $ \beta_t $"
-local figure_name "output/figures/two_decade_changes_`indiv_sample'.tex"
-local figure_note "figure restricts to CZ with more than `density_filter' people per km$^2$. Bars show 95\% confidence intervals. Standard errors clustered at the CZ level."
-local figure_path "../2_analysis/output/figures"
-
-
-local figure_list lfp_gap_`indiv_sample'
-
-latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') ///
-    note(`figure_note') figlab(`figure_labs' `figure_labs') ///
-    title(`figure_title')  dofile(`do_location')  tiny 
-
-
-local year_label  1 "1990" 2 "2000" 3 "2010" 4 "2020"
-
-
-coefplot d_male_lfp d_female_lfp , keep(*`indep_var'*) yline(0) ///
-    ytitle("Bi-decadal change in LFP")  ///
-    legend(order(2 "Men" 4 "Women") ring(0) pos(11)) ///
-    ciopt(recast(rcap)) base vert  ///
-    xlabel(`year_label')
-
-
-graph export "output/figures/d_lfp_gender_`indiv_sample'.pdf", replace
-
-
-
-*Writing the coefplot
-local figure_title "Coefficient on population density $ \beta_t $"
-local figure_name "output/figures/change_lfp_`indiv_sample'.tex"
-local figure_note "figure restricts to CZ with more than `density_filter' people per km$^2$. Bars show 95\% confidence intervals. Standard errors clustered at the CZ level."
-local figure_path "../2_analysis/output/figures"
-
-
-local figure_list d_lfp_gender_`indiv_sample'
-
-latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') ///
-    note(`figure_note') figlab(`figure_labs' `figure_labs') ///
-    title(`figure_title')  dofile(`do_location')  tiny 
-
-
-/*
 
 *Graph by race
 *--------------------------------------------------------------------------------------------
@@ -912,7 +614,8 @@ foreach model in `model_list' {
 coefplot `model_list', keep(*`indep_var'*) yline(0) ///
     legend(off) ///
     ytitle("w{sup:white}-w{sup:black} gradient ({&beta}{sub:t})")  ///
-    ciopt(recast(rcap)) base vert  xlabel(`year_label')
+     base vert  xlabel(`year_label') ciopts(recast(rline) lpattern(dash)) recast(connected) ///
+  level(90)
 
 graph export "output/figures/baseline_race_gradients_`indep_var'_`indiv_sample'.pdf", replace
 
@@ -920,20 +623,15 @@ graph export "output/figures/baseline_race_gradients_`indep_var'_`indiv_sample'.
 *Writing the coefplot
 local figure_title "Coefficient on population density $ \beta_t $"
 local figure_name "output/figures/baseline_race_gradients_`indep_var'_`indiv_sample'.tex"
-local figure_note "figure restricts to CZ with more than `density_filter' people per km$^2$. Bars show 95\% confidence intervals. Standard errors clustered at the CZ level. The figure restricts to year-round full time men workers."
+local figure_note "figure restricts to CZ with more than `density_filter' people per km$^2$. Bars show 90\% confidence intervals. Standard errors clustered at the CZ level. The figure restricts to year-round full time men workers."
 local figure_path "../2_analysis/output/figures"
 
 local figure_list baseline_race_gradients_`indep_var'_`indiv_sample'
 
 latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') ///
     note(`figure_note') figlab(`figure_labs' `figure_labs') ///
-    title(`figure_title')  dofile(`do_location') rowsize((10/6))  tiny 
-
-
-
-
+    title(`figure_title')  dofile(`do_location') rowsize((10/6))  tiny  key(fig:race_gradient)
 /*
-
 
 *GRAPH 2: ADDING GAP BETWEEN MEN AND WOMEN CHARACTERISTICS
 ********************************************************************************************
@@ -971,7 +669,7 @@ latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') /
 /**********************************************************************************************
 GRAPH 4: CONTROLLING FOR CZ LEVEL CHARACTERISTICS
 **********************************************************************************************/
-*/
+
 eststo clear
 *Models in differences
 local model_list controls0 controls1 controls2 controls3 controls4
@@ -998,79 +696,3 @@ local figure_list with_control_gradients_czone_`indep_var'_`indiv_sample'
 latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') ///
     note(`figure_note') figlab(`figure_labs' `figure_labs') ///
     title(`figure_title')  dofile(`do_location') rowsize((10/6))  tiny
-
-
-/**********************************************************************************************
-GRAPH 5: WITH WITHOUT CHILDREN
-**********************************************************************************************/
-
-
-eststo clear
-*Models in differences
-local model_list baseline human basic full full_c full_c
-foreach model in `model_list' {
-    *People without children
-    estimates use "output/regressions/`model'0_czone_`indiv_sample'" 
-    eststo `model'0
-
-    *People with children
-    estimates use "output/regressions/`model'1_czone_`indiv_sample'" 
-    eststo `model'1
-}
-
-coefplot  full0 full_c0   full1  full_c1 , keep(*year#c.`indep_var') yline(0) ///
-    legend(order(2 "No children" 4 "No children, controls" 6 "With children" 8 "With children, controls") ring(0) pos(2)) ///
-    ytitle("w{sup:male}-w{sup:female} gradient ({&beta}{sub:t})")  ///
-    ciopt(recast(rcap)) base vert  xlabel(`year_label')
-
-graph export "output/figures/by_children_`indep_var'_`indiv_sample'.pdf", replace
-
-
-local figure_title "Coefficient on population density $ \beta_t $ conditional conditional on having children"
-local figure_name "output/figures/by_children_`indep_var'_`indiv_sample'.tex"
-local figure_note "figure restricts to CZ with more than `density_filter' people per km$^2$. Regression includes census division fixed-effects. The regressions are done on data aggregated at the CZ level. Bars show 95\% robust confidence intervals.  Standard errors clustered at the CZ level."
-local figure_path "../2_analysis/output/figures"
-
-local figure_list by_children_`indep_var'_`indiv_sample'
-
-latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') ///
-    note(`figure_note') figlab(`figure_labs' `figure_labs') ///
-    title(`figure_title')  dofile(`do_location') rowsize((10/6))  tiny
-
-/*
-/**********************************************************************************************
-GRAPH 5: GRAPH MARRIED / SINGLE
-**********************************************************************************************/
-eststo clear
-*Models in differences
-local model_list baseline //basic human
-foreach model in `model_list' {
-    *People without children
-    estimates use "output/regressions/`model'0_married_czone_`indiv_sample'" 
-    eststo `model'0
-
-    *People with children
-    estimates use "output/regressions/`model'1_married_czone_`indiv_sample'" 
-    eststo `model'1
-}
-
-coefplot baseline0 baseline1, keep(*year#c.`indep_var') yline(0) ///
-    legend(order(2 "Single" 4 "Married") ring(0) pos(2)) ///
-    ytitle("w{sup:male}-w{sup:female} gradient ({&beta}{sub:t})")  ///
-    ciopt(recast(rcap)) base vert  xlabel(`year_label')
-
-graph export "output/figures/by_married_czone_`indep_var'_`indiv_sample'.pdf", replace
-
-
-local figure_title "Coefficient on population density $ \beta_t $ controlling for worker characteristics"
-local figure_name "output/figures/by_married_czone_`indep_var'_`indiv_sample'.tex"
-local figure_note "figure restricts to CZ with more than `density_filter' people per km$^2$. Regression includes census division. The regressions are done on data aggregated at the CZ level. Bars show 95\% robust confidence intervals.  Standard errors clustered at the CZ level."
-local figure_path "../2_analysis/output/figures"
-
-local figure_list  by_married_czone_`indep_var'_`indiv_sample'
-
-latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') ///
-    note(`figure_note') figlab(`figure_labs' `figure_labs') ///
-    title(`figure_title')  dofile(`do_location') rowsize((10/6))  tiny
-
-

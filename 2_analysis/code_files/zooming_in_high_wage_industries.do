@@ -5,87 +5,145 @@ gettoken 	density_filter	0: 0
 
 
 grscheme, ncolor(7) style(tableau)
-
-use if !missing(l_hrwage)&!missing(l_hrwage) ///
-	using "temporary_files/file_for_individual_level_regressions_`indiv_sample'", clear 
-
-*First I extract industry's fixed effects
-reghdfe l_hrwage [pw=perwt], vce(cl czone)  ///
-    absorb(i.ind1950#i.year i.age#i.year i.race#i.year ///
-	i.female#i.year i.marst#i.year i.migrant#i.year i.education#i.year) savefe
-
-rename __hdfe1__ with_ind_fe
-cap drop *hdfe*
-
-gcollapse (mean) with_ind_fe (sum) employment=perwt if !missing(with_ind_fe), by(year ind1950)
+use "../1_build_database/output/ind_fe_file_full_time", clear
 
 
-xtset ind1950 year, delta(10)
+gcollapse (sum) male_ind_emp female_ind_emp (mean) ind_fe, by(ind1950 year)
 
-levelsof year
-generate pay_quartile=.
-foreach year in `r(levels)' {
-	cap drop temp
-	*Here I weight observations using the its size / equivalent to weighting by employment share
-	xtile 	temp=with_ind_fe [pw=employment] if year==`year', nq(4)
-	replace pay_quartile=temp 			if year==`year'
+
+sort ind1950 year
+by ind1950: generate ind_fe_70=ind_fe[2]
+
+
+foreach gender in male female {
+	egen `gender'_total_emp=sum(`gender'_ind_emp), by(year)
+	generate `gender'_ind_empshare=`gender'_ind_emp/`gender'_total_emp
 }
 
-*I keep 1970's clasification fixed
+eststo male: 	reg male_ind_empshare i.year#c.ind_fe i.year if year>1950, vce(cl ind1950)
+eststo female: 	reg female_ind_empshare i.year#c.ind_fe i.year if year>1950, vce(cl ind1950)
+
+local year_label 1 "1970" 2 "1980" 3 "1990" 4 "2000" 5 "2010" 6 "2020"
+
+
+coefplot male female,  keep(*ind_fe*) vert yline(0) base   ///
+  xlabel(`year_label')  legend(order(2 "Men" 4 "Women"))  ///
+  lwidth(*2) ciopts(recast(rcap)) recast(connected) ///
+  level(90) 
+
+graph export "output/figures/gender_ind_empshares.png", replace
+
+
+local figure_title "Industry employment share by gender"
+local figure_name "output/figures/gender_ind_empshares.tex"
+local figure_note "figure restricts to CZ with more than `density_filter' people per km$^2$. Bars show 90\% confidence intervals. Standard errors clustered at the CZ level."
+local figure_path "../2_analysis/output/figures"
+local figure_labs `""Average share college graduates""College share-density gradient""'
+
+local figure_list gender_ind_empshares
+
+latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') ///
+    note(`figure_note') figlab(`figure_labs') ///
+    title(`figure_title')  dofile(`do_location') tiny  key(figure:ind_gender_shares)
+
+*An alternative way to see this:
+tw (lowess male_ind_empshare ind_fe_70, lwidth(1)) ///
+	(lowess female_ind_empshare ind_fe_70, lwidth(1)) ///
+	if inlist(year, 1970, 1990, 2020), by(year, rows(1)) ///
+	legend(order(1 "Men" 2 "Women") ring(0) pos(1))   ///
+	xtitle("Relative pay in 1970") ytitle("Employment share")
+graph export "output/figures/gender_empshare_distribution.png", replace
+
+*An alternative way to see this:
+tw (lowess male_ind_empshare ind_fe, lwidth(1)) ///
+	(lowess female_ind_empshare ind_fe, lwidth(1)) ///
+	if inlist(year, 1970, 1990, 2020), by(year, rows(1)) ///
+	legend(order(1 "Men" 2 "Women") ring(0) pos(1))   ///
+	xtitle("Year-specific relative pay") ytitle("Employment share")
+graph export "output/figures/gender_empshare_distribution_year_ranking.png", replace
+
+
+local figure_title "Industry employment distribution by gender"
+local figure_name "output/figures/gender_empshare_distribution.tex"
+local figure_note "figure restricts to CZ with more than `density_filter' people per km$^2$."
+local figure_path "../2_analysis/output/figures"
+local figure_labs `""Ranking fixed in 1970""Varying the ranking""'
+
+local figure_list gender_empshare_distribution gender_empshare_distribution_year_ranking
+
+latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') ///
+    note(`figure_note') figlab(`figure_labs') ///
+    title(`figure_title')  dofile(`do_location') tiny  key(fig:gender_distribution)
+
+
+*----------------------------------------------------------
+egen total_emp=rowtotal(male_ind_emp female_ind_emp)
+
+egen year_emp=sum(total_emp), by(year)
+
+generate ind_empshare=total_emp/year_emp
+
+gegen high_pay=xtile(ind_fe) [aw=ind_empshare], by(year) nq(3)
+
 sort ind1950 year
-by ind1950: generate pay_quartile_1970=pay_quartile[1]
+by ind1950: generate high_pay_70=high_pay[2]
 
-label var pay_quartile 		"Year specific pay quartile"
-label var pay_quartile_1970 "1970's specific pay quartile"
+tempfile high_pay_class
+keep ind1950 year high_pay high_pay_70
+save `high_pay_class'
 
-drop if ind1950==.
+use "../1_build_database/output/ind_fe_file_full_time", clear
 
-cap drop temp
-egen temp=sum(employment), by(year)
-generate empshare=employment/temp
+merge m:1 ind1950 year using  `high_pay_class', nogen 
 
-drop temp
+generate in_high_pay=high_pay==3
+generate in_high_pay_70=high_pay_70==3
 
-save "temporary_files/industry_premia_by_year_`indiv_sample'", replace
-
-
-*QUESTION 1> ARE THESE INDUSTRIES IN DECLINE AT THE NATIONAL LEVEL?
-*Yes. these industries are declining at the national level
-*---------------------------------------------------------------------------------------
-use "temporary_files/industry_premia_by_year_`indiv_sample'", clear
+egen ind_emp=rowtotal(male_ind_emp female_ind_emp)
 
 
-gcollapse (sum) empshare (sum) employment, by(pay_quartile_1970 year) fast
+*---------------------------------------------------------------------------------
+*Which are these high-pay industries?
+*---------------------------------------------------------------------------------
+preserve
+gcollapse (sum) ind_emp *_ind_emp (mean) ind_fe high_pay high_pay_70, by(ind1950 year)
 
-xtset pay_quartile_1970 year, delta(10)
-generate dp_employment=d.employment/l.employment
-generate dp_empshare=d.empshare/l.empshare
-
-separate empshare, by(pay_quartile_1970)
-
-tw line `r(varlist)' year, ///
-	legend(order(1 "Lowest pay quartile" 2 "Second quartile" ///
-	3 "Third quartile" 4 "Highest pay quartile")) ///
-	recast(connected) yscale(range(0 .3)) ylab(0(.1).3) ///
-	ytitle("Employment share (national)")
-
-graph export "output/figures/employment_share_quartile_by_year_`indiv_sample'.png", replace
+generate male_share=male_ind_emp/ind_emp
 
 
+gegen high_male_ind=xtile(male_share) [aw=ind_emp], nq(3) by(year)
 
-*QUESTION 2> WHAT ARE THE INDUSTRIES THAT I ASSIGN AS BEING HIGH PAY
-use  "temporary_files/industry_premia_by_year_`indiv_sample'", clear
+tempfile complete
+save `complete'
 
-generate high_pay_industry=pay_quartile_1970==4
+keep ind1950 year high_pay high_male_ind
+tempfile high_male_classification
+save `high_male_classification'
 
-g ind_mining_cons=		inrange(ind1950,206,246) 	
-g ind_manufacturing=	inrange(ind1950,306,499) 	
-g ind_pers_services=	inrange(ind1950,826,849) 	
-g ind_prof_services=	inrange(ind1950,868,899) 
-g ind_ret_services=		inrange(ind1950,606,699) 	
-g ind_oth_services=		inrange(ind1950,506,598) | 	inrange(ind1950,716,817)| inrange(ind1950,856,859)
-g ind_public_adm=		inrange(ind1950,906,946)  	
-g ind_agriculture=		inrange(ind1950,105,126) 	
+use `complete', clear
+xtset ind1950 year, delta(10)
+
+tw (scatter ind_fe l5.ind_fe, msymbol(o)) (lfit l5.ind_fe l5.ind_fe, lwidth(.5)) ///
+	if year==2020, xline(0, lp(dash)) yline(0, lp(dash)) yscale(range(-1 .5)) xscale(range(-1 .5)) ///
+	ylabel(-1(.25).5) xlabel(-1(.25).5) legend(order(2 "45º degree line") ring(0) pos(11)) ///
+	xtitle("Relative pay in 1970") ytitle("Relative pay in 2020")
+
+graph export "output/figures/ranking_persistence.png", replace
+
+
+*Classification of industris
+cap replace ind1950=. 		if ind1950>=980
+cap replace ind1950=. 		if ind1950==0		
+
+g ind_mining_cons=		inrange(ind1950,206,246) 		`employed'
+g ind_manufacturing=	inrange(ind1950,306,499) 		`employed'
+g ind_pers_services=	inrange(ind1950,826,849) 		`employed'
+g ind_prof_services=	inrange(ind1950,868,899) 		`employed'
+g ind_ret_services=		inrange(ind1950,606,699) 		`employed'
+g ind_oth_services=		inrange(ind1950,506,598) | 	inrange(ind1950,716,817)|	///
+	inrange(ind1950,856,859) `employed'
+g ind_public_adm=		inrange(ind1950,906,946)  		`employed'
+g ind_agriculture=		inrange(ind1950,105,126) 		`employed'
 
 local counter=1
 
@@ -109,234 +167,342 @@ capture label define ind_type 	1 "Mining and construction" ///
 label values ind_type ind_type
 
 
-log using "output/log_files/high_pay_industries.txt", text replace
-tab ind1950 if pay_quartile_1970==4&year==1970
+gcollapse (mean) ind_mining_cons-ind_agriculture [aw=ind_emp] ///
+	, by(high_pay year)
 
-*Unweighted by industry size
-table high_pay_industry if year==1970 , c(mean ind_manufacturing)
+tw connected ind_manufacturing ind_prof_services ind_mining_cons ind_oth_services ///
+ 	year if high_pay==3&year>1950, lwidth(*2) ///
+	 legend(order(1 "Manufacturing" 2 "Professional services" ///
+	 3 "Mining and construction" 4 "Trasportation, business and utilities") ring(0) pos(2)) ///
+	 ytitle("Employment share within high-pay industries") 
 
-*Weighted by industry size
-table high_pay_industry if year==1970 [pw=empshare], c(mean ind_manufacturing)
-log close
+graph export "output/figures/high_pay_by_type.png", replace
 
-save "temporary_files/industry_classification_by_year_`indiv_sample'", replace 
+local figure_title "Industries and relative pay"
+local figure_name "output/figures/industries_ranking.tex"
+local figure_note "figure restricts to CZ with more than `density_filter' people per km$^2$."
+local figure_path "../2_analysis/output/figures"
+local figure_labs `""Relative pay in 2020 vs 1970""High-pay industries by industry-group""'
 
-*QUESTION 3> IS IT BECAUSE WOMEN GET MORE ACCESS TO THESE INDUSTRIES IN DENSER PLACES
-******************************************************************************************************
-use perwt czone ind1950 l_hrwage female year if !missing(l_hrwage)&!missing(l_hrwage)&!missing(ind1950) ///
-	using "temporary_files/file_for_individual_level_regressions_`indiv_sample'", clear 
-
-gcollapse (sum) employment=perwt, by(female czone ind1950 year) fast
-
-
-merge m:1 ind1950 year using  "temporary_files/industry_classification_by_year_`indiv_sample'"
-
-gcollapse (sum) employment, by(female czone year high_pay_industry)
-
-reshape wide employment, i(czone year high_pay_industry) j(female)
+local figure_list ranking_persistence high_pay_by_type
 
 
-egen total_male_emp=sum(employment0), by(czone year)
-egen total_female_emp=sum(employment1), by(czone year)
-
-generate total_female_empshare=total_female_emp/(total_female_emp+total_male_emp)
-
+latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') ///
+    note(`figure_note') figlab(`figure_labs') ///
+    title(`figure_title')  dofile(`do_location') tiny  key(fig:which_pay)
 
 
-generate female_empshare=employment1/(employment0+employment1)
+restore
 
-generate female_empshare_ex=female_empshare-total_female_empshare
+preserve
+gcollapse (mean) in_high_pay in_high_pay_70 l_czone_density  ///
+	 [aw=ind_emp], by(czone year)
 
-merge m:1 czone year using   "temporary_files/aggregate_regression_file_final_`indiv_sample'"
+sort czone year 
+by czone: generate l_czone_density_50=l_czone_density[1]
 
-
-separate female_empshare_ex, by(high_pay_industry)
-
-
-tw scatter `r(varlist)' l_czone_density, ///
-	by(year) msize(.3 .3 .3) legend(order(1 "Low pay industries"  ///
-	2 "High pay industries")) ytitle("Female employment share")
-
-graph export "output/figures/within_industry_female_empshare.png", replace
+eststo clear
+drop if year==1950
+eststo fixed:		reg in_high_pay_70 i.year#c.l_czone_density i.year if l_czone_density_50>0, vce(cl l_czone_density)
+eststo moving: 		reg in_high_pay i.year#c.l_czone_density i.year if l_czone_density_50>0, vce(cl l_czone_density)
 
 
-generate male_ind_type_share=employment0/total_male_emp
-generate female_ind_type_share=employment1/total_female_emp
+coefplot fixed moving,  keep(*l_czone_density*) vert yline(0) base   ///
+  xlabel(`year_label')  legend(order(2 "Fixed ranking" 4 "Variable ranking"))  ///
+  lwidth(*2) ciopts(recast(rcap)) recast(connected) ///
+  level(90) 
+graph export "output/figures/high_wage_ind_city_coefplot.png", replace
 
-tw scatter female_ind_type_share male_ind_type_share l_czone_density ///
-	if high_pay_industry, by(year)  msize(.3 .3) legend(order(1 "Female"  ///
-	2 "Male")) ytitle("Employment share in high pay industries")
+tw (scatter in_high_pay l_czone_density, msize(.8) msymbol(o) legend(off)) ///
+	(lfit in_high_pay l_czone_density, legend(off)) if year>1950, ///
+	by(year,legend(off)) xtitle("Log of population density") ///
+	ytitle("Share of employment in high-wage industries") 
+graph export "output/figures/high_wage_ind_city_scatter.png", replace
 
-graph export "output/figures/within_gender_high_pay_empshare.png", replace
+
+local figure_title "High wage industries and population density"
+local figure_name "output/figures/high_wage_ind_cities.tex"
+local figure_note "figure restricts to CZ with more than `density_filter' people per km$^2$."
+local figure_path "../2_analysis/output/figures"
+local figure_labs `""Scatterplots by year""Density gradient""'
+
+local figure_list high_wage_ind_city_scatter high_wage_ind_city_coefplot
+
+latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') ///
+    note(`figure_note') figlab(`figure_labs') ///
+    title(`figure_title')  dofile(`do_location') tiny  ///
+	key(fig:ind_cities)
+
+restore
+
+sort czone ind1950  year
+by czone ind1950: generate ind_fe_70=ind_fe[2]
 
 
-*Women are more heavily concentrated in low-pay industries at the start of the period
-	
-	
-********************************************************************************	
+egen male_cz_emp=sum(male_ind_emp), by(czone year)
+egen female_cz_emp=sum(female_ind_emp), by(czone year)
+
+generate female_in_high_pay=in_high_pay*male_ind_emp/male_cz_emp
+generate male_in_high_pay=in_high_pay*female_ind_emp/female_cz_emp
+
+generate female_in_high_pay_70=in_high_pay_70*male_ind_emp/male_cz_emp
+generate male_in_high_pay_70=in_high_pay_70*female_ind_emp/female_cz_emp
+
+
+generate female_in_high_pay_w=female_in_high_pay*ind_fe
+generate male_in_high_pay_w=male_in_high_pay*ind_fe
+
+generate female_in_high_pay_70_w=female_in_high_pay_70*ind_fe
+generate male_in_high_pay_70_w=male_in_high_pay_70*ind_fe
+
+gcollapse (sum) *male_in_high_pay* (mean)	l_czone_density , by(czone year)
+
+sort czone year 
+by czone: generate l_czone_density_50=l_czone_density[1]
+
+
+drop if year==1950
+
+
+eststo clear
+eststo male: reg male_in_high_pay i.year#c.l_czone_density  i.year if l_czone_density_50>0, ///
+	vce(cl czone)
+eststo female: reg female_in_high_pay i.year#c.l_czone_density i.year if l_czone_density_50>0, ///
+	vce(cl czone)
+
+coefplot male female,  keep(*l_czone_density*) vert yline(0) base   ///
+  xlabel(`year_label')  legend(order(2 "Men" 4 "Women") ring(0) pos(2))  ///
+  lwidth(*2) ciopts(recast(rcap)) recast(connected) ///
+  level(90) 
+graph export "output/figures/high_pay_gender_gradient.png", replace
+
+eststo male_70: reg male_in_high_pay_70 i.year#c.l_czone_density  i.year if l_czone_density_50>0, ///
+	vce(cl czone)
+eststo female_70: reg female_in_high_pay_70 i.year#c.l_czone_density i.year if l_czone_density_50>0, ///
+	vce(cl czone)
+
+
+
+coefplot male_70 female_70,  keep(*l_czone_density*) vert yline(0) base   ///
+  xlabel(`year_label')  legend(order(2 "Men" 4 "Women") ring(0) pos(2))  ///
+  lwidth(*2) ciopts(recast(rcap)) recast(connected) ///
+  level(90) 
+graph export "output/figures/high_pay_gender_gradient_70.png", replace
+
+
+local figure_title "High wage industries by gender"
+local figure_name "output/figures/high_pay_gender_gradient.tex"
+local figure_note "figure restricts to CZ with more than `density_filter' people per km$^2$."
+local figure_path "../2_analysis/output/figures"
+local figure_labs `""Variable industry ranking""Industry ranking fixed at 1970""'
+
+local figure_list high_pay_gender_gradient high_pay_gender_gradient_70
+
+latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') ///
+    note(`figure_note') figlab(`figure_labs') ///
+    title(`figure_title')  dofile(`do_location') tiny  ///
+	key(fig:gender_ind_cities)
+
+merge 1:1 czone year using "../1_build_database/output/czone_level_dabase_full_time", nogen
+
+
+*Suppose I control for the share in high wage industries at the aggregate level. This kills more than half the coeffient in the 1990s
+eststo clear
+
+generate high_pay_gap=male_in_high_pay_w-female_in_high_pay_w
+generate high_pay_gap_70=male_in_high_pay_70_w-female_in_high_pay_70_w
+
+eststo no_control: 	reg 	wage_bas_gap i.year c.l_czone_density#i.year i.year if year>1950
+eststo control: 	reg 	wage_bas_gap i.year c.l_czone_density#i.year c.high_pay_gap#i.year i.year if year>1950
+
+
+coefplot no_control control ,  keep(*l_czone_density*) vert yline(0) base   ///
+  xlabel(`year_label')  legend(order(2 "No controls" 4 "+ employment gap" 6 "+ employment share") ring(0) pos(2))  ///
+  lwidth(*2) ciopts(recast(rcap)) recast(connected) ///
+  level(90) 
+graph export "output/figures/gender_bas_gap_gradient_high_share.png", replace
+
+eststo no_control: 	reg 	wage_hum_gap i.year c.l_czone_density#i.year i.year if year>1950
+eststo control: 	reg 	wage_hum_gap i.year c.l_czone_density#i.year c.high_pay_gap#i.year  i.year if year>1950
+
+coefplot no_control control ,  keep(*l_czone_density*) vert yline(0) base   ///
+  xlabel(`year_label')  legend(order(2 "No controls" 4 "+ employment gap" 6 "+ employment share") ring(0) pos(2))  ///
+  lwidth(*2) ciopts(recast(rcap)) recast(connected) ///
+  level(90) 
+graph export "output/figures/gender_hum_gap_gradient_high_share.png", replace
+
 /*
 
 
-*QUESTION 2> ARE THESE INDUSTRIES IN DECLINE DISPROPORTIONATELY IN DENSER PLACES LEVEL?
-*--------------------------------------------------------------------------------------------------
-*answer they are
-use if !missing(l_hrwage)&!missing(l_hrwage)&!missing(ind1950) ///
-	using "temporary_files/file_for_individual_level_regressions_`indiv_sample'", clear 
+coefplot control, keep(*c.male_in_high_pay*) bylabel(Men) xlabel(`year_label')   ///
+  yline(0) base   vert legend(off) ///
+  lwidth(*2) ciopts(recast(rcap)) recast(connected) ///
+  level(90) yscale(range(0 .9)) ylabel(0(.2).9)
+graph export "output/figures/high_wage_ind_men.png", replace
 
-merge m:1  ind1950 year using "temporary_files/industry_premia_by_year_`indiv_sample'"
-
-
-generate high_pay_industry=pay_quartile_1970==4
-
-gcollapse (sum) employment=perwt, by(czone year high_pay_industry) fast
-
-reshape wide employment, i(czone year) j(high_pay_industry)
-
-generate high_pay_empshare=employment1/(employment0+employment1)
+coefplot control, keep(*c.female_in_high_pay*) bylabel(Men) xlabel(`year_label')   ///
+  yline(0) base   vert legend(off) ///
+  lwidth(*2) ciopts(recast(rcap)) recast(connected) ///
+  level(90) yscale(range(-.9 0)) ylabel(-.9(.2)0)
+graph export "output/figures/high_wage_ind_women.png", replace
+*The point is more subtle. The key to explaining the gradient is the access to suceesful manufacturing industries.
 
 
-cap drop _merge
-merge 1:1 czone year using ///
-	"temporary_files/aggregate_regression_file_final_`indiv_sample'",  nogen
 
-xtset czone year, delta(10)
+local figure_title "High wage industries by gender"
+local figure_name "output/figures/high_wage_coefficients.tex"
+local figure_note "figure restricts to CZ with more than `density_filter' people per km$^2$."
+local figure_path "../2_analysis/output/figures"
+local figure_labs `""Net-of race/age gender gap and high-wage industry share""Net-of-education gap and high-wage industry share""Men's high-wage industry employment, men""Women's high-wage industry employment""'
 
-sort czone year
+local figure_list  gender_bas_gap_gradient_high_share gender_hum_gap_gradient_high_share  high_wage_ind_men high_wage_ind_women
 
-by czone: generate d_high_empshare_1970=high_pay_empshare-high_pay_empshare[1]
+latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') ///
+    note(`figure_note') figlab(`figure_labs') ///
+    title(`figure_title')  dofile(`do_location') tiny  ///
+	key(fig:high_wage_gradients) rowsize(2)
 
-levelsof year
-foreach year in 1980 1990 2000 2010 2020 {
-	tw (scatter d_high_empshare_1970 l_czone_density  [aw=czone_pop]) ///
-		 (lfit  d_high_empshare_1970 l_czone_density) ///
-		 if year==`year', yscale(range(-.3 .3)) ylab(-.3(.1).3) ///
-		 ytitle("`year'-1970 change") ///
-		 legend(off) ///
-		 title("Change in share of employment in high pay industries")
-	graph export "output/figures/change_empshare_highpay_`year'_`indiv_sample'.png", replace
+
+clear
+use "../1_build_database/output/ind_fe_file_full_time", clear
+
+merge m:1 ind1950 year using `high_male_classification'
+
+drop if missing(ind1950)
+
+local year_label 1 "1970" 2 "1980" 3 "1990" 4 "2000" 5 "2010" 6 "2020"
+
+
+g ind_mining_cons=		inrange(ind1950,206,246) 		`employed'
+g ind_manufacturing=	inrange(ind1950,306,499) 		`employed'
+g ind_pers_services=	inrange(ind1950,826,849) 		`employed'
+g ind_prof_services=	inrange(ind1950,868,899) 		`employed'
+g ind_ret_services=		inrange(ind1950,606,699) 		`employed'
+g ind_oth_services=		inrange(ind1950,506,598) | 	inrange(ind1950,716,817)|	///
+	inrange(ind1950,856,859) `employed'
+g ind_public_adm=		inrange(ind1950,906,946)  		`employed'
+g ind_agriculture=		inrange(ind1950,105,126) 		`employed'
+
+preserve
+gcollapse (sum) male_ind_emp female_ind_emp, by(czone year ind_manufacturing)
+
+foreach gender in male female {
+	egen total_`gender'=sum(`gender'_ind_emp), by(czone year)
+	generate `gender'_man_share=`gender'_ind_emp/ total_`gender'
 }
+keep if ind_manufacturing
+
+
+merge 1:1 czone year using "../1_build_database/output/czone_level_dabase_full_time", nogen
+
+sort czone year 
+by czone: generate l_czone_density_50=l_czone_density[1]
 
 
 
-*QUESTION 3> ARE THESE INDUSTRIES IN DECLINE DISPROPORTIONATELY IN DENSER PLACES LEVEL?
-*--------------------------------------------------------------------------------------------------
+eststo clear
+eststo no_control: 	reg 	wage_bas_gap i.year c.l_czone_density#i.year i.year if year>1950
+eststo control: 	reg 	wage_bas_gap i.year c.l_czone_density#i.year c.male_man_share#i.year  c.female_man_share#i.year i.year if year>1950
+coefplot no_control control, keep(*density*) bylabel(Men) xlabel(`year_label')   ///
+  yline(0) base   vert legend(off) ///
+  lwidth(*2) ciopts(recast(rcap)) recast(connected) ///
+  level(90) 
 
-
-*QUESTION 1> ARE THESE INDUSTRIES IN DECLINE
-*---------------------------------------------------------------------------------------
-/*
-use "temporary_files/industry_premia_by_year_`indiv_sample'", clear
-
-xtset ind1950 year, delta(10)
-
-
-levelsof year
-generate pay_quartile=.
-foreach year in `r(levels)' {
-	cap drop temp
-
-	*Here I weight observations using the its size / equivalent to weighting by employment share
-	xtile 	temp=with_ind_fe [pw=perwt] if year==`year', nq(4)
-	replace pay_quartile=temp if year==`year'
-}
+graph export "output/figures/gender_bas_gap_gradient_manufacturing_share.png", replace
 
 
 
-/*
-tw scatter with_ind_fe l5.with_ind_fe if year==2020
+eststo clear
+eststo no_control: 	reg 	wage_hum_gap i.year c.l_czone_density#i.year i.year if year>1950
+eststo control: 	reg 	wage_hum_gap i.year c.l_czone_density#i.year c.male_man_share#i.year  c.female_man_share#i.year i.year if year>1950
+coefplot no_control control, keep(*density*) bylabel(Men) xlabel(`year_label')   ///
+  yline(0) base   vert legend(off) ///
+  lwidth(*2) ciopts(recast(rcap)) recast(connected) ///
+  level(90) 
+
+graph export "output/figures/gender_hum_gap_gradient_manufacturing_share.png", replace
+
+
+local figure_title "High wage industries by gender"
+local figure_name "output/figures/manufacturing_coefficients.tex"
+local figure_note "figure restricts to CZ with more than `density_filter' people per km$^2$."
+local figure_path "../2_analysis/output/figures"
+local figure_labs `""Net-of race/age gender gap and high-wage industry share""Net-of-education gap and high-wage industry share""'
+
+local figure_list  gender_bas_gap_gradient_manufacturing_share gender_hum_gap_gradient_manufacturing_share 
+
+latexfigure using `figure_name', path(`figure_path') figurelist(`figure_list') ///
+    note(`figure_note') figlab(`figure_labs') ///
+    title(`figure_title')  dofile(`do_location') tiny  ///
+	key(fig:manufacturing_gradients) rowsize(2)
+restore
 
 sort ind1950 year
-by ind1950: generate with_ind_fe_1970=with_ind_fe[1]
-generate   d_with_ind_fe=with_ind_fe-with_ind_fe_1970
+by ind1950: generate high_male_ind_70=high_male_ind[2]
+by ind1950: generate high_pay_70=	high_pay[2]
 
-binscatter d_with_ind_fe with_ind_fe_1970, by(year) line(qfit)
+generate in_high_pay=high_pay_70==3
+
+gcollapse (sum) male_ind_emp female_ind_emp , by(czone year in_high_pay)
+
+*Industry gender ratio
+generate ind_gender_ratio=male_ind_emp/female_ind_emp
+egen industry_size=rowtotal(male_ind_emp female_ind_emp)
+egen total_emp=sum(industry_size), by(czone year)
+
+generate high_pay_share=industry_size/total_emp
+
+keep if in_high_pay
+
+
+merge 1:1 czone year using "../1_build_database/output/czone_level_dabase_full_time", nogen
+
+sort czone year 
+by czone: generate l_czone_density_50=l_czone_density[1]
+
+eststo no_control: 	reg 	wage_bas_gap i.year c.l_czone_density#i.year i.year if year>1950
+eststo control: 	reg 	wage_bas_gap i.year c.l_czone_density#i.year c.high_pay_share#i.year c.ind_gender_ratio#i.year i.year if year>1950
+
+coefplot no_control control, keep(*density*) label(`year_label')   ///
+  yline(0) base   vert legend(off) ///
+  lwidth(*2) ciopts(recast(rcap)) recast(connected) ///
+  level(90) 
 
 /*
+foreach gender in male female {
+	egen total_`gender'=sum(`gender'_ind_emp), by(czone year)
+	generate `gender'_hm_share=`gender'_ind_emp/ total_`gender'
+}
+
+egen ind_emp=rowtotal(male_ind_emp female_ind_emp)
+egen total_ind_emp=sum(ind_emp), by(czone year)
+generate total_hm_share=ind_emp/ total_ind_emp
+
+keep if high_male
+
+
+merge 1:1 czone year using "../1_build_database/output/czone_level_dabase_full_time", nogen
 
 
 
+eststo clear
+eststo no_control: 	reg 	wage_bas_gap i.year c.l_czone_density#i.year i.year if year>1950
+eststo control: 	reg 	wage_bas_gap i.year c.l_czone_density#i.year c.male_hm_share#i.year c.female_hm_share#i.year i.year if year>1950
+
+coefplot no_control control, keep(*density*) label(`year_label')   ///
+  yline(0) base   vert legend(off) ///
+  lwidth(*2) ciopts(recast(rcap)) recast(connected) ///
+  level(90) 
+graph export "output/figures/gender_hum_gap_gradient_hm_share.png", replace
 
 
-use "temporary_files/file_high_wage_industries_`indiv_sample'", clear
-cap drop _merge
-cap drop _est*
-preserve
-*Some preliminary fixes to the map database
-tempfile map_tomerge
-	use "../1_build_database/input/cz1990_data", clear
-	use "../1_build_database/input/cz1990_data", clear
-	rename cz czone
-	rename cz_id _ID
-	drop *_center
-save `map_tomerge'
-restore
-merge m:1 czone using `map_tomerge', keep(2 3) nogen
 
-preserve
-replace high_pay_share=round(high_pay_share,.01)
-replace l_hrwage_gap=round(l_hrwage_gap,.01)
+eststo clear
+eststo no_control: 	reg 	wage_hum_gap i.year c.l_czone_density#i.year i.year if year>1950
+eststo control: 	reg 	wage_hum_gap i.year c.l_czone_density#i.year c.male_hm_share#i.year c.female_hm_share#i.year i.year if year>1950
 
+coefplot no_control control, keep(*density*) label(`year_label')   ///
+  yline(0) base   vert legend(off) ///
+  lwidth(*2) ciopts(recast(rcap)) recast(connected) ///
+  level(90) 
 
-*Map of population density
-spmap high_pay_share  if year==1970 using "../1_build_database/input/cz1990_coor", ///
-    id(_ID) fcolor(Reds2) legtitle("Share in high-pay industries")   clnumber(7) 
-
-graph export "output/figures/high_pay_ind_map_1970_full_time.png", replace
-
-spmap l_hrwage_gap  if year==1970 using "../1_build_database/input/cz1990_coor", ///
-    id(_ID) fcolor(Reds2) legtitle("Gender wage gap")   clnumber(7) 
-
-graph export "output/figures/pay_gap_map_1970_full_time.png", replace
-restore 
-
-tw scatter high_pay_share l_czone_density if year==1970, m(o) ///
-    xtitle("log(CZ density)") ytitle(Employment share in high-pay industries)
-graph export "output/figures/high_pay_ind_density_full_time.png", replace
-
-
-tw scatter l_hrwage_gap high_pay_share if year==1970, m(o) ///
-    xtitle("log(CZ density)") ytitle(Male wage advantage)
-graph export "output/figures/pay_gap_density_full_time.png", replace
-
-
-xtset czone year, delta(10)
-sort czone year
-
-by czone: generate high_pay_share_1970=	high_pay_share[1]
-by czone: generate d_high_pay_share=		high_pay_share-high_pay_share[1]
-
-*These are industries in declie 
-tw scatter d_high_pay_share high_pay_share_1970 if year==1990, ///
-	xtitle("1970 share in high-pay industries") ///
-	ytitle("Change in high-pay industries share (1990-1970)") ///
-	m(o)
-
-**
-
-preserve
-	tempfile  share_female_high
-	use year czone female ind1950 perwt l_hrwage if !missing(l_hrwage)&!missing(ind1950) using ///
-		"temporary_files/file_for_individual_level_regressions_`indiv_sample'", clear 
-
-	merge m:1 ind1950 using  "temporary_files/high_pay_industry_classification", nogen keep(1 3)
-
-	gcollapse (sum) perwt , by(year czone female high_pay_industry) fast
-
-	reshape wide perwt, i(czone year female) j(high_pay_industry)
-
-	generate high_pay_share=perwt1/(perwt1+perwt0)
-
-	drop perwt*
-	
-	reshape wide high_pay_share, i(czone year) j(female)
-
-	save `share_female_high'
-restore
-
-merge 1:1 czone year using `share_female_high', nogen
-
-by czone: generate d_high_pay_share0=		high_pay_share0-high_pay_share0[1]
-by czone: generate d_high_pay_share1=		high_pay_share1-high_pay_share1[1]
-
-tw scatter  d_high_pay_share0 high_pay_share_1970, by(year)
-tw scatter  d_high_pay_share1 high_pay_share_1970 , by(year)

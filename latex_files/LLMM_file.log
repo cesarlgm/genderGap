@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.22)  23 NOV 2020 16:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.22)  3 DEC 2020 11:08
 entering extended mode
 **./LLMM_file.tex
 (LLMM_file.tex
@@ -1193,18 +1193,45 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 9.
 ("C:\Users\thecs\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (on_literature.tex) (data_notes.tex) (main_facts.tex [1
+) (on_literature.tex) (data_notes.tex
+(../2_analysis/output/figures/density_geography.tex
+<../2_analysis/output/figures/czone_density2020.png, id=230, 2457.18pt x 1056.9
+4875pt>
+File: ../2_analysis/output/figures/czone_density2020.png Graphic file (type png
+)
+<use ../2_analysis/output/figures/czone_density2020.png>
+Package pdftex.def Info: ../2_analysis/output/figures/czone_density2020.png  us
+ed on input line 5.
+(pdftex.def)             Requested size: 234.87749pt x 101.02402pt.
 
-{C:/Users/thecs/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(../2_analysis/output/figures/change_1970_2020.tex
-<../2_analysis/output/figures/change_1970_2020.png, id=205, 1303.87125pt x 948.
-54375pt>
+
+pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/persistence_pop
+ulation_density.pdf): PDF inclusion: found PDF version <1.6>, but at most versi
+on <1.5> allowed
+<../2_analysis/output/figures/persistence_population_density.pdf, id=231, 397.4
+85pt x 289.08pt>
+File: ../2_analysis/output/figures/persistence_population_density.pdf Graphic f
+ile (type pdf)
+<use ../2_analysis/output/figures/persistence_population_density.pdf>
+Package pdftex.def Info: ../2_analysis/output/figures/persistence_population_de
+nsity.pdf  used on input line 5.
+(pdftex.def)             Requested size: 234.87749pt x 170.82478pt.
+) [1
+
+{C:/Users/thecs/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <../2_analys
+is/output/figures/czone_density2020.png (PNG copy)> <../2_analysis/output/figur
+es/persistence_population_density.pdf>]
+(../2_analysis/output/tables/density_gap_summary_stats.tex)
+(../2_analysis/output/tables/CZ_example_table.tex)) (main_facts.tex [2]
+[3] (../2_analysis/output/figures/change_1970_2020.tex
+<../2_analysis/output/figures/change_1970_2020.png, id=297, 1165.35374pt x 848.
+16875pt>
 File: ../2_analysis/output/figures/change_1970_2020.png Graphic file (type png)
 
 <use ../2_analysis/output/figures/change_1970_2020.png>
 Package pdftex.def Info: ../2_analysis/output/figures/change_1970_2020.png  use
 d on input line 5.
-(pdftex.def)             Requested size: 234.87749pt x 170.86076pt.
+(pdftex.def)             Requested size: 234.87749pt x 170.93788pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1217,7 +1244,7 @@ ed elas-tic-i-ties. Sam-ple re-stricted to full-time year-
 
 
 Underfull \hbox (badness 1990) in paragraph at lines 18--19
-\OT1/cmr/m/n/10 round work-ers. Ta-ble gen-er-ated on 23 Nov 2020 at 16:25:24. 
+\OT1/cmr/m/n/10 round work-ers. Ta-ble gen-er-ated on 30 Nov 2020 at 11:17:18. 
 Ta-ble gen-er-ated with do file
  []
 
@@ -1226,66 +1253,94 @@ Overfull \hbox (20.51607pt too wide) in paragraph at lines 2--21
  [] 
  []
 
-) [2] (../2_analysis/output/figures/baseline_gradients.tex
-<../2_analysis/output/figures/baseline_full_time.png, id=218, 1303.87125pt x 94
-8.54375pt>
+) [4] (../2_analysis/output/figures/baseline_gradients.tex
+<../2_analysis/output/figures/baseline_full_time.png, id=308, 1165.35374pt x 84
+8.16875pt>
 File: ../2_analysis/output/figures/baseline_full_time.png Graphic file (type pn
 g)
 <use ../2_analysis/output/figures/baseline_full_time.png>
 Package pdftex.def Info: ../2_analysis/output/figures/baseline_full_time.png  u
 sed on input line 5.
-(pdftex.def)             Requested size: 234.87749pt x 170.86076pt.
-<../2_analysis/output/figures/baseline_bas_full_time.png, id=219, 1303.87125pt 
-x 948.54375pt>
+(pdftex.def)             Requested size: 234.87749pt x 170.93788pt.
+<../2_analysis/output/figures/baseline_bas_full_time.png, id=309, 1165.35374pt 
+x 848.16875pt>
 File: ../2_analysis/output/figures/baseline_bas_full_time.png Graphic file (typ
 e png)
 <use ../2_analysis/output/figures/baseline_bas_full_time.png>
 Package pdftex.def Info: ../2_analysis/output/figures/baseline_bas_full_time.pn
 g  used on input line 5.
-(pdftex.def)             Requested size: 234.87749pt x 170.86076pt.
+(pdftex.def)             Requested size: 234.87749pt x 170.93788pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [3 <../2_analysis/output/figures/change_1970_2020.png (PNG copy)>]
+) [5 <../2_analysis/output/figures/change_1970_2020.png (PNG copy)>]
 (../2_analysis/output/figures/region_fe_full_time.tex
-<../2_analysis/output/figures/region_fe_full_time.png, id=232, 1303.87125pt x 9
-48.54375pt>
+<../2_analysis/output/figures/region_fe_full_time.png, id=319, 1165.35374pt x 8
+48.16875pt>
 File: ../2_analysis/output/figures/region_fe_full_time.png Graphic file (type p
 ng)
 <use ../2_analysis/output/figures/region_fe_full_time.png>
 Package pdftex.def Info: ../2_analysis/output/figures/region_fe_full_time.png  
 used on input line 5.
-(pdftex.def)             Requested size: 469.75499pt x 341.73601pt.
- [4 <../2_analysis/output/figures/baseline_full_time.png (PNG copy)> <../2_anal
-ysis/output/figures/baseline_bas_full_time.png (PNG copy)>]) [5 <../2_analysis/
+(pdftex.def)             Requested size: 469.75499pt x 341.8887pt.
+ [6 <../2_analysis/output/figures/baseline_full_time.png (PNG copy)> <../2_anal
+ysis/output/figures/baseline_bas_full_time.png (PNG copy)>]) [7 <../2_analysis/
 output/figures/region_fe_full_time.png (PNG copy)>] (../2_analysis/output/figur
 es/big_cz_full_time.tex
-<../2_analysis/output/figures/baseline_big_full_time.png, id=251, 1303.87125pt 
-x 948.54375pt>
+<../2_analysis/output/figures/baseline_big_full_time.png, id=339, 1165.35374pt 
+x 848.16875pt>
 File: ../2_analysis/output/figures/baseline_big_full_time.png Graphic file (typ
 e png)
 <use ../2_analysis/output/figures/baseline_big_full_time.png>
 Package pdftex.def Info: ../2_analysis/output/figures/baseline_big_full_time.pn
 g  used on input line 5.
-(pdftex.def)             Requested size: 234.87749pt x 170.86076pt.
-<../2_analysis/output/figures/basic_big_full_time.png, id=252, 1303.87125pt x 9
-48.54375pt>
+(pdftex.def)             Requested size: 234.87749pt x 170.93788pt.
+<../2_analysis/output/figures/basic_big_full_time.png, id=340, 1165.35374pt x 8
+48.16875pt>
 File: ../2_analysis/output/figures/basic_big_full_time.png Graphic file (type p
 ng)
 <use ../2_analysis/output/figures/basic_big_full_time.png>
 Package pdftex.def Info: ../2_analysis/output/figures/basic_big_full_time.png  
 used on input line 5.
-(pdftex.def)             Requested size: 234.87749pt x 170.86076pt.
+(pdftex.def)             Requested size: 234.87749pt x 170.93788pt.
 )
-[6 <../2_analysis/output/figures/baseline_big_full_time.png (PNG copy)> <../2_a
-nalysis/output/figures/basic_big_full_time.png (PNG copy)>]
-Overfull \hbox (14.53455pt too wide) in paragraph at lines 136--138
+(../2_analysis/output/figures/baseline_race_gradients_l_czone_density_full_time
+.tex
+
+pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/baseline_race_g
+radients_l_czone_density_full_time.pdf): PDF inclusion: found PDF version <1.6>
+, but at most version <1.5> allowed
+<../2_analysis/output/figures/baseline_race_gradients_l_czone_density_full_time
+.pdf, id=342, 397.485pt x 289.08pt>
+File: ../2_analysis/output/figures/baseline_race_gradients_l_czone_density_full
+_time.pdf Graphic file (type pdf)
+<use ../2_analysis/output/figures/baseline_race_gradients_l_czone_density_full_
+time.pdf>
+Package pdftex.def Info: ../2_analysis/output/figures/baseline_race_gradients_l
+_czone_density_full_time.pdf  used on input line 5.
+(pdftex.def)             Requested size: 281.85585pt x 204.99239pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [8 <../2_analysis/output/figures/baseline_big_full_time.png (PNG copy)> <../2
+_analysis/output/figures/basic_big_full_time.png (PNG copy)>] [9 <../2_analysis
+/output/figures/baseline_race_gradients_l_czone_density_full_time.pdf>]
+Overfull \hbox (14.53455pt too wide) in paragraph at lines 155--157
 \OT1/cmr/m/n/12 which is just a re-gres-sion of in-di-vid-ual's wages on ed-u-c
 a-tion fixed-effects, and a gender$\OMS/cmsy/m/n/12 $\OT1/cmr/m/n/12 CZ
  []
 
-[7] [8]
+[10]
+<../2_analysis/output/tables/decomposition_premium_2020.png, id=379, 394.97563p
+t x 243.40938pt>
+File: ../2_analysis/output/tables/decomposition_premium_2020.png Graphic file (
+type png)
+<use ../2_analysis/output/tables/decomposition_premium_2020.png>
+Package pdftex.def Info: ../2_analysis/output/tables/decomposition_premium_2020
+.png  used on input line 175.
+(pdftex.def)             Requested size: 352.31624pt x 217.1202pt.
+ [11 <../2_analysis/output/tables/decomposition_premium_2020.png>]
 (../2_analysis/output/figures/with_controls_gradients_individual_l_czone_densit
 y_full_time.tex
 
@@ -1293,7 +1348,7 @@ pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/with_control_gr
 adients_individual_l_czone_density_full_time.pdf): PDF inclusion: found PDF ver
 sion <1.6>, but at most version <1.5> allowed
 <../2_analysis/output/figures/with_control_gradients_individual_l_czone_density
-_full_time.pdf, id=280, 397.485pt x 289.08pt>
+_full_time.pdf, id=386, 397.485pt x 289.08pt>
 File: ../2_analysis/output/figures/with_control_gradients_individual_l_czone_de
 nsity_full_time.pdf Graphic file (type pdf)
 <use ../2_analysis/output/figures/with_control_gradients_individual_l_czone_den
@@ -1304,98 +1359,291 @@ dividual_l_czone_density_full_time.pdf  used on input line 5.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [9] [10 <../2_analysis/output/figures/with_control_gradients_individual_l_czo
-ne_density_full_time.pdf>]
-<../2_analysis/output/tables/decomposition_1990_2020.png, id=303, 391.96437pt x
+) [12] [13 <../2_analysis/output/figures/with_control_gradients_individual_l_cz
+one_density_full_time.pdf>]
+<../2_analysis/output/tables/decomposition_1990_2020.png, id=410, 391.96437pt x
  673.01437pt>
 File: ../2_analysis/output/tables/decomposition_1990_2020.png Graphic file (typ
 e png)
 <use ../2_analysis/output/tables/decomposition_1990_2020.png>
 Package pdftex.def Info: ../2_analysis/output/tables/decomposition_1990_2020.pn
-g  used on input line 217.
+g  used on input line 239.
 (pdftex.def)             Requested size: 352.31624pt x 604.96794pt.
- [11] [12 <../2_analysis/output/tables/decomposition_1990_2020.png>] (../2_anal
-ysis/output/figures/education_share_gradients.tex
-<../2_analysis/output/figures/education_share_average.png, id=313, 1303.87125pt
- x 948.54375pt>
+ [14 <../2_analysis/output/tables/decomposition_1990_2020.png>] (../2_analysis/
+output/figures/education_share_gradients.tex
+<../2_analysis/output/figures/education_share_average.png, id=416, 1165.35374pt
+ x 848.16875pt>
 File: ../2_analysis/output/figures/education_share_average.png Graphic file (ty
 pe png)
 <use ../2_analysis/output/figures/education_share_average.png>
 Package pdftex.def Info: ../2_analysis/output/figures/education_share_average.p
 ng  used on input line 5.
-(pdftex.def)             Requested size: 234.87749pt x 170.86076pt.
-<../2_analysis/output/figures/education_share_gradients.png, id=314, 1303.87125
-pt x 948.54375pt>
+(pdftex.def)             Requested size: 234.87749pt x 170.93788pt.
+<../2_analysis/output/figures/education_share_gradients.png, id=417, 1165.35374
+pt x 848.16875pt>
 File: ../2_analysis/output/figures/education_share_gradients.png Graphic file (
 type png)
 <use ../2_analysis/output/figures/education_share_gradients.png>
 Package pdftex.def Info: ../2_analysis/output/figures/education_share_gradients
 .png  used on input line 5.
-(pdftex.def)             Requested size: 234.87749pt x 170.86076pt.
+(pdftex.def)             Requested size: 234.87749pt x 170.93788pt.
 )
-[13 <../2_analysis/output/figures/education_share_average.png (PNG copy)> <../2
+[15 <../2_analysis/output/figures/education_share_average.png (PNG copy)> <../2
 _analysis/output/figures/education_share_gradients.png (PNG copy)>]
 (../2_analysis/output/figures/education_gradient_full_time.tex
-<../2_analysis/output/figures/education_gap_full_time.png, id=325, 1303.87125pt
- x 948.54375pt>
+<../2_analysis/output/figures/education_gap_full_time.png, id=427, 1165.35374pt
+ x 848.16875pt>
 File: ../2_analysis/output/figures/education_gap_full_time.png Graphic file (ty
 pe png)
 <use ../2_analysis/output/figures/education_gap_full_time.png>
 Package pdftex.def Info: ../2_analysis/output/figures/education_gap_full_time.p
 ng  used on input line 5.
-(pdftex.def)             Requested size: 234.87749pt x 170.86076pt.
-<../2_analysis/output/figures/education_gap_bas_full_time.png, id=326, 1303.871
-25pt x 948.54375pt>
+(pdftex.def)             Requested size: 234.87749pt x 170.93788pt.
+<../2_analysis/output/figures/education_gap_bas_full_time.png, id=428, 1165.353
+74pt x 848.16875pt>
 File: ../2_analysis/output/figures/education_gap_bas_full_time.png Graphic file
  (type png)
 <use ../2_analysis/output/figures/education_gap_bas_full_time.png>
 Package pdftex.def Info: ../2_analysis/output/figures/education_gap_bas_full_ti
 me.png  used on input line 5.
-(pdftex.def)             Requested size: 234.87749pt x 170.86076pt.
-<../2_analysis/output/figures/education_high_premium_full_time.png, id=327, 130
-3.87125pt x 948.54375pt>
+(pdftex.def)             Requested size: 234.87749pt x 170.93788pt.
+<../2_analysis/output/figures/education_high_premium_full_time.png, id=429, 116
+5.35374pt x 848.16875pt>
 File: ../2_analysis/output/figures/education_high_premium_full_time.png Graphic
  file (type png)
 <use ../2_analysis/output/figures/education_high_premium_full_time.png>
 Package pdftex.def Info: ../2_analysis/output/figures/education_high_premium_fu
 ll_time.png  used on input line 5.
-(pdftex.def)             Requested size: 234.87749pt x 170.86076pt.
-<../2_analysis/output/figures/education_low_premium_full_time.png, id=328, 1303
-.87125pt x 948.54375pt>
+(pdftex.def)             Requested size: 234.87749pt x 170.93788pt.
+<../2_analysis/output/figures/education_low_premium_full_time.png, id=430, 1165
+.35374pt x 848.16875pt>
 File: ../2_analysis/output/figures/education_low_premium_full_time.png Graphic 
 file (type png)
 <use ../2_analysis/output/figures/education_low_premium_full_time.png>
 Package pdftex.def Info: ../2_analysis/output/figures/education_low_premium_ful
 l_time.png  used on input line 5.
-(pdftex.def)             Requested size: 234.87749pt x 170.86076pt.
+(pdftex.def)             Requested size: 234.87749pt x 170.93788pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-)) (descriptive_analysis.tex [14] [15 <../2_analysis/output/figures/education_g
-ap_full_time.png (PNG copy)> <../2_analysis/output/figures/education_gap_bas_fu
-ll_time.png (PNG copy)> <../2_analysis/output/figures/education_high_premium_fu
-ll_time.png (PNG copy)> <../2_analysis/output/figures/education_low_premium_ful
-l_time.png (PNG copy)>]) (main_findings.tex
+) (../2_analysis/output/figures/industries_ranking.tex
+<../2_analysis/output/figures/ranking_persistence.png, id=433, 1738.495pt x 126
+3.72125pt>
+File: ../2_analysis/output/figures/ranking_persistence.png Graphic file (type p
+ng)
+<use ../2_analysis/output/figures/ranking_persistence.png>
+Package pdftex.def Info: ../2_analysis/output/figures/ranking_persistence.png  
+used on input line 5.
+(pdftex.def)             Requested size: 234.87749pt x 170.72998pt.
+<../2_analysis/output/figures/high_pay_by_type.png, id=434, 1738.495pt x 1263.7
+2125pt>
+File: ../2_analysis/output/figures/high_pay_by_type.png Graphic file (type png)
+
+<use ../2_analysis/output/figures/high_pay_by_type.png>
+Package pdftex.def Info: ../2_analysis/output/figures/high_pay_by_type.png  use
+d on input line 5.
+(pdftex.def)             Requested size: 234.87749pt x 170.72998pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (../2_analysis/output/figures/gender_ind_empshares.tex
+<../2_analysis/output/figures/gender_ind_empshares.png, id=435, 1738.495pt x 12
+63.72125pt>
+File: ../2_analysis/output/figures/gender_ind_empshares.png Graphic file (type 
+png)
+<use ../2_analysis/output/figures/gender_ind_empshares.png>
+Package pdftex.def Info: ../2_analysis/output/figures/gender_ind_empshares.png 
+ used on input line 5.
+(pdftex.def)             Requested size: 469.75499pt x 341.45998pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (../2_analysis/output/figures/gender_empshare_distribution.tex
+<../2_analysis/output/figures/gender_empshare_distribution.png, id=436, 1738.49
+5pt x 1263.72125pt>
+File: ../2_analysis/output/figures/gender_empshare_distribution.png Graphic fil
+e (type png)
+<use ../2_analysis/output/figures/gender_empshare_distribution.png>
+Package pdftex.def Info: ../2_analysis/output/figures/gender_empshare_distribut
+ion.png  used on input line 5.
+(pdftex.def)             Requested size: 234.87749pt x 170.72998pt.
+<../2_analysis/output/figures/gender_empshare_distribution_year_ranking.png, id
+=437, 1738.495pt x 1263.72125pt>
+File: ../2_analysis/output/figures/gender_empshare_distribution_year_ranking.pn
+g Graphic file (type png)
+<use ../2_analysis/output/figures/gender_empshare_distribution_year_ranking.png
+>
+Package pdftex.def Info: ../2_analysis/output/figures/gender_empshare_distribut
+ion_year_ranking.png  used on input line 5.
+(pdftex.def)             Requested size: 234.87749pt x 170.72998pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [16] [17 <../2_analysis/output/figures/education_gap_full_time.png (PNG copy)
+> <../2_analysis/output/figures/education_gap_bas_full_time.png (PNG copy)> <..
+/2_analysis/output/figures/education_high_premium_full_time.png (PNG copy)> <..
+/2_analysis/output/figures/education_low_premium_full_time.png (PNG copy)>]
+[18 <../2_analysis/output/figures/ranking_persistence.png (PNG copy)> <../2_ana
+lysis/output/figures/high_pay_by_type.png (PNG copy)>]
+(../2_analysis/output/figures/high_wage_ind_cities.tex
+<../2_analysis/output/figures/high_wage_ind_city_scatter.png, id=467, 1738.495p
+t x 1263.72125pt>
+File: ../2_analysis/output/figures/high_wage_ind_city_scatter.png Graphic file 
+(type png)
+<use ../2_analysis/output/figures/high_wage_ind_city_scatter.png>
+Package pdftex.def Info: ../2_analysis/output/figures/high_wage_ind_city_scatte
+r.png  used on input line 5.
+(pdftex.def)             Requested size: 234.87749pt x 170.72998pt.
+<../2_analysis/output/figures/high_wage_ind_city_coefplot.png, id=468, 1738.495
+pt x 1263.72125pt>
+File: ../2_analysis/output/figures/high_wage_ind_city_coefplot.png Graphic file
+ (type png)
+<use ../2_analysis/output/figures/high_wage_ind_city_coefplot.png>
+Package pdftex.def Info: ../2_analysis/output/figures/high_wage_ind_city_coefpl
+ot.png  used on input line 5.
+(pdftex.def)             Requested size: 234.87749pt x 170.72998pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [19 <../2_analysis/output/figures/gender_ind_empshares.png (PNG copy)>]
+[20 <../2_analysis/output/figures/gender_empshare_distribution.png (PNG copy)> 
+<../2_analysis/output/figures/gender_empshare_distribution_year_ranking.png (PN
+G copy)> <../2_analysis/output/figures/high_wage_ind_city_scatter.png (PNG copy
+)> <../2_analysis/output/figures/high_wage_ind_city_coefplot.png (PNG copy)>]
+(../2_analysis/output/figures/fixed_shares_gradient.tex
+<../2_analysis/output/figures/fixed_shares_exercise.png, id=482, 722.7pt x 525.
+965pt>
+File: ../2_analysis/output/figures/fixed_shares_exercise.png Graphic file (type
+ png)
+<use ../2_analysis/output/figures/fixed_shares_exercise.png>
+Package pdftex.def Info: ../2_analysis/output/figures/fixed_shares_exercise.png
+  used on input line 5.
+(pdftex.def)             Requested size: 234.87749pt x 170.93658pt.
+<../2_analysis/output/figures/fixed_shares_exercise_wage.png, id=483, 722.7pt x
+ 525.965pt>
+File: ../2_analysis/output/figures/fixed_shares_exercise_wage.png Graphic file 
+(type png)
+<use ../2_analysis/output/figures/fixed_shares_exercise_wage.png>
+Package pdftex.def Info: ../2_analysis/output/figures/fixed_shares_exercise_wag
+e.png  used on input line 5.
+(pdftex.def)             Requested size: 234.87749pt x 170.93658pt.
+)
+(../2_analysis/output/figures/high_wage_coefficients.tex
+<../2_analysis/output/figures/gender_bas_gap_gradient_high_share.png, id=485, 1
+738.495pt x 1263.72125pt>
+File: ../2_analysis/output/figures/gender_bas_gap_gradient_high_share.png Graph
+ic file (type png)
+<use ../2_analysis/output/figures/gender_bas_gap_gradient_high_share.png>
+Package pdftex.def Info: ../2_analysis/output/figures/gender_bas_gap_gradient_h
+igh_share.png  used on input line 5.
+(pdftex.def)             Requested size: 234.87749pt x 170.72998pt.
+<../2_analysis/output/figures/gender_hum_gap_gradient_high_share.png, id=486, 1
+738.495pt x 1263.72125pt>
+File: ../2_analysis/output/figures/gender_hum_gap_gradient_high_share.png Graph
+ic file (type png)
+<use ../2_analysis/output/figures/gender_hum_gap_gradient_high_share.png>
+Package pdftex.def Info: ../2_analysis/output/figures/gender_hum_gap_gradient_h
+igh_share.png  used on input line 5.
+(pdftex.def)             Requested size: 234.87749pt x 170.72998pt.
+<../2_analysis/output/figures/high_wage_ind_men.png, id=487, 1735.48375pt x 126
+2.7175pt>
+File: ../2_analysis/output/figures/high_wage_ind_men.png Graphic file (type png
+)
+<use ../2_analysis/output/figures/high_wage_ind_men.png>
+Package pdftex.def Info: ../2_analysis/output/figures/high_wage_ind_men.png  us
+ed on input line 5.
+(pdftex.def)             Requested size: 234.87749pt x 170.88339pt.
+<../2_analysis/output/figures/high_wage_ind_women.png, id=488, 1735.48375pt x 1
+262.7175pt>
+File: ../2_analysis/output/figures/high_wage_ind_women.png Graphic file (type p
+ng)
+<use ../2_analysis/output/figures/high_wage_ind_women.png>
+Package pdftex.def Info: ../2_analysis/output/figures/high_wage_ind_women.png  
+used on input line 5.
+(pdftex.def)             Requested size: 234.87749pt x 170.88339pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [21 <../2_analysis/output/figures/fixed_shares_exercise.png (PNG copy)> <../2
+_analysis/output/figures/fixed_shares_exercise_wage.png (PNG copy)>] [22 <../2_
+analysis/output/figures/gender_bas_gap_gradient_high_share.png (PNG copy)> <../
+2_analysis/output/figures/gender_hum_gap_gradient_high_share.png (PNG copy)> <.
+./2_analysis/output/figures/high_wage_ind_men.png (PNG copy)> <../2_analysis/ou
+tput/figures/high_wage_ind_women.png (PNG copy)>]
+(../2_analysis/output/figures/manufacturing_coefficients.tex
+<../2_analysis/output/figures/gender_bas_gap_gradient_manufacturing_share.png, 
+id=508, 1735.48375pt x 1262.7175pt>
+File: ../2_analysis/output/figures/gender_bas_gap_gradient_manufacturing_share.
+png Graphic file (type png)
+<use ../2_analysis/output/figures/gender_bas_gap_gradient_manufacturing_share.p
+ng>
+Package pdftex.def Info: ../2_analysis/output/figures/gender_bas_gap_gradient_m
+anufacturing_share.png  used on input line 5.
+(pdftex.def)             Requested size: 234.87749pt x 170.88339pt.
+<../2_analysis/output/figures/gender_hum_gap_gradient_manufacturing_share.png, 
+id=509, 1735.48375pt x 1262.7175pt>
+File: ../2_analysis/output/figures/gender_hum_gap_gradient_manufacturing_share.
+png Graphic file (type png)
+<use ../2_analysis/output/figures/gender_hum_gap_gradient_manufacturing_share.p
+ng>
+Package pdftex.def Info: ../2_analysis/output/figures/gender_hum_gap_gradient_m
+anufacturing_share.png  used on input line 5.
+(pdftex.def)             Requested size: 234.87749pt x 170.88339pt.
+)
+(../2_analysis/output/figures/high_pay_gender_gradient.tex
+<../2_analysis/output/figures/high_pay_gender_gradient.png, id=511, 1738.495pt 
+x 1263.72125pt>
+File: ../2_analysis/output/figures/high_pay_gender_gradient.png Graphic file (t
+ype png)
+<use ../2_analysis/output/figures/high_pay_gender_gradient.png>
+Package pdftex.def Info: ../2_analysis/output/figures/high_pay_gender_gradient.
+png  used on input line 5.
+(pdftex.def)             Requested size: 234.87749pt x 170.72998pt.
+<../2_analysis/output/figures/high_pay_gender_gradient_70.png, id=512, 1738.495
+pt x 1263.72125pt>
+File: ../2_analysis/output/figures/high_pay_gender_gradient_70.png Graphic file
+ (type png)
+<use ../2_analysis/output/figures/high_pay_gender_gradient_70.png>
+Package pdftex.def Info: ../2_analysis/output/figures/high_pay_gender_gradient_
+70.png  used on input line 5.
+(pdftex.def)             Requested size: 234.87749pt x 170.72998pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [23 <../2_analysis/output/figures/gender_bas_gap_gradient_manufacturing_share
+.png (PNG copy)> <../2_analysis/output/figures/gender_hum_gap_gradient_manufact
+uring_share.png (PNG copy)>]) (descriptive_analysis.tex [24 <../2_analysis/outp
+ut/figures/high_pay_gender_gradient.png (PNG copy)> <../2_analysis/output/figur
+es/high_pay_gender_gradient_70.png (PNG copy)>]) (main_findings.tex
 (../2_analysis/output/scalars/averate_US_gap.tex)
 (../2_analysis/output/scalars/sd_US_gap.tex)
 (../2_analysis/output/scalars/sd_US_gap.tex)
 (../2_analysis/output/scalars/percent_US_mean.tex)
 (../2_analysis/output/figures/raw_gender_wage_gap_map_full_time.tex
-<../2_analysis/output/figures/raw_wage_map2020_full_time.png, id=351, 1188.44pt
- x 510.90875pt>
+<../2_analysis/output/figures/raw_wage_map2020_full_time.png, id=534, 2457.18pt
+ x 1056.94875pt>
 File: ../2_analysis/output/figures/raw_wage_map2020_full_time.png Graphic file 
 (type png)
 <use ../2_analysis/output/figures/raw_wage_map2020_full_time.png>
 Package pdftex.def Info: ../2_analysis/output/figures/raw_wage_map2020_full_tim
 e.png  used on input line 5.
-(pdftex.def)             Requested size: 469.75499pt x 201.95096pt.
-)
-(../2_analysis/output/figures/changes_in_gap_full_time.tex
+(pdftex.def)             Requested size: 469.75499pt x 202.06418pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (../2_analysis/output/figures/changes_in_gap_full_time.tex
 
 pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/change_in_gap.p
 df): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<../2_analysis/output/figures/change_in_gap.pdf, id=352, 397.485pt x 289.08pt>
+<../2_analysis/output/figures/change_in_gap.pdf, id=535, 397.485pt x 289.08pt>
 File: ../2_analysis/output/figures/change_in_gap.pdf Graphic file (type pdf)
 <use ../2_analysis/output/figures/change_in_gap.pdf>
 Package pdftex.def Info: ../2_analysis/output/figures/change_in_gap.pdf  used o
@@ -1404,9 +1652,9 @@ n input line 4.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [16 <../2_analysis/output/figures/raw_wage_map2020_full_time.png (PNG copy)>]
-) (robustness_main_facts.tex [17 <../2_analysis/output/figures/change_in_gap.pd
-f>]) (possible_explanations.tex [18]
+) [25]) (robustness_main_facts.tex [26 <../2_analysis/output/figures/raw_wage_m
+ap2020_full_time.png (PNG copy)> <../2_analysis/output/figures/change_in_gap.pd
+f>]) (possible_explanations.tex [27]
 (../2_analysis/output/figures/with_controls_gradients_l_czone_density_full_time
 .tex
 
@@ -1414,7 +1662,7 @@ pdfTeX warning: pdflatex.exe (file ../2_analysis/output/figures/with_control_gr
 adients_l_czone_density_full_time.pdf): PDF inclusion: found PDF version <1.6>,
  but at most version <1.5> allowed
 <../2_analysis/output/figures/with_control_gradients_l_czone_density_full_time.
-pdf, id=385, 397.485pt x 289.08pt>
+pdf, id=565, 397.485pt x 289.08pt>
 File: ../2_analysis/output/figures/with_control_gradients_l_czone_density_full_
 time.pdf Graphic file (type pdf)
 <use ../2_analysis/output/figures/with_control_gradients_l_czone_density_full_t
@@ -1425,7 +1673,7 @@ czone_density_full_time.pdf  used on input line 4.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [19]
+) [28]
 (../2_analysis/output/figures/with_controls_gradients_individual_l_czone_densit
 y_full_time.tex
 File: ../2_analysis/output/figures/with_control_gradients_individual_l_czone_de
@@ -1439,16 +1687,16 @@ dividual_l_czone_density_full_time.pdf  used on input line 5.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [20 <../2_analysis/output/figures/with_control_gradients_l_czone_density_full
-_time.pdf>] [21]) (on_fixed_effects.tex) (on_weighting.tex [22]
+) [29 <../2_analysis/output/figures/with_control_gradients_l_czone_density_full
+_time.pdf>] [30]) (on_fixed_effects.tex) (on_weighting.tex [31]
 
 Package hyperref Warning: Suppressing link with empty target on input line 20.
 
 ) (interpretation_notes.tex
-(../2_analysis/output/tables/elasticities_table_full_time.tex [23])
-(../2_analysis/output/tables/IC_table_full_time.tex [24])
+(../2_analysis/output/tables/elasticities_table_full_time.tex [32])
+(../2_analysis/output/tables/IC_table_full_time.tex [33])
 (../2_analysis/output/tables/elasticities_table_full_time_std.tex))
-(LLMM_file.bbl [25]) [26]
+(LLMM_file.bbl [34]) [35]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 36.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 36.
  (LLMM_file.aux)
@@ -1461,44 +1709,45 @@ Package rerunfilecheck Warning: File `LLMM_file.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `LLMM_file.out':
-(rerunfilecheck)             Before: B9420695017CE4A897C313197E95FE8B;2697
-(rerunfilecheck)             After:  3D39FFD1D9CEC780924BF00FFD724986;2791.
+(rerunfilecheck)             Before: 2550A0570AE8D7B1C6BD8317A7695E40;3839
+(rerunfilecheck)             After:  E1C80348E7E081F0514F927B0CF46C54;3851.
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 36.
  ) 
 Here is how much of TeX's memory you used:
- 27589 strings out of 480930
- 579762 string characters out of 2899761
- 945438 words of memory out of 3000000
- 42636 multiletter control sequences out of 15000+200000
- 543367 words of font info for 65 fonts, out of 3000000 for 9000
+ 27901 strings out of 480930
+ 594090 string characters out of 2899761
+ 964438 words of memory out of 3000000
+ 42834 multiletter control sequences out of 15000+200000
+ 545361 words of font info for 74 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,11n,85p,942b,976s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,12n,85p,942b,976s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\thecs\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
 tcrm1200.pk><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmbx12.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmbx6.pfb><C:/Users/thecs/AppData/Local/Programs/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/thecs/AppData/Local/
-Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/thecs/A
-ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex8.pfb>
-<C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmmi12.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmmi6.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/thecs/AppData/Local/Programs/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/thecs/AppData/Local/
-Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/thecs/Ap
-pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Use
-rs/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.
-pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmr8.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmsy10.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/thecs/AppData/Local/Programs
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on LLMM_file.pdf (26 pages, 1435051 bytes).
+c/amsfonts/cm/cmbx10.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/thecs/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Users/thecs/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/thecs/
+AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex8.pfb
+><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmmi12.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmmi6.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/thecs/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/thecs/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/thecs/A
+ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Us
+ers/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6
+.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmr7.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmr8.pfb><C:/Users/thecs/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/thecs/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/thecs/AppData/Lo
+cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on LLMM_file.pdf (35 pages, 3399811 bytes).
 PDF statistics:
- 567 PDF objects out of 1000 (max. 8388607)
- 151 named destinations out of 1000 (max. 500000)
- 478 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 762 PDF objects out of 1000 (max. 8388607)
+ 210 named destinations out of 1000 (max. 500000)
+ 671 words of extra memory for PDF output out of 10000 (max. 10000000)
 

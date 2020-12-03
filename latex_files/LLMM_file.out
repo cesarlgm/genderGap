@@ -1,35 +1,45 @@
 \BOOKMARK [1][-]{section.1}{Literature}{}% 1
 \BOOKMARK [1][-]{section.2}{Ideas put forward by the literature}{}% 2
 \BOOKMARK [1][-]{section.3}{Data notes}{}% 3
-\BOOKMARK [2][-]{subsection.3.1}{Residualization procedure}{section.3}% 4
-\BOOKMARK [1][-]{section.4}{Basic findings}{}% 5
-\BOOKMARK [2][-]{subsection.4.1}{Densest CZ have experienced a largest decline in the gender wage gap}{section.4}% 6
-\BOOKMARK [2][-]{subsection.4.2}{The relationship between density and gender gap went from positive to negative during 1970-2020}{section.4}% 7
-\BOOKMARK [2][-]{subsection.4.3}{Further checks}{section.4}% 8
-\BOOKMARK [3][-]{subsubsection.4.3.1}{Is the density gradient just capturing cross-region variation?}{subsection.4.3}% 9
-\BOOKMARK [3][-]{subsubsection.4.3.2}{The drift in the gradient is not driven just by small / rural CZ}{subsection.4.3}% 10
-\BOOKMARK [1][-]{section.5}{Questions inspired by these facts?}{}% 11
-\BOOKMARK [2][-]{subsection.5.1}{Incipient answers}{section.5}% 12
-\BOOKMARK [3][-]{subsubsection.5.1.1}{Do women benefit more from cities?}{subsection.5.1}% 13
-\BOOKMARK [2][-]{subsection.5.2}{Are the results above driven different wage premium across educational groups?}{section.5}% 14
-\BOOKMARK [2][-]{subsection.5.3}{1970-1990: a tale of women's accession to high pay industries}{section.5}% 15
-\BOOKMARK [3][-]{subsubsection.5.3.1}{Which are the high-pay industries?}{subsection.5.3}% 16
-\BOOKMARK [1][-]{section.6}{Descriptive analysis}{}% 17
-\BOOKMARK [2][-]{subsection.6.1}{Basic facts and trends}{section.6}% 18
-\BOOKMARK [2][-]{subsection.6.2}{The gender gap}{section.6}% 19
-\BOOKMARK [2][-]{subsection.6.3}{LFP}{section.6}% 20
-\BOOKMARK [1][-]{section.7}{Main findings}{}% 21
-\BOOKMARK [1][-]{section.8}{Robustness of facts 3 and 4}{}% 22
-\BOOKMARK [2][-]{subsection.8.1}{Composition of the sample}{section.8}% 23
-\BOOKMARK [2][-]{subsection.8.2}{Weighting of regressions}{section.8}% 24
-\BOOKMARK [2][-]{subsection.8.3}{Alternative measures of density}{section.8}% 25
-\BOOKMARK [1][-]{section.9}{Possible explanations}{}% 26
-\BOOKMARK [2][-]{subsection.9.1}{Causes for the gender gap in the literature}{section.9}% 27
-\BOOKMARK [2][-]{subsection.9.2}{Increased sorting}{section.9}% 28
-\BOOKMARK [2][-]{subsection.9.3}{Changes in CZ industrial structure}{section.9}% 29
-\BOOKMARK [3][-]{subsubsection.9.3.1}{Some national level facts}{subsection.9.3}% 30
-\BOOKMARK [1][-]{section.10}{When would the national level fixed-effects account for the cross-sectional variation?}{}% 31
-\BOOKMARK [1][-]{appendix.A}{On weighting}{}% 32
-\BOOKMARK [1][-]{appendix.B}{On the interpretation of the coefficients}{}% 33
-\BOOKMARK [2][-]{subsection.B.1}{Mathematical interpretation}{appendix.B}% 34
-\BOOKMARK [2][-]{subsection.B.2}{Economic interpretation}{appendix.B}% 35
+\BOOKMARK [2][-]{subsection.3.1}{Putting density in perspective}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Residualization procedure}{section.3}% 5
+\BOOKMARK [1][-]{section.4}{Basic findings}{}% 6
+\BOOKMARK [2][-]{subsection.4.1}{Densest CZ have experienced faster decline in the gender wage gap}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.2}{The relationship between density and gender gap went from positive to negative during 1970-2020}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.3}{Further checks}{section.4}% 9
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Is the density gradient just capturing cross-region variation?}{subsection.4.3}% 10
+\BOOKMARK [3][-]{subsubsection.4.3.2}{The drift in the gradient is not driven just by small / rural CZ}{subsection.4.3}% 11
+\BOOKMARK [3][-]{subsubsection.4.3.3}{Is this about gender?}{subsection.4.3}% 12
+\BOOKMARK [1][-]{section.5}{Questions inspired by these facts?}{}% 13
+\BOOKMARK [2][-]{subsection.5.1}{Incipient answers}{section.5}% 14
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Do women benefit more from cities?}{subsection.5.1}% 15
+\BOOKMARK [2][-]{subsection.5.2}{Are the results above driven by different wage premium across educational groups?}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.3}{1970-1990}{section.5}% 17
+\BOOKMARK [3][-]{subsubsection.5.3.1}{What are the high pay industries?}{subsection.5.3}% 18
+\BOOKMARK [3][-]{subsubsection.5.3.2}{Women are less likely to be employed in high pay industries}{subsection.5.3}% 19
+\BOOKMARK [3][-]{subsubsection.5.3.3}{High pay industries are larger in denser cities}{subsection.5.3}% 20
+\BOOKMARK [3][-]{subsubsection.5.3.4}{Can the industrial composition alone account for the gender-gap gradient?}{subsection.5.3}% 21
+\BOOKMARK [3][-]{subsubsection.5.3.5}{Is this about decline of these industries, or women's access to these coveted jobs?}{subsection.5.3}% 22
+\BOOKMARK [3][-]{subsubsection.5.3.6}{High pay industries are mostly manufacturing industries. Is 1970-1990 this about manufacturing?}{subsection.5.3}% 23
+\BOOKMARK [3][-]{subsubsection.5.3.7}{What is different about the high-pay industries?}{subsection.5.3}% 24
+\BOOKMARK [3][-]{subsubsection.5.3.8}{Why doesn't industry account for the drift after 1990?}{subsection.5.3}% 25
+\BOOKMARK [3][-]{subsubsection.5.3.9}{Taking stock:}{subsection.5.3}% 26
+\BOOKMARK [1][-]{section.6}{Descriptive analysis}{}% 27
+\BOOKMARK [2][-]{subsection.6.1}{Basic facts and trends}{section.6}% 28
+\BOOKMARK [2][-]{subsection.6.2}{The gender gap}{section.6}% 29
+\BOOKMARK [2][-]{subsection.6.3}{LFP}{section.6}% 30
+\BOOKMARK [1][-]{section.7}{Main findings}{}% 31
+\BOOKMARK [1][-]{section.8}{Robustness of facts 3 and 4}{}% 32
+\BOOKMARK [2][-]{subsection.8.1}{Composition of the sample}{section.8}% 33
+\BOOKMARK [2][-]{subsection.8.2}{Weighting of regressions}{section.8}% 34
+\BOOKMARK [2][-]{subsection.8.3}{Alternative measures of density}{section.8}% 35
+\BOOKMARK [1][-]{section.9}{Possible explanations}{}% 36
+\BOOKMARK [2][-]{subsection.9.1}{Causes for the gender gap in the literature}{section.9}% 37
+\BOOKMARK [2][-]{subsection.9.2}{Increased sorting}{section.9}% 38
+\BOOKMARK [2][-]{subsection.9.3}{Changes in CZ industrial structure}{section.9}% 39
+\BOOKMARK [3][-]{subsubsection.9.3.1}{Some national level facts}{subsection.9.3}% 40
+\BOOKMARK [1][-]{section.10}{When would the national level fixed-effects account for the cross-sectional variation?}{}% 41
+\BOOKMARK [1][-]{appendix.A}{On weighting}{}% 42
+\BOOKMARK [1][-]{appendix.B}{On the interpretation of the coefficients}{}% 43
+\BOOKMARK [2][-]{subsection.B.1}{Mathematical interpretation}{appendix.B}% 44
+\BOOKMARK [2][-]{subsection.B.2}{Economic interpretation}{appendix.B}% 45

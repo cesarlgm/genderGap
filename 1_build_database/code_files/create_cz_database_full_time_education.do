@@ -33,7 +33,7 @@ tempfile aggregate_vars
     rename l_czone_density  l_czone_density
 save `aggregate_vars'
 
-/*
+
 foreach year in  `year_list' {
 	di 		"Processing `year'", as result
 	qui{ 
@@ -109,10 +109,6 @@ foreach year in  `year_list' {
 
 replace year=2020 if year==2018
 replace year=2010 if year==2011
-*/
-
-
-use "output/czone_level_dabase_full_time_by_education", clear
 
 cap drop l_czone_density_50
 cap drop l_czone_pop_50
